@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNxt | Empowering Businesses Through Technology & AI</title>
+    <meta name="description" content="TechNxt is a technology-driven startup offering comprehensive IT and digital solutions — Website Development, Cloud Solutions, Web Portals, AI Integration, Maintenance, and Digital Marketing.">
+    <meta name="keywords" content="TechNxt, IT Services Ranchi, Web Development, Cloud Solutions, AI Integration, Web Portals, Digital Marketing, Startup Technology Partner">
+    
+    
+    <!-- OpenGraph & Social Sharing Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TechNxt">
+    <meta property="og:title" content="TechNxt | Empowering Businesses Through Technology & AI">
+    <meta property="og:description" content="Comprehensive IT Solutions, Custom Web Apps, Enterprise Portals, AWS Cloud Infrastructure & AI Automation in Ranchi, Jharkhand.">
+    <meta property="og:image" content="assets/images/logo_3d.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TechNxt | Empowering Businesses Through Technology & AI">
+    <meta name="twitter:description" content="Comprehensive IT Solutions, Custom Web Apps, Cloud & AI Automation.">
+    <meta name="twitter:image" content="assets/images/logo_3d.png">
+    <meta name="theme-color" content="#030712">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#030712',
+                            space: '#060d1f',
+                            card: '#0c152e',
+                            cyan: '#00d2fe',
+                            sky: '#38bdf8',
+                            blue: '#2563eb',
+                            indigo: '#6366f1',
+                            accent: '#0ea5e9'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-dark text-slate-100 antialiased selection:bg-brand-cyan/25 selection:text-brand-cyan relative">
+
+    <!-- Ambient Cursor Glow Orb -->
+    <div id="cursor-glow"></div>
+
+    <!-- Top Dynamic Glowing Ambient Backdrops -->
+    <div class="fixed top-0 left-1/4 w-[36rem] h-[36rem] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+    <div class="fixed top-1/2 right-10 w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-10 left-10 w-[30rem] h-[30rem] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+
+    <!-- Top Announcement Bar -->
+    <header class="bg-slate-950/90 border-b border-slate-800/80 text-xs text-slate-400 py-2 px-4 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-3">
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 font-mono text-[11px] border border-emerald-500/30">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Now Accepting Q4 Projects
+                </span>
+                <span class="hidden md:inline-flex items-center gap-1.5 hover:text-sky-300 transition-colors">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-cyan"></i>
+                    505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001
+                </span>
+            </div>
+            <div class="flex items-center space-x-5">
+                <a href="tel:+919801506511" class="flex items-center gap-1.5 hover:text-sky-300 transition-colors">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-cyan"></i>
+                    +91 9801506511
+                </a>
+                <a href="mailto:india.futurenxt@gmail.com" class="hidden sm:flex items-center gap-1.5 hover:text-sky-300 transition-colors">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 text-brand-cyan"></i>
+                    india.futurenxt@gmail.com
+                </a>
+                <a href="https://wa.me/919801506511?text=Hello%20TechNxt%2C%20I%20am%20interested%20in%20discussing%20a%20project." target="_blank" class="flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-medium">
+                    <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                    Live WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-[37px] z-40 bg-brand-dark/85 backdrop-blur-2xl border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Brand Logo with Original Stylized T Emblem -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative p-1.5 rounded-xl bg-gradient-to-tr from-sky-500/25 via-blue-600/15 to-transparent border border-sky-400/40 group-hover:border-sky-300 transition-all shadow-lg shadow-sky-500/20">
+                        <img src="assets/images/favicon.png" alt="TechNxt Logo" class="w-9 h-9 object-contain rounded-lg">
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-2xl font-black font-heading tracking-tight text-white group-hover:text-sky-400 transition-colors">
+                                Tech<span class="gradient-cyan">Nxt</span>
+                            </span>
+                            <span class="w-2 h-2 rounded-full bg-brand-cyan animate-radar"></span>
+                        </div>
+                        <p class="text-[9.5px] tracking-widest uppercase font-mono text-slate-400">AI · Web · Cloud · Digital</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-7 text-sm font-medium text-slate-300">
+                    <a href="#about" class="hover:text-brand-cyan transition-colors">About</a>
+                    <a href="#services" class="hover:text-brand-cyan transition-colors">Core Services</a>
+                    <a href="#process" class="hover:text-brand-cyan transition-colors">Work Process</a>
+                    <a href="#why-us" class="hover:text-brand-cyan transition-colors">Why Choose Us</a>
+                    <a href="#sectors" class="hover:text-brand-cyan transition-colors">Industries</a>
+                    <a href="#blueprints" class="hover:text-brand-cyan transition-colors">Solutions</a>
+                    <a href="#faq" class="hover:text-brand-cyan transition-colors">FAQ</a>
+                </div>
+
+                <!-- Right Action CTA -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <button onclick="openCallModal()" class="btn-shimmer px-4 py-2.5 rounded-xl font-heading font-semibold text-sm bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white shadow-xl shadow-sky-500/20 transition-all flex items-center gap-2">
+                        <span>Book 15-Min Call</span>
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                
+                <!-- Interactive Theme Accent Switcher -->
+                <div class="hidden md:flex items-center gap-1.5 p-1 rounded-full bg-slate-900/90 border border-slate-800">
+                    <button id="theme-btn-cyan" onclick="setThemeAccent('cyan')" class="theme-btn w-4 h-4 rounded-full bg-[#00f0ff] ring-2 ring-white scale-110 transition-transform" title="Cyber Cyan"></button>
+                    <button id="theme-btn-violet" onclick="setThemeAccent('violet')" class="theme-btn w-4 h-4 rounded-full bg-[#a855f7] transition-transform" title="Cyber Violet"></button>
+                    <button id="theme-btn-emerald" onclick="setThemeAccent('emerald')" class="theme-btn w-4 h-4 rounded-full bg-[#10b981] transition-transform" title="Matrix Emerald"></button>
+                </div>
+
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-xl bg-slate-900 text-slate-300 hover:text-white border border-slate-800">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-950/98 border-b border-slate-800 px-6 py-6 space-y-4">
+            <a href="#about" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-brand-cyan">About Us</a>
+            <a href="#services" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-brand-cyan">Core Services</a>
+            <a href="#process" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-brand-cyan">Our Work Process</a>
+            <a href="#why-us" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-brand-cyan">Why Choose TechNxt</a>
+            <a href="#sectors" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-brand-cyan">Industries We Serve</a>
+            <a href="#faq" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-brand-cyan">FAQ</a>
+            <a href="#contact" class="mobile-nav-link block text-base font-medium text-slate-200 hover:text-brand-cyan">Contact & Inquire</a>
+            <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+                <a href="tel:+919801506511" class="w-full text-center py-2.5 rounded-xl bg-slate-900 text-slate-200 text-sm font-medium flex items-center justify-center gap-2 border border-slate-800">
+                    <i data-lucide="phone" class="w-4 h-4 text-brand-cyan"></i> Call +91 9801506511
+                </a>
+                <a href="https://wa.me/919801506511" target="_blank" class="w-full text-center py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> Instant WhatsApp Chat
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden bg-grid-tech">
+        <!-- Interactive Tech Particles Canvas Background -->
+        <canvas id="tech-particles-canvas" class="absolute inset-0 w-full h-full pointer-events-auto z-0 opacity-70"></canvas>
+        
+        <!-- Aurora Lighting Blobs -->
+        <div class="absolute top-10 left-1/4 w-[32rem] h-[32rem] bg-sky-500/15 rounded-full blur-[140px] pointer-events-none aurora-blob-1 -z-10"></div>
+        <div class="absolute bottom-10 right-10 w-[36rem] h-[36rem] bg-indigo-600/15 rounded-full blur-[160px] pointer-events-none aurora-blob-2 -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Content -->
+                <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+                    
+                    <!-- Top Tagline Pill -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-sky-950/80 to-blue-950/80 border border-sky-500/40 text-sky-300 text-xs font-mono uppercase tracking-wider shadow-lg shadow-sky-950/50">
+                        <span class="w-2 h-2 rounded-full bg-brand-cyan animate-beacon"></span>
+                        Empowering Businesses Through Technology & AI
+                    </div>
+
+                    <!-- Main Catchy Headline -->
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight leading-[1.12]">
+                        Transform Your Vision Into <br class="hidden sm:inline">
+                        <span class="gradient-cyan">Scalable Software</span> <br>
+                        Powered By Modern AI.
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                        TechNxt is a technology-driven startup delivering comprehensive IT solutions — from bespoke web applications and enterprise portals to AWS cloud architecture, automated AI workflows, and data-driven marketing.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-1">
+                        <a href="#services" class="btn-shimmer px-7 py-3.5 rounded-xl font-heading font-semibold text-base bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white shadow-xl shadow-sky-500/25 transition-all flex items-center gap-2 group">
+                            <span>Explore Services</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
+                        <a href="https://wa.me/919801506511?text=Hello%20TechNxt%2C%20I%20am%20interested%20in%20your%20services" target="_blank" class="px-6 py-3.5 rounded-xl font-heading font-semibold text-base bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-emerald-500/50 transition-all flex items-center gap-2 group">
+                            <i data-lucide="message-circle" class="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+
+                        
+                        <button onclick="openCallModal()" class="px-5 py-3.5 rounded-xl font-heading font-semibold text-sm bg-gradient-to-r from-blue-600/30 to-sky-600/30 hover:from-blue-600/50 hover:to-sky-600/50 text-sky-300 border border-sky-500/40 transition-all flex items-center gap-2">
+                            <i data-lucide="calendar-check" class="w-4 h-4 text-brand-cyan"></i>
+                            <span>Book 15-Min Call</span>
+                        </button>
+
+                        <a href="assets/TechNxt_Company_Profile.pdf" download class="px-5 py-3.5 rounded-xl font-heading font-medium text-sm text-slate-400 hover:text-white border border-slate-800 hover:border-slate-700 transition-all flex items-center gap-2">
+                            <i data-lucide="download" class="w-4 h-4 text-sky-400"></i>
+                            <span>Official Profile PDF</span>
+                        </a>
+                    </div>
+
+                    <!-- Live KPI Cards with Animated Counters -->
+                    <div class="stats-bar-tracker grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-slate-800/80">
+                        <div class="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/60 backdrop-blur-sm">
+                            <div class="text-2xl font-black font-heading text-white counter-val" data-target="6" data-suffix="+">0</div>
+                            <div class="text-xs text-slate-400 font-medium">Core IT Domains</div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/60 backdrop-blur-sm">
+                            <div class="text-2xl font-black font-heading text-brand-cyan counter-val" data-target="100" data-suffix="%">0</div>
+                            <div class="text-xs text-slate-400 font-medium">Bespoke Architecture</div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/60 backdrop-blur-sm">
+                            <div class="text-2xl font-black font-heading text-emerald-400 counter-val" data-target="99.9" data-suffix="%" data-float="true">0</div>
+                            <div class="text-xs text-slate-400 font-medium">Cloud Availability</div>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900/50 border border-slate-800/60 backdrop-blur-sm">
+                            <div class="text-2xl font-black font-heading text-sky-300 counter-val" data-target="24" data-suffix="/7">0</div>
+                            <div class="text-xs text-slate-400 font-medium">Technical Support</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Visual with Official 3D Logo Mockup & Floating Tech Badges -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        
+                        <!-- Glowing Backlight Frame -->
+                        <div class="absolute -inset-2 bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 rounded-3xl blur-2xl opacity-35 animate-pulse"></div>
+
+                        <!-- Card Container -->
+                        <div class="tilt-card-container"><div class="tilt-card relative spotlight-card rounded-2xl overflow-hidden p-4 border border-sky-500/40 bg-slate-950/90 shadow-2xl">
+                            
+                            <!-- Official 3D Logo Graphic with Floating Tech Badges -->
+                            <div class="relative rounded-xl overflow-hidden bg-slate-950 border border-slate-800 group">
+                                <img src="assets/images/logo_3d.png" alt="TechNxt Official 3D Emblem" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                                
+                                <!-- Floating Interactive Badge 1 (Top Left) -->
+                                <div class="absolute top-3 left-3 float-badge-1 px-3 py-1.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-sky-400/40 text-[11px] font-mono text-sky-300 shadow-xl flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                                    <span>AI Agent Orchestration</span>
+                                </div>
+
+                                <!-- Floating Interactive Badge 2 (Top Right) -->
+                                <div class="absolute top-3 right-3 float-badge-2 px-3 py-1.5 rounded-xl bg-slate-950/85 backdrop-blur-md border border-emerald-400/40 text-[11px] font-mono text-emerald-300 shadow-xl flex items-center gap-1.5">
+                                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                                    <span>Enterprise SLA 99.9%</span>
+                                </div>
+
+                                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                                    <div>
+                                        <div class="text-sm font-bold font-heading text-white flex items-center gap-1.5">
+                                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> TechNxt Innovation Lab
+                                        </div>
+                                        <div class="text-xs text-slate-400">Ranchi, Jharkhand, India</div>
+                                    </div>
+                                    <span class="px-2.5 py-1 text-[11px] font-mono rounded-md bg-sky-500/20 text-sky-300 border border-sky-500/40">
+                                        Verified Partner
+                                    </span>
+                                </div>
+                            </div>
+
+                            </div></div>
+                            <!-- Live System Status Strip -->
+                            <div class="mt-4 grid grid-cols-2 gap-3 text-xs">
+                                <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800/90 flex items-center gap-2.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></div>
+                                    <div>
+                                        <div class="font-bold text-white">AWS Cloud Ops</div>
+                                        <div class="text-slate-400 text-[10px]">Zero Downtime</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800/90 flex items-center gap-2.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-brand-cyan"></div>
+                                    <div>
+                                        <div class="font-bold text-white">AI Automation</div>
+                                        <div class="text-slate-400 text-[10px]">Active Pipelines</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Client Trust Highlights -->
+                            <div class="mt-4 grid grid-cols-2 gap-2.5 pt-1 text-xs">
+                                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800/80 flex items-center gap-2.5">
+                                    <div class="p-2 rounded-lg bg-sky-500/10 text-sky-400">
+                                        <i data-lucide="zap" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-white text-[11px]">Rapid Delivery</div>
+                                        <div class="text-slate-400 text-[10px]">On-Time Milestones</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800/80 flex items-center gap-2.5">
+                                    <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
+                                        <i data-lucide="smartphone" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-white text-[11px]">100% Responsive</div>
+                                        <div class="text-slate-400 text-[10px]">All Mobile & Tablets</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800/80 flex items-center gap-2.5">
+                                    <div class="p-2 rounded-lg bg-blue-500/10 text-blue-400">
+                                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-white text-[11px]">Enterprise Security</div>
+                                        <div class="text-slate-400 text-[10px]">SSL & Data Safety</div>
+                                    </div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-slate-900/70 border border-slate-800/80 flex items-center gap-2.5">
+                                    <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400">
+                                        <i data-lucide="headphones" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-white text-[11px]">Dedicated Support</div>
+                                        <div class="text-slate-400 text-[10px]">Direct Phone & Chat</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Ticker -->
+    <div class="border-y border-slate-800/80 bg-slate-950/60 py-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-xs uppercase tracking-widest font-mono text-slate-500 mb-4">Enterprise Technologies & Frameworks We Excel At</p>
+            <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm text-slate-300 font-medium">
+                <span class="flex items-center gap-2 hover:text-brand-cyan transition-colors px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800"><i data-lucide="cloud" class="w-4 h-4 text-sky-400"></i> Amazon Web Services (AWS)</span>
+                <span class="flex items-center gap-2 hover:text-brand-cyan transition-colors px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800"><i data-lucide="code" class="w-4 h-4 text-sky-400"></i> React & Next.js</span>
+                <span class="flex items-center gap-2 hover:text-brand-cyan transition-colors px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800"><i data-lucide="cpu" class="w-4 h-4 text-sky-400"></i> Python & AI LLMs</span>
+                <span class="flex items-center gap-2 hover:text-brand-cyan transition-colors px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800"><i data-lucide="server" class="w-4 h-4 text-sky-400"></i> PHP & Node.js</span>
+                <span class="flex items-center gap-2 hover:text-brand-cyan transition-colors px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800"><i data-lucide="database" class="w-4 h-4 text-sky-400"></i> PostgreSQL / MySQL</span>
+                <span class="flex items-center gap-2 hover:text-brand-cyan transition-colors px-3 py-1.5 rounded-lg bg-slate-900/60 border border-slate-800"><i data-lucide="shield-check" class="w-4 h-4 text-sky-400"></i> Cloud Security & SSL</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section: About TechNxt ("Who We Are") -->
+    <section id="about" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-mono uppercase tracking-wider">
+                    Who We Are
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight">
+                    Your Trusted <span class="gradient-cyan">Technology Partner</span>
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                    TechNxt is a technology-driven startup offering comprehensive IT and digital solutions. We see ourselves as a technology partner rather than just a service provider, guiding organizations through every stage of their move towards digital transformation.
+                </p>
+            </div>
+
+            <!-- 2-Column: TechNxt at a Glance & Philosophy -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+                <!-- Left: Table / Glance Card -->
+                <div class="lg:col-span-6 spotlight-card p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <img src="assets/images/favicon.png" alt="TechNxt" class="w-8 h-8 rounded-lg object-contain">
+                            <h3 class="text-xl font-bold font-heading text-white">TechNxt at a Glance</h3>
+                        </div>
+                        <span class="px-2.5 py-1 text-xs rounded-md bg-sky-500/10 text-sky-400 border border-sky-500/30">Official Profile</span>
+                    </div>
+
+                    <div class="space-y-4 text-sm">
+                        <div class="flex flex-col sm:flex-row sm:justify-between py-2.5 border-b border-slate-800/60 gap-1">
+                            <span class="text-slate-400 font-mono">Company</span>
+                            <span class="text-white font-semibold">TechNxt</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between py-2.5 border-b border-slate-800/60 gap-1">
+                            <span class="text-slate-400 font-mono">Tagline</span>
+                            <span class="text-sky-300 font-medium">Empowering Businesses Through Technology & AI</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between py-2.5 border-b border-slate-800/60 gap-1">
+                            <span class="text-slate-400 font-mono">Business Category</span>
+                            <span class="text-slate-200">IT Services, Web Dev, Cloud, AI & Digital Marketing</span>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:justify-between py-2.5 gap-1">
+                            <span class="text-slate-400 font-mono">Office Address</span>
+                            <span class="text-slate-200">505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001</span>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-sky-950/40 border border-sky-800/40 flex items-center justify-between gap-4">
+                        <div class="text-xs text-slate-300">
+                            Download our official 9-page presentation PDF for complete documentation.
+                        </div>
+                        
+                        <button onclick="openCallModal()" class="px-5 py-3.5 rounded-xl font-heading font-semibold text-sm bg-gradient-to-r from-blue-600/30 to-sky-600/30 hover:from-blue-600/50 hover:to-sky-600/50 text-sky-300 border border-sky-500/40 transition-all flex items-center gap-2">
+                            <i data-lucide="calendar-check" class="w-4 h-4 text-brand-cyan"></i>
+                            <span>Book 15-Min Call</span>
+                        </button>
+
+                        <a href="assets/TechNxt_Company_Profile.pdf" download class="shrink-0 px-4 py-2 text-xs font-semibold rounded-lg bg-sky-500 hover:bg-sky-400 text-white transition-colors flex items-center gap-1.5">
+                            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                            <span>Get PDF</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Vision & Mission Cards -->
+                <div class="lg:col-span-6 flex flex-col gap-6">
+                    <!-- Vision -->
+                    <div class="spotlight-card p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-3 relative overflow-hidden">
+                        <div class="w-11 h-11 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center mb-2">
+                            <i data-lucide="eye" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xs uppercase font-mono tracking-widest text-sky-400">Our Vision</h4>
+                        <h3 class="text-xl font-bold font-heading text-white">Delivering Scalable & Reliable Digital Excellence</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            To become a trusted technology partner for businesses by delivering innovative, scalable and reliable digital solutions that solve real business bottlenecks.
+                        </p>
+                    </div>
+
+                    <!-- Mission -->
+                    <div class="spotlight-card p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-3 relative overflow-hidden">
+                        <div class="w-11 h-11 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-2">
+                            <i data-lucide="target" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-xs uppercase font-mono tracking-widest text-blue-400">Our Mission</h4>
+                        <h3 class="text-xl font-bold font-heading text-white">Simplifying Technology For Growth</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            To simplify technology for businesses through professional web development, cloud computing, AI integration and digital transformation services so our clients can rely on a single trusted partner.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- "Who We Help" Grid (From Page 2 of PDF) -->
+            <div class="space-y-6">
+                <div class="text-center">
+                    <h3 class="text-2xl font-bold font-heading text-white">Who We Help</h3>
+                    <p class="text-slate-400 text-sm">Tailored IT engineering crafted for your specific operational scale</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 1. Businesses -->
+                    <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="briefcase" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold font-heading text-white mb-2">Businesses</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Modern web portals, automated business workflows, and digital tools designed to boost daily productivity and drive top-line revenue.
+                        </p>
+                    </div>
+
+                    <!-- 2. Startups -->
+                    <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="rocket" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold font-heading text-white mb-2">Startups</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Rapid MVP engineering, scalable AWS cloud infrastructure, and agile prototyping to get your product to market 3x faster.
+                        </p>
+                    </div>
+
+                    <!-- 3. Educational Institutions -->
+                    <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold font-heading text-white mb-2">Educational Institutions</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Custom student portals, administrative dashboards, fee management, and online exam platforms for schools, colleges, and institutes.
+                        </p>
+                    </div>
+
+                    <!-- 4. Organizations -->
+                    <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <i data-lucide="building-2" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-lg font-bold font-heading text-white mb-2">Organizations</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Robust enterprise platforms, secure database hosting, role-based authentication, and high-performance digital marketing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section: Our Core Services (01 to 06 with Official Profile Icons & Filter Tabs) -->
+    <section id="services" class="py-24 md:py-32 relative bg-slate-950/60 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-mono uppercase tracking-wider">
+                    What We Do · Services 01 – 06
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight">
+                    End-to-End <span class="gradient-cyan">Digital & IT Services</span>
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Comprehensive technology solutions covering every aspect of modern digital infrastructure, from initial web development to scalable cloud hosting and AI automation.
+                </p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+                <button class="service-filter-btn px-4 py-2 rounded-xl text-xs font-semibold border transition-all bg-sky-500 text-white border-sky-400" data-filter="all">All Services (6)</button>
+                <button class="service-filter-btn px-4 py-2 rounded-xl text-xs font-semibold border transition-all bg-slate-900 text-slate-400 border-slate-800 hover:text-white" data-filter="web">Web & Portals</button>
+                <button class="service-filter-btn px-4 py-2 rounded-xl text-xs font-semibold border transition-all bg-slate-900 text-slate-400 border-slate-800 hover:text-white" data-filter="cloud">Cloud & Maintenance</button>
+                <button class="service-filter-btn px-4 py-2 rounded-xl text-xs font-semibold border transition-all bg-slate-900 text-slate-400 border-slate-800 hover:text-white" data-filter="ai">AI & Automation</button>
+                <button class="service-filter-btn px-4 py-2 rounded-xl text-xs font-semibold border transition-all bg-slate-900 text-slate-400 border-slate-800 hover:text-white" data-filter="marketing">Digital Marketing</button>
+            </div>
+
+            <!-- 6 Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 01: Website Development -->
+                <div class="service-card-item spotlight-card rounded-2xl p-7 border border-slate-800 hover:border-sky-500/40 transition-all flex flex-col justify-between group" data-category="web">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-14 h-14 rounded-xl bg-sky-950/80 border border-sky-700/40 p-2.5 flex items-center justify-center">
+                                <img src="assets/images/icon_service_webdev.png" alt="Website Development" class="w-full h-full object-contain">
+                            </div>
+                            <span class="text-xs font-mono font-bold text-sky-400 px-2 py-1 rounded bg-sky-950/60 border border-sky-800/40">SERVICE 01</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-300 transition-colors">
+                            Website Development
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Fast, secure and responsive websites and web applications tailored to your brand identity and conversion goals.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 pt-2 border-t border-slate-800">
+                            <li class="flex items-center gap-2"><span>▪</span> Custom Website Development</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Corporate and Business Websites</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Responsive Mobile-First Design</li>
+                            <li class="flex items-center gap-2"><span>▪</span> E-commerce Development</li>
+                            <li class="flex items-center gap-2"><span>▪</span> PHP & Modern Web Technologies</li>
+                        </ul>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="openServiceModal('01')" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1">
+                            <span>Explore Full Scope</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <a href="#contact" class="text-xs text-slate-400 hover:text-white underline">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 02: Website Maintenance & Management -->
+                <div class="service-card-item spotlight-card rounded-2xl p-7 border border-slate-800 hover:border-sky-500/40 transition-all flex flex-col justify-between group" data-category="cloud">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-14 h-14 rounded-xl bg-sky-950/80 border border-sky-700/40 p-2.5 flex items-center justify-center">
+                                <img src="assets/images/icon_service_maintenance.png" alt="Website Maintenance" class="w-full h-full object-contain">
+                            </div>
+                            <span class="text-xs font-mono font-bold text-sky-400 px-2 py-1 rounded bg-sky-950/60 border border-sky-800/40">SERVICE 02</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-300 transition-colors">
+                            Website Maintenance & Management
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Keep your digital assets secure, blazing fast and always up to date with dependable ongoing maintenance.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 pt-2 border-t border-slate-800">
+                            <li class="flex items-center gap-2"><span>▪</span> Regular Website Updates & Content Sync</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Bug Fixing & Rapid Troubleshooting</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Website Security Management</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Performance & Speed Optimization</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Automated Backup and Recovery</li>
+                        </ul>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="openServiceModal('02')" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1">
+                            <span>Explore Full Scope</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <a href="#contact" class="text-xs text-slate-400 hover:text-white underline">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 03: Cloud Solutions & Infrastructure -->
+                <div class="service-card-item spotlight-card rounded-2xl p-7 border border-slate-800 hover:border-sky-500/40 transition-all flex flex-col justify-between group" data-category="cloud">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-14 h-14 rounded-xl bg-sky-950/80 border border-sky-700/40 p-2.5 flex items-center justify-center">
+                                <img src="assets/images/icon_service_cloud.png" alt="Cloud Solutions" class="w-full h-full object-contain">
+                            </div>
+                            <span class="text-xs font-mono font-bold text-sky-400 px-2 py-1 rounded bg-sky-950/60 border border-sky-800/40">SERVICE 03</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-300 transition-colors">
+                            Cloud Solutions & Infrastructure
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Deploy, host and scale your applications on reliable cloud infrastructure, engineered with security and speed.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 pt-2 border-t border-slate-800">
+                            <li class="flex items-center gap-2"><span>▪</span> AWS Cloud Services & Architecture</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Cloud Hosting & Deployment Pipelines</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Server Configuration & Hardening</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Database Hosting & Management</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Seamless Cloud Migration</li>
+                        </ul>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="openServiceModal('03')" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1">
+                            <span>Explore Full Scope</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <a href="#contact" class="text-xs text-slate-400 hover:text-white underline">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 04: Web Portal Development -->
+                <div class="service-card-item spotlight-card rounded-2xl p-7 border border-slate-800 hover:border-sky-500/40 transition-all flex flex-col justify-between group" data-category="web">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-14 h-14 rounded-xl bg-sky-950/80 border border-sky-700/40 p-2.5 flex items-center justify-center">
+                                <img src="assets/images/icon_service_portal.png" alt="Web Portal Development" class="w-full h-full object-contain">
+                            </div>
+                            <span class="text-xs font-mono font-bold text-sky-400 px-2 py-1 rounded bg-sky-950/60 border border-sky-800/40">SERVICE 04</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-300 transition-colors">
+                            Web Portal Development
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Custom enterprise portals and management platforms that streamline operations for businesses and institutions.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 pt-2 border-t border-slate-800">
+                            <li class="flex items-center gap-2"><span>▪</span> Custom Business Web Portals</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Educational and Student Portals</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Admin Management Dashboards</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Customer and Employee Portals</li>
+                            <li class="flex items-center gap-2"><span>▪</span> User Authentication & Access Control</li>
+                        </ul>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="openServiceModal('04')" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1">
+                            <span>Explore Full Scope</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <a href="#contact" class="text-xs text-slate-400 hover:text-white underline">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 05: AI Integration & Automation -->
+                <div class="service-card-item spotlight-card rounded-2xl p-7 border border-slate-800 hover:border-sky-500/40 transition-all flex flex-col justify-between group" data-category="ai">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-14 h-14 rounded-xl bg-sky-950/80 border border-sky-700/40 p-2.5 flex items-center justify-center">
+                                <img src="assets/images/icon_service_ai.png" alt="AI Integration" class="w-full h-full object-contain">
+                            </div>
+                            <span class="text-xs font-mono font-bold text-sky-400 px-2 py-1 rounded bg-sky-950/60 border border-sky-800/40">SERVICE 05</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-300 transition-colors">
+                            AI Integration & Automation
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Bring intelligent automation and modern AI capabilities into your websites, workflows and business applications.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 pt-2 border-t border-slate-800">
+                            <li class="flex items-center gap-2"><span>▪</span> AI-Powered Website Integration</li>
+                            <li class="flex items-center gap-2"><span>▪</span> AI Chatbots and Virtual Assistants</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Business Process Automation (BPA)</li>
+                            <li class="flex items-center gap-2"><span>▪</span> AI-Based Data Analytics</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Intelligent Search Systems & LLMs</li>
+                        </ul>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="openServiceModal('05')" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1">
+                            <span>Explore Full Scope</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <a href="#contact" class="text-xs text-slate-400 hover:text-white underline">Inquire Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 06: Digital Marketing -->
+                <div class="service-card-item spotlight-card rounded-2xl p-7 border border-slate-800 hover:border-sky-500/40 transition-all flex flex-col justify-between group" data-category="marketing">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-14 h-14 rounded-xl bg-sky-950/80 border border-sky-700/40 p-2.5 flex items-center justify-center">
+                                <img src="assets/images/icon_service_marketing.png" alt="Digital Marketing" class="w-full h-full object-contain">
+                            </div>
+                            <span class="text-xs font-mono font-bold text-sky-400 px-2 py-1 rounded bg-sky-950/60 border border-sky-800/40">SERVICE 06</span>
+                        </div>
+                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-sky-300 transition-colors">
+                            Digital Marketing & Growth
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Strengthen your online visibility, customer acquisition, and brand presence with high-converting marketing strategies.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 pt-2 border-t border-slate-800">
+                            <li class="flex items-center gap-2"><span>▪</span> Search Engine Optimization (SEO)</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Targeted Social Media Marketing</li>
+                            <li class="flex items-center gap-2"><span>▪</span> High-ROI Google Ads Campaigns</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Content Marketing & Brand Building</li>
+                            <li class="flex items-center gap-2"><span>▪</span> Online Reputation Management (ORM)</li>
+                        </ul>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="openServiceModal('06')" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1">
+                            <span>Explore Full Scope</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                        <a href="#contact" class="text-xs text-slate-400 hover:text-white underline">Inquire Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Section: Featured Solutions & Architecture Blueprints (Proof of Work) -->
+    <section id="blueprints" class="py-24 md:py-32 relative bg-slate-950/40 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-950/70 border border-emerald-800/60 text-emerald-300 text-xs font-mono uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Engineered For Impact
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight">
+                    Featured Solutions & <span class="gradient-cyan">Architecture Blueprints</span>
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Real-world system prototypes and architectural frameworks built by TechNxt to demonstrate how we solve operational bottlenecks.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Solution 01: EduNxt Smart Campus Suite -->
+                <div class="spotlight-card rounded-2xl p-7 border border-slate-800 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-sky-500/10 text-sky-400 border border-sky-500/30">
+                                Educational Technology
+                            </span>
+                            <span class="text-xs text-emerald-400 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Production Ready
+                            </span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-white group-hover:text-sky-300 transition-colors">
+                            EduNxt Smart Campus Portal
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            A centralized multi-tenant education management system integrating automated student admissions, fee payment gateway, digital attendance, and LMS exam evaluation.
+                        </p>
+                        
+                        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-400"></i> Role-Based Dashboards (Admin, Faculty, Student)</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-400"></i> Automated Fee Invoicing & SMS/WhatsApp Alerts</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-sky-400"></i> Secure Cloud Database with 99.9% High Availability</div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">React</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">PHP/Laravel</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">MySQL</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">AWS S3</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="openCallModal()" class="text-xs font-semibold text-sky-400 hover:text-sky-300 flex items-center gap-1">
+                            <span>Request Architecture Demo</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Solution 02: CloudSync Enterprise ERP -->
+                <div class="spotlight-card rounded-2xl p-7 border border-slate-800 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/30">
+                                Enterprise SaaS & Ops
+                            </span>
+                            <span class="text-xs text-emerald-400 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> High Throughput
+                            </span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-white group-hover:text-blue-300 transition-colors">
+                            CloudSync Business Portal & ERP
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Bespoke enterprise platform built for business process automation, multi-branch inventory tracking, employee performance management, and real-time revenue analytics.
+                        </p>
+                        
+                        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i> Executive Business Intelligence Dashboard</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i> Granular Permission Matrix & Audit Trail Logs</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-blue-400"></i> Microservices on AWS Containerized Architecture</div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">Next.js</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">Node.js</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">PostgreSQL</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">Docker</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="openCallModal()" class="text-xs font-semibold text-blue-400 hover:text-blue-300 flex items-center gap-1">
+                            <span>Request Architecture Demo</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Solution 03: AutoNxt AI Support Agent -->
+                <div class="spotlight-card rounded-2xl p-7 border border-slate-800 flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-purple-500/10 text-purple-400 border border-purple-500/30">
+                                AI & Autonomous Agents
+                            </span>
+                            <span class="text-xs text-emerald-400 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 24/7 Autopilot
+                            </span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-white group-hover:text-purple-300 transition-colors">
+                            AutoNxt Conversational Agent
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Domain-trained AI conversational agent that connects directly to your website, CRM, or WhatsApp. Handles customer inquiries, answers questions from your docs, and qualifies leads.
+                        </p>
+                        
+                        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs text-slate-300">
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> RAG Knowledge Base trained on company documents</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Resolves up to 92% of repetitive support tickets</div>
+                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-purple-400"></i> Live Human Handover & Lead Notification Webhook</div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 pt-2">
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">Python</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">FastAPI</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">LangChain</span>
+                            <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">Vector DB</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between">
+                        <button onclick="openCallModal()" class="text-xs font-semibold text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                            <span>Request Architecture Demo</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Our Work Process (7-Stage Delivery Roadmap) -->
+    <section id="process" class="py-24 md:py-32 relative bg-slate-950/60 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-mono uppercase tracking-wider">
+                    How We Work
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight">
+                    Our 7-Stage <span class="gradient-cyan">Project Lifecycle</span>
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Every TechNxt project follows a structured lifecycle, from the first conversation to long-term support, ensuring transparency, precision, and alignment with your business goals.
+                </p>
+            </div>
+
+            <!-- Process Roadmap Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Stage 01 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 relative group">
+                    <div class="text-3xl font-black font-heading text-sky-400 mb-3">01</div>
+                    <h3 class="text-lg font-bold font-heading text-white mb-2">Requirement Analysis</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        We study your business goals, target users, and existing systems to define a crystal-clear project scope.
+                    </p>
+                </div>
+
+                <!-- Stage 02 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 relative group">
+                    <div class="text-3xl font-black font-heading text-sky-400 mb-3">02</div>
+                    <h3 class="text-lg font-bold font-heading text-white mb-2">Planning & Strategy</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        We prepare a concrete technical roadmap covering features, architecture choices, milestone schedules, and timelines.
+                    </p>
+                </div>
+
+                <!-- Stage 03 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 relative group">
+                    <div class="text-3xl font-black font-heading text-sky-400 mb-3">03</div>
+                    <h3 class="text-lg font-bold font-heading text-white mb-2">UI/UX Design</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        We craft wireframes and interactive visual designs that are intuitive, frictionless, user-friendly, and true to your brand.
+                    </p>
+                </div>
+
+                <!-- Stage 04 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 relative group">
+                    <div class="text-3xl font-black font-heading text-sky-400 mb-3">04</div>
+                    <h3 class="text-lg font-bold font-heading text-white mb-2">Development & Implementation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Our engineering team builds clean, scalable code and integrates all required backend APIs and third-party systems.
+                    </p>
+                </div>
+
+                <!-- Stage 05 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 relative group">
+                    <div class="text-3xl font-black font-heading text-sky-400 mb-3">05</div>
+                    <h3 class="text-lg font-bold font-heading text-white mb-2">Testing & Quality Assurance</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        We check functionality, performance, security, and multi-device compatibility before public release.
+                    </p>
+                </div>
+
+                <!-- Stage 06 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 relative group">
+                    <div class="text-3xl font-black font-heading text-sky-400 mb-3">06</div>
+                    <h3 class="text-lg font-bold font-heading text-white mb-2">Deployment & Launch</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        We configure your production cloud environment, establish SSL, domain DNS, and take your solution live with care.
+                    </p>
+                </div>
+
+                <!-- Stage 07 (Spans 2 columns on lg) -->
+                <div class="spotlight-card p-6 rounded-2xl border border-sky-500/40 bg-sky-950/20 lg:col-span-2 relative group">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="text-3xl font-black font-heading text-brand-cyan">07</div>
+                        <span class="px-2.5 py-1 text-xs font-mono rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Ongoing Partnership</span>
+                    </div>
+                    <h3 class="text-lg font-bold font-heading text-white mb-2">Maintenance & Ongoing Support</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        We provide continuous software updates, server health monitoring, and responsive technical support to keep everything running seamlessly.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Why Choose TechNxt (8 Differentiators) -->
+    <section id="why-us" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-mono uppercase tracking-wider">
+                    Your Technology Partner
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight">
+                    Why Choose <span class="gradient-cyan">TechNxt?</span>
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Eight reasons why innovative businesses and institutions trust TechNxt as their digital backbone.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- 01 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all">
+                    <div class="text-xs font-mono text-sky-400 font-bold mb-2">01</div>
+                    <h4 class="text-lg font-bold font-heading text-white mb-2">End-to-End Solutions</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Design, engineering, cloud hosting, AI and marketing from a single accountable partner.</p>
+                </div>
+
+                <!-- 02 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all">
+                    <div class="text-xs font-mono text-sky-400 font-bold mb-2">02</div>
+                    <h4 class="text-lg font-bold font-heading text-white mb-2">Customized Tech</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Solutions tailored specifically around your business workflows rather than generic one-size-fits-all products.</p>
+                </div>
+
+                <!-- 03 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all">
+                    <div class="text-xs font-mono text-sky-400 font-bold mb-2">03</div>
+                    <h4 class="text-lg font-bold font-heading text-white mb-2">Modern Frameworks</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Current technologies and best engineering practices for fast, maintainable digital platforms.</p>
+                </div>
+
+                <!-- 04 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all">
+                    <div class="text-xs font-mono text-sky-400 font-bold mb-2">04</div>
+                    <h4 class="text-lg font-bold font-heading text-white mb-2">AI-Powered Innovation</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Practical AI integration that automates repetitive work and empowers data-driven decisions.</p>
+                </div>
+
+                <!-- 05 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all">
+                    <div class="text-xs font-mono text-sky-400 font-bold mb-2">05</div>
+                    <h4 class="text-lg font-bold font-heading text-white mb-2">Reliable Cloud</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Scalable, monitored cloud architectures built for dependable high availability.</p>
+                </div>
+
+                <!-- 06 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all">
+                    <div class="text-xs font-mono text-sky-400 font-bold mb-2">06</div>
+                    <h4 class="text-lg font-bold font-heading text-white mb-2">Security & Speed Focus</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Enterprise-grade security standards and optimal performance considered at every stage.</p>
+                </div>
+
+                <!-- 07 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all">
+                    <div class="text-xs font-mono text-sky-400 font-bold mb-2">07</div>
+                    <h4 class="text-lg font-bold font-heading text-white mb-2">Professional Support</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Responsive technical assistance, SLA monitoring, and proactive system health checks.</p>
+                </div>
+
+                <!-- 08 -->
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 hover:border-sky-500/40 transition-all">
+                    <div class="text-xs font-mono text-sky-400 font-bold mb-2">08</div>
+                    <h4 class="text-lg font-bold font-heading text-white mb-2">Long-Term Partnership</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">We aim to grow alongside our clients and support every phase of your digital journey.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Industries We Serve -->
+    <section id="sectors" class="py-24 md:py-32 relative bg-slate-950/60 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-mono uppercase tracking-wider">
+                    Sectors
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight">
+                    Industries <span class="gradient-cyan">We Serve</span>
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    Our solutions are adaptable across sectors, helping organizations of different sizes build a strong digital foundation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-bold text-white text-base">Education & E-learning</div>
+                    <p class="text-xs text-slate-400">LMS, Student Portals, Online Exam Engines</p>
+                </div>
+
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-bold text-white text-base">Healthcare & Wellness</div>
+                    <p class="text-xs text-slate-400">Clinic Management, Patient Portals, Booking</p>
+                </div>
+
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-bold text-white text-base">Startups & Small Business</div>
+                    <p class="text-xs text-slate-400">Rapid MVP Launch, Scalable SaaS Backend</p>
+                </div>
+
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                        <i data-lucide="building" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-bold text-white text-base">Corporate Organizations</div>
+                    <p class="text-xs text-slate-400">Custom ERP, Employee Portals, Workflow Ops</p>
+                </div>
+
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-bold text-white text-base">E-commerce & Retail</div>
+                    <p class="text-xs text-slate-400">Online Stores, Payment Gateways, Inventories</p>
+                </div>
+
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 text-center space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                        <i data-lucide="briefcase" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-bold text-white text-base">Professional Services</div>
+                    <p class="text-xs text-slate-400">Legal, Finance, Consultancy Portals</p>
+                </div>
+
+                <div class="spotlight-card p-6 rounded-2xl border border-slate-800 text-center space-y-3 col-span-2 md:col-span-1 lg:col-span-2">
+                    <div class="w-12 h-12 mx-auto rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <div class="font-bold text-white text-base">Institutions & Enterprises</div>
+                    <p class="text-xs text-slate-400">Multi-tenant Cloud Portals, Big Data & AI Automations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Section: Interactive Live AI Assistant Demo -->
+    <section class="py-24 md:py-32 relative bg-slate-950/60 border-t border-slate-800/80">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-500/40 text-sky-300 text-xs font-mono uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                    Interactive AI Intelligence
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-black font-heading text-white">
+                    Test TechNxt's <span class="gradient-cyan">AI In Real Time</span>
+                </h2>
+                <p class="text-slate-300 text-sm">
+                    Experience how we integrate intelligent conversational agents into websites and applications. Try asking a question below:
+                </p>
+            </div>
+
+            <!-- AI Chat Interactive Widget Box -->
+            <div class="spotlight-card rounded-2xl border border-sky-500/40 bg-slate-950 p-6 shadow-2xl max-w-3xl mx-auto">
+                <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-xl bg-sky-500/20 text-brand-cyan flex items-center justify-center border border-sky-500/30">
+                            <i data-lucide="bot" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="text-sm font-bold font-heading text-white">TechNxt AI Assistant</div>
+                            <div class="text-[10px] text-emerald-400 flex items-center gap-1 font-mono">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Online · Knowledge Base Active
+                            </div>
+                        </div>
+                    </div>
+                    <span class="px-2.5 py-1 text-[10px] font-mono rounded bg-slate-900 text-slate-400 border border-slate-800">
+                        RAG AI Engine
+                    </span>
+                </div>
+
+                <!-- Chat Messages Scroll Container -->
+                <div id="ai-chat-messages" class="h-64 overflow-y-auto space-y-3 pr-2 mb-4 text-xs">
+                    <div class="flex justify-start chat-bubble">
+                        <div class="max-w-[85%] rounded-2xl px-4 py-2.5 text-xs bg-slate-900 border border-slate-800 text-slate-200 rounded-tl-none flex items-start gap-2">
+                            <span class="w-2 h-2 rounded-full bg-brand-cyan mt-1 shrink-0"></span>
+                            <span>Hello! I'm the TechNxt AI Assistant. Ask me anything about our services, office location, MVP turnaround, or cloud architecture.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Prompt Buttons -->
+                <div class="flex flex-wrap gap-2 mb-4 pt-2 border-t border-slate-800/80">
+                    <button onclick="askAiPrompt('What core services do you offer?')" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-[11px] text-sky-300 transition-colors">
+                        "What services do you offer?"
+                    </button>
+                    <button onclick="askAiPrompt('Where is your office located?')" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-[11px] text-sky-300 transition-colors">
+                        "Where is your office?"
+                    </button>
+                    <button onclick="askAiPrompt('How long does MVP development take?')" class="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-[11px] text-sky-300 transition-colors">
+                        "MVP turnaround time?"
+                    </button>
+                </div>
+
+                <!-- Input Row -->
+                <div class="flex gap-2">
+                    <input type="text" id="ai-chat-input" placeholder="Type a question for TechNxt AI..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-sky-400">
+                    <button id="ai-chat-send" class="btn-shimmer px-4 py-2.5 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg shadow-sky-500/20">
+                        <span>Send</span>
+                        <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: FAQ Accordion -->
+    <section id="faq" class="py-24 md:py-32 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="px-3.5 py-1 rounded-full bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-mono uppercase tracking-wider">
+                    Frequently Asked Questions
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black font-heading text-white">
+                    Everything You Need To Know
+                </h2>
+                <p class="text-slate-300 text-sm">
+                    Common questions about partnering with TechNxt for your digital and engineering needs.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Q1 -->
+                <div class="spotlight-card rounded-2xl border border-slate-800 overflow-hidden">
+                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+                        <span class="font-bold text-white text-base">How does TechNxt start a new project?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-sky-400 transition-transform duration-300 shrink-0"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                        We begin with Stage 01 (Requirement Analysis). We schedule a discovery discussion to understand your business objectives, target users, and current infrastructure. From there, we deliver a concrete roadmap covering technical choices, milestones, and deliverables before coding begins.
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="spotlight-card rounded-2xl border border-slate-800 overflow-hidden">
+                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+                        <span class="font-bold text-white text-base">Do you build custom solutions or use off-the-shelf templates?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-sky-400 transition-transform duration-300 shrink-0"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                        We specialize in 100% customized technology architecture. Every web application, database model, cloud deployment, and AI workflow is built specifically around your business requirements to ensure maximum scalability and speed.
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="spotlight-card rounded-2xl border border-slate-800 overflow-hidden">
+                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+                        <span class="font-bold text-white text-base">What kind of AI Integration do you provide?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-sky-400 transition-transform duration-300 shrink-0"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                        We provide practical, high-impact AI: customer service AI chatbots trained on your company knowledge base, automated business process pipelines, intelligent semantic search engines, and custom machine learning analytics for data-driven decisions.
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="spotlight-card rounded-2xl border border-slate-800 overflow-hidden">
+                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+                        <span class="font-bold text-white text-base">How does website maintenance & technical support work?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-sky-400 transition-transform duration-300 shrink-0"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                        Our maintenance packages include 24/7 automated uptime monitoring, weekly security scans, database optimization, daily/weekly cloud backups, regular content updates, and priority developer hours for rapid bug fixing.
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="spotlight-card rounded-2xl border border-slate-800 overflow-hidden">
+                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
+                        <span class="font-bold text-white text-base">Where is TechNxt based, and how can we meet?</span>
+                        <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-sky-400 transition-transform duration-300 shrink-0"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/60 pt-4">
+                        Our registered office is at 505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001. You can visit our office, schedule a video consultation, or reach us directly via call or WhatsApp at +91 9801506511.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Contact Us / Consultation -->
+    <section id="contact" class="py-24 md:py-32 relative bg-slate-950/70 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-950/70 border border-sky-800/60 text-sky-300 text-xs font-mono uppercase tracking-wider">
+                    Get In Touch
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading tracking-tight">
+                    Let's Build Something <span class="gradient-cyan">Exceptional Together</span>
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg">
+                    We would be glad to discuss your requirements and explore how TechNxt can support your journey towards digital transformation.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left: Contact Details & Location -->
+                <div class="lg:col-span-5 space-y-6">
+                    <!-- Office Address Card -->
+                    <div class="spotlight-card p-6 rounded-2xl border border-slate-800 space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-sky-500/10 text-sky-400 shrink-0">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-mono text-slate-400 uppercase">Office Address</h4>
+                                <p class="text-white font-medium text-base mt-1">
+                                    505, Mahabir Tower, Main Road,<br>
+                                    Ranchi, Jharkhand – 834001
+                                </p>
+                                <span class="text-xs text-sky-400 mt-1 inline-block">Registered Headquarters</span>
+                            </div>
+                        </div>
+
+                        <!-- Direct Call -->
+                        <div class="flex items-start gap-4 pt-4 border-t border-slate-800">
+                            <div class="p-3 rounded-xl bg-blue-500/10 text-blue-400 shrink-0">
+                                <i data-lucide="phone-call" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-mono text-slate-400 uppercase">Contact Number</h4>
+                                <a href="tel:+919801506511" class="text-white font-bold text-lg hover:text-sky-400 transition-colors block mt-1">
+                                    +91 9801506511
+                                </a>
+                                <span class="text-xs text-slate-400">Available Mon – Sat, 10:00 AM – 7:00 PM</span>
+                            </div>
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="flex items-start gap-4 pt-4 border-t border-slate-800">
+                            <div class="p-3 rounded-xl bg-purple-500/10 text-purple-400 shrink-0">
+                                <i data-lucide="mail" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-mono text-slate-400 uppercase">Email Address</h4>
+                                <a href="mailto:india.futurenxt@gmail.com" class="text-white font-medium text-base hover:text-sky-400 transition-colors block mt-1">
+                                    india.futurenxt@gmail.com
+                                </a>
+                                <span class="text-xs text-slate-400">Official Communication & Quotes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct WhatsApp Connect Banner -->
+                    <div class="p-6 rounded-2xl bg-gradient-to-r from-emerald-950/80 to-slate-900 border border-emerald-500/40 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                                <i data-lucide="message-circle" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <div class="text-white font-bold">Fastest Response on WhatsApp</div>
+                                <div class="text-xs text-emerald-300">Typically replies within 30 minutes</div>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/919801506511?text=Hi%20TechNxt%20team%2C%20I%20would%20like%20to%20discuss%20a%20new%20project%20requirement." target="_blank" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-colors">
+                            <span>Open Direct WhatsApp Chat</span>
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Interactive Lead & Consultation Form -->
+                <div class="lg:col-span-7 spotlight-card p-8 rounded-2xl border border-slate-800 bg-slate-950/90">
+                    <h3 class="text-2xl font-bold font-heading text-white mb-2">Send Project Requirement</h3>
+                    <p class="text-slate-400 text-sm mb-6">Fill in your requirements and our technical team will reach out with a tailored architecture & quotation.</p>
+
+                    <form id="contact-form" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-mono text-slate-300 uppercase mb-1">Your Full Name *</label>
+                                <input type="text" id="contact-name" required placeholder="e.g. Rahul Sharma" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-400">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-slate-300 uppercase mb-1">Phone Number *</label>
+                                <input type="tel" id="contact-phone" required placeholder="e.g. +91 9876543210" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-400">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-mono text-slate-300 uppercase mb-1">Email Address</label>
+                                <input type="email" id="contact-email" placeholder="e.g. rahul@company.com" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-400">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-slate-300 uppercase mb-1">Service Required</label>
+                                <select id="contact-service" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-400">
+                                    <option value="Website Development">Website Development</option>
+                                    <option value="Website Maintenance & Management">Website Maintenance</option>
+                                    <option value="Cloud Solutions & Infrastructure">Cloud Solutions & Infrastructure</option>
+                                    <option value="Web Portal Development">Web Portal Development</option>
+                                    <option value="AI Integration & Automation">AI Integration & Automation</option>
+                                    <option value="Digital Marketing">Digital Marketing</option>
+                                    <option value="End-to-End Technology Consulting">Full Suite Consulting</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 uppercase mb-1">Project Details / Goals</label>
+                            <textarea id="contact-message" rows="4" placeholder="Briefly describe what you're looking to build or optimize..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-sky-400"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-shimmer w-full py-3.5 rounded-xl font-heading font-semibold text-base bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white shadow-xl shadow-sky-500/25 transition-all flex items-center justify-center gap-2">
+                            <span>Submit Project Requirement</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details Modal Dialog -->
+    <div id="service-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="spotlight-card max-w-2xl w-full rounded-2xl border border-sky-500/40 p-6 sm:p-8 bg-slate-950 relative space-y-6 max-h-[90vh] overflow-y-auto">
+            <button id="modal-close-btn" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900 border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-xl bg-sky-950/80 border border-sky-700/50 p-2 flex items-center justify-center">
+                    <img id="modal-icon" src="" alt="Icon" class="w-full h-full object-contain">
+                </div>
+                <div>
+                    <span id="modal-tag" class="text-xs font-mono text-sky-400 tracking-wider uppercase">Domain</span>
+                    <h3 id="modal-title" class="text-2xl font-bold font-heading text-white">Service Title</h3>
+                </div>
+            </div>
+
+            <p id="modal-desc" class="text-slate-300 text-sm leading-relaxed"></p>
+
+            <div class="space-y-2">
+                <h4 class="text-xs font-mono uppercase text-slate-400 tracking-wider">Key Capabilities Included:</h4>
+                <ul id="modal-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></ul>
+            </div>
+
+            <div class="space-y-2 pt-2 border-t border-slate-800">
+                <h4 class="text-xs font-mono uppercase text-slate-400 tracking-wider">Standard Deliverables:</h4>
+                <div id="modal-deliverables" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex justify-end gap-3">
+                <button onclick="closeServiceModal()" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-400 hover:text-white bg-slate-900 border border-slate-800">
+                    Close
+                </button>
+                <button id="modal-cta-btn" class="btn-shimmer px-5 py-2 rounded-xl text-sm font-heading font-semibold text-white bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 transition-colors">
+                    Inquire For This Service
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-slate-900 text-white px-5 py-3.5 rounded-xl border border-sky-500 shadow-2xl text-sm font-medium flex items-center gap-3">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+        <span class="toast-text">Requirement received! Opening WhatsApp...</span>
+    </div>
+
+    <!-- Floating WhatsApp CTA button -->
+    <a href="https://wa.me/919801506511?text=Hello%20TechNxt%2C%20I%20am%20visiting%20your%20website%20and%20want%20to%20discuss%20a%20project." target="_blank" class="fixed bottom-6 left-6 z-40 p-3.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-2xl shadow-emerald-500/40 hover:scale-110 transition-transform flex items-center justify-center group" title="Chat on WhatsApp">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out px-0 group-hover:px-2 text-xs font-semibold">Chat with Us</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="assets/images/favicon.png" alt="TechNxt" class="w-8 h-8 rounded-lg object-contain">
+                        <span class="text-2xl font-bold font-heading text-white">Tech<span class="gradient-cyan">Nxt</span></span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Empowering Businesses Through Technology & AI. We design, engineer, deploy and maintain high-performance digital platforms.
+                    </p>
+                    <div class="text-xs text-slate-500 font-mono">
+                        HQ: 505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001
+                    </div>
+                </div>
+
+                <!-- Core Services Links -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold font-heading text-white uppercase tracking-wider">Core Services</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#services" class="hover:text-sky-400 transition-colors">Website Development</a></li>
+                        <li><a href="#services" class="hover:text-sky-400 transition-colors">Website Maintenance</a></li>
+                        <li><a href="#services" class="hover:text-sky-400 transition-colors">Cloud Solutions & AWS</a></li>
+                        <li><a href="#services" class="hover:text-sky-400 transition-colors">Web Portal Development</a></li>
+                        <li><a href="#services" class="hover:text-sky-400 transition-colors">AI Integration & Automation</a></li>
+                        <li><a href="#services" class="hover:text-sky-400 transition-colors">Digital Marketing & SEO</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Navigation -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-sm font-bold font-heading text-white uppercase tracking-wider">Navigation</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#about" class="hover:text-sky-400 transition-colors">About Us</a></li>
+                        <li><a href="#process" class="hover:text-sky-400 transition-colors">Work Process</a></li>
+                        <li><a href="#why-us" class="hover:text-sky-400 transition-colors">Why Choose Us</a></li>
+                        <li><a href="#sectors" class="hover:text-sky-400 transition-colors">Industries</a></li>
+                        <li></li>
+                        <li><a href="#faq" class="hover:text-sky-400 transition-colors">FAQ</a></li>
+                        <li><a href="#contact" class="hover:text-sky-400 transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Direct Connect -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold font-heading text-white uppercase tracking-wider">Direct Connect</h4>
+                    <div class="space-y-2 text-sm text-slate-400">
+                        <div>
+                            <span class="text-xs text-slate-500 block">Phone Support:</span>
+                            <a href="tel:+919801506511" class="text-white hover:text-sky-400 font-semibold">+91 9801506511</a>
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-500 block">Official Email:</span>
+                            <a href="mailto:india.futurenxt@gmail.com" class="text-white hover:text-sky-400">india.futurenxt@gmail.com</a>
+                        </div>
+                        <div class="pt-2">
+                            
+                        <button onclick="openCallModal()" class="px-5 py-3.5 rounded-xl font-heading font-semibold text-sm bg-gradient-to-r from-blue-600/30 to-sky-600/30 hover:from-blue-600/50 hover:to-sky-600/50 text-sky-300 border border-sky-500/40 transition-all flex items-center gap-2">
+                            <i data-lucide="calendar-check" class="w-4 h-4 text-brand-cyan"></i>
+                            <span>Book 15-Min Call</span>
+                        </button>
+
+                        <a href="assets/TechNxt_Company_Profile.pdf" download class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs text-sky-400 border border-slate-700">
+                                <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Download Profile PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© 2026 TechNxt. All Rights Reserved. Empowering Businesses Through Technology & AI.</p>
+                <p class="font-mono">505, Mahabir Tower, Main Road, Ranchi, Jharkhand</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- Instant Strategy Call Booking Modal -->
+    <div id="call-modal" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="spotlight-card max-w-lg w-full rounded-2xl border border-sky-500/40 p-6 sm:p-8 bg-slate-950 relative space-y-6">
+            <button id="call-modal-close" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-900 border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center">
+                    <i data-lucide="calendar" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-mono text-sky-400 tracking-wider uppercase">Direct Engineering Consultation</span>
+                    <h3 class="text-xl font-bold font-heading text-white">Book 15-Min Strategy Call</h3>
+                </div>
+            </div>
+
+            <p class="text-slate-300 text-xs leading-relaxed">
+                Choose your preferred date and time slot. Our technical team will connect with you to review your project scope and architecture.
+            </p>
+
+            <form id="call-booking-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] font-mono text-slate-300 uppercase mb-1">Your Name *</label>
+                        <input type="text" id="call-name" required placeholder="e.g. Amit Kumar" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-sky-400">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-mono text-slate-300 uppercase mb-1">Phone Number *</label>
+                        <input type="tel" id="call-phone" required placeholder="e.g. +91 9876543210" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-sky-400">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] font-mono text-slate-300 uppercase mb-1">Preferred Date *</label>
+                        <input type="date" id="call-date" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-sky-400">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-mono text-slate-300 uppercase mb-1">Time Slot *</label>
+                        <select id="call-slot" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-sky-400">
+                            <option value="Morning (10:00 AM - 12:00 PM)">Morning (10:00 AM - 12:00 PM)</option>
+                            <option value="Afternoon (02:00 PM - 05:00 PM)">Afternoon (02:00 PM - 05:00 PM)</option>
+                            <option value="Evening (05:00 PM - 07:00 PM)">Evening (05:00 PM - 07:00 PM)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-mono text-slate-300 uppercase mb-1">Project Domain</label>
+                    <select id="call-topic" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-sky-400">
+                        <option value="Custom Website Development">Custom Website Development</option>
+                        <option value="Web Portal / LMS / ERP">Web Portal / LMS / ERP</option>
+                        <option value="AI Integration & Automation">AI Integration & Automation</option>
+                        <option value="AWS Cloud Architecture & Migration">AWS Cloud Architecture & Migration</option>
+                        <option value="Website Maintenance & Management">Website Maintenance & Management</option>
+                        <option value="Digital Marketing Strategy">Digital Marketing Strategy</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-shimmer w-full py-3 rounded-xl font-heading font-semibold text-sm bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-xl shadow-emerald-600/20 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                    <span>Confirm Call via WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Back to Top Floating Button -->
+    <button id="back-to-top" class="hide fixed bottom-6 right-6 z-40 p-3 rounded-full bg-slate-900/90 hover:bg-slate-800 text-sky-400 hover:text-white border border-slate-700 hover:border-sky-400 shadow-2xl transition-all" title="Back to Top">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Main JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
