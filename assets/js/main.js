@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.vx = (Math.random() - 0.5) * 0.8;
                 this.vy = (Math.random() - 0.5) * 0.8;
                 this.radius = Math.random() * 2 + 1;
-                this.color = Math.random() > 0.4 ? '#00f0ff' : '#818cf8';
+                this.color = Math.random() > 0.35 ? '#D94B26' : '#171717';
             }
             update() {
                 this.x += this.vx;
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.18 * (1 - dist / 110)})`;
+                        ctx.strokeStyle = `rgba(23, 23, 23, ${0.07 * (1 - dist / 110)})`;
                         ctx.lineWidth = 0.8;
                         ctx.stroke();
                     }
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(heroMouseX, heroMouseY);
-                        ctx.strokeStyle = `rgba(99, 102, 241, ${0.35 * (1 - mdist / 140)})`;
+                        ctx.strokeStyle = `rgba(217, 75, 38, ${0.35 * (1 - mdist / 140)})`;
                         ctx.lineWidth = 1.2;
                         ctx.stroke();
                     }
@@ -160,11 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => {
-                b.classList.remove('bg-sky-500', 'text-white', 'border-sky-400');
-                b.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-800');
+                b.classList.remove('bg-[#D94B26]', 'text-white', 'border-[#D94B26]');
+                b.classList.add('bg-[#262626]', 'text-[#F2EBDD]/70', 'border-white/10');
             });
-            btn.classList.add('bg-sky-500', 'text-white', 'border-sky-400');
-            btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-800');
+            btn.classList.add('bg-[#D94B26]', 'text-white', 'border-[#D94B26]');
+            btn.classList.remove('bg-[#262626]', 'text-[#F2EBDD]/70', 'border-white/10');
 
             const category = btn.getAttribute('data-filter');
             serviceCards.forEach(card => {
@@ -299,14 +299,14 @@ document.addEventListener('DOMContentLoaded', () => {
         modalIcon.src = data.icon;
 
         modalFeatures.innerHTML = data.features.map(f => `
-            <li class="flex items-start space-x-2 text-slate-300 text-sm">
-                <span class="text-sky-400 font-bold">✔</span>
+            <li class="flex items-start space-x-2 text-luxury-cream text-sm">
+                <span class="text-[#D94B26] font-bold">✔</span>
                 <span>${f}</span>
             </li>
         `).join('');
 
         modalDeliverables.innerHTML = data.deliverables.map(d => `
-            <span class="px-2.5 py-1 text-xs rounded-full bg-sky-950/70 text-sky-300 border border-sky-800/60 font-medium">
+            <span class="px-2.5 py-1 text-xs rounded-full bg-[#D94B26]/10 text-[#D94B26] border border-[#D94B26]/30 font-medium">
                 ${d}
             </span>
         `).join('');
@@ -611,13 +611,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.runTerminalScript = function(scriptKey) {
         if (!terminalLogs) return;
         termBtns.forEach(b => {
-            b.classList.remove('text-brand-cyan', 'border-sky-500/50', 'bg-sky-500/10');
-            b.classList.add('text-slate-400', 'border-slate-800');
+            b.classList.remove('text-luxury-orange', 'border-luxury-orange/40', 'bg-luxury-orange/10');
+            b.classList.add('text-luxury-cream/60', 'border-luxury-cream/15');
         });
         const activeBtn = document.getElementById(`term-btn-${scriptKey}`);
         if (activeBtn) {
-            activeBtn.classList.add('text-brand-cyan', 'border-sky-500/50', 'bg-sky-500/10');
-            activeBtn.classList.remove('text-slate-400', 'border-slate-800');
+            activeBtn.classList.add('text-luxury-orange', 'border-luxury-orange/40', 'bg-luxury-orange/10');
+            activeBtn.classList.remove('text-luxury-cream/60', 'border-luxury-cream/15');
         }
 
         const lines = terminalScripts[scriptKey] || terminalScripts['deploy'];
@@ -628,13 +628,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (i < lines.length) {
                 const p = document.createElement('p');
                 if (i === 0) {
-                    p.className = 'text-slate-300 font-bold';
-                    p.innerHTML = `<span class="text-emerald-400">user@technxt</span>:~$ <span class="text-sky-300">${lines[i].split('~$ ')[1]}</span>`;
+                    p.className = 'text-luxury-cream font-bold';
+                    p.innerHTML = `<span class="text-emerald-400">user@technxt</span>:~$ <span class="text-luxury-orange">${lines[i].split('~$ ')[1]}</span>`;
                 } else if (i === lines.length - 1) {
                     p.className = 'text-emerald-400 font-semibold pt-1';
                     p.textContent = lines[i];
                 } else {
-                    p.className = 'text-slate-400';
+                    p.className = 'text-luxury-cream/60';
                     p.textContent = lines[i];
                 }
                 terminalLogs.appendChild(p);
@@ -669,9 +669,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const div = document.createElement('div');
         div.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'} chat-bubble mb-3`;
         div.innerHTML = sender === 'user' 
-            ? `<div class="max-w-[80%] rounded-2xl px-4 py-2 text-xs bg-sky-600 text-white rounded-tr-none">${text}</div>`
-            : `<div class="max-w-[85%] rounded-2xl px-4 py-2.5 text-xs bg-slate-900 border border-slate-800 text-slate-200 rounded-tl-none flex items-start gap-2">
-                 <span class="w-2 h-2 rounded-full bg-brand-cyan mt-1 shrink-0"></span>
+            ? `<div class="max-w-[80%] rounded-2xl px-4 py-2 text-xs bg-[#D94B26] text-white rounded-tr-none shadow-sm">${text}</div>`
+            : `<div class="max-w-[85%] rounded-2xl px-4 py-2.5 text-xs bg-[#FAF7F2] border border-[#171717]/10 text-[#171717] rounded-tl-none shadow-sm flex items-start gap-2">
+                 <span class="w-2 h-2 rounded-full bg-[#D94B26] mt-1 shrink-0"></span>
                  <span>${text}</span>
                </div>`;
         aiChatBox.appendChild(div);
@@ -691,9 +691,25 @@ document.addEventListener('DOMContentLoaded', () => {
             reply = aiKnowledge['cloud'];
         }
 
+        // Show Luxury AI Typing Indicator
+        const typingId = 'ai-typing-' + Date.now();
+        const typingDiv = document.createElement('div');
+        typingDiv.id = typingId;
+        typingDiv.className = 'flex justify-start chat-bubble mb-3';
+        typingDiv.innerHTML = `<div class="rounded-2xl px-4 py-2.5 bg-[#FAF7F2] border border-[#171717]/10 text-xs flex items-center gap-2 shadow-sm">
+            <span class="text-luxury-black/60 font-mono text-[11px]">AI thinking</span>
+            <span class="typing-dots"><span></span><span></span><span></span></span>
+        </div>`;
+        if (aiChatBox) {
+            aiChatBox.appendChild(typingDiv);
+            aiChatBox.scrollTop = aiChatBox.scrollHeight;
+        }
+
         setTimeout(() => {
+            const el = document.getElementById(typingId);
+            if (el) el.remove();
             addChatMessage(reply, 'ai');
-        }, 500);
+        }, 600);
     }
 
     if (aiSendBtn && aiInput) {
@@ -710,6 +726,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 aiSendBtn.click();
             }
         });
+    }
+
+
+    // 18. Luxury Smooth Scroll Reveal Animations
+    const reveals = document.querySelectorAll('.reveal-init');
+    if (reveals.length > 0 && 'IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        reveals.forEach(el => revealObserver.observe(el));
     }
 
 });
