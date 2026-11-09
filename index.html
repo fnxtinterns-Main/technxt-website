@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechNxtAi — Autonomous AI Intelligence & Enterprise Architecture</title>
     <meta name="description" content="TechNxtAi delivers comprehensive IT engineering — from bespoke web applications and enterprise portals to AWS cloud architecture, automated AI workflows, and digital growth.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23020406'/><path d='M6 8h20v5h-7v12h-6V13H6z' fill='%2300FF87'/><circle cx='24' cy='9' r='2.5' fill='%23FFD166'/></svg>">
+    <!-- Official High-Resolution Favicons for Googlebot & Modern Browsers -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 
     <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1448,8 +1452,36 @@
     <!-- ===================================================================
          12. EXECUTIVE FOOTER
          =================================================================== -->
-    <footer class="py-12 border-t border-slate-800 bg-obsidian-base relative z-10 text-xs font-mono">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer class="pt-12 pb-14 border-t border-slate-800 bg-obsidian-base relative z-10 text-xs font-mono space-y-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 space-y-10">
+            
+            <!-- POWERED BY Partners Section (Exact match to requested badge) -->
+            <div class="pb-8 border-b border-slate-800/80 flex flex-col items-center justify-center text-center space-y-3.5">
+                <span class="text-[11px] font-mono uppercase tracking-[0.22em] text-[#9E8A78] font-bold">
+                    POWERED BY
+                </span>
+
+                <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                    <!-- Pill 1: Agents Of Change -->
+                    <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#0D0B08]/90 border border-[#4A3828] hover:border-champagne-gold/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all">
+                        <img src="assets/images/logo_agents_of_change.png" alt="Agents Of Change" class="w-7 h-7 rounded-full object-cover border border-[#4A3828]">
+                        <span class="font-heading font-bold text-sm sm:text-base text-[#E2C792] tracking-wide">Agents Of Change</span>
+                    </div>
+
+                    <!-- Separator & -->
+                    <span class="text-[#8C7A6B] font-heading text-lg font-light px-1">&amp;</span>
+
+                    <!-- Pill 2: FutureNXT -->
+                    <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#0D0B08]/90 border border-[#4A3828] hover:border-champagne-gold/60 shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-all">
+                        <div class="bg-white px-2 py-0.5 rounded-md flex items-center justify-center shadow-sm">
+                            <img src="assets/images/logo_futurenxt.png" alt="FutureNXT" class="h-5 w-auto object-contain">
+                        </div>
+                        <span class="font-heading font-bold text-sm sm:text-base text-[#E2C792] tracking-wide">FutureNXT</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
             
             <div class="flex items-center gap-3">
                 <span class="text-white font-bold font-heading text-lg">TechNxt<span class="text-champagne-gold">Ai</span></span>
@@ -1471,6 +1503,7 @@
                 <span>VERIFIED ENTERPRISE PARTNER</span>
             </div>
 
+            </div>
         </div>
     </footer>
 
