@@ -36,7 +36,7 @@
 })();
 
 
-        lucide.createIcons();
+        if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
 
         // -------------------------------------------------------------
         // Custom Laser Cursor
@@ -90,156 +90,177 @@
             });
         });
 
-        // -------------------------------------------------------------
+                // -------------------------------------------------------------
         // Three.js 3D Quantum Core Engine (Zero Blue Policy)
         // -------------------------------------------------------------
-        const canvas = document.getElementById('webgl-canvas');
-        const scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2(0x020406, 0.045);
-
-        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
-        camera.position.set(0, 0, 11);
-
-        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true, powerPreference: "high-performance" });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-        const quantumGroup = new THREE.Group();
-        scene.add(quantumGroup);
-
-        // Geodesic Wireframe
-        const outerGeo = new THREE.IcosahedronGeometry(2.35, 2);
-        const outerMat = new THREE.MeshBasicMaterial({ color: 0x00FF87, wireframe: true, transparent: true, opacity: 0.35 });
-        const outerMesh = new THREE.Mesh(outerGeo, outerMat);
-        quantumGroup.add(outerMesh);
-
-        // Faceted Core
-        const innerGeo = new THREE.DodecahedronGeometry(1.35, 0);
-        const innerMat = new THREE.MeshStandardMaterial({ color: 0xFFD166, roughness: 0.15, metalness: 0.85, flatShading: true });
-        const innerCore = new THREE.Mesh(innerGeo, innerMat);
-        quantumGroup.add(innerCore);
-
-        // Singularity Sphere
-        const singularityGeo = new THREE.SphereGeometry(0.4, 32, 32);
-        const singularityMat = new THREE.MeshBasicMaterial({ color: 0x00FF87 });
-        const singularity = new THREE.Mesh(singularityGeo, singularityMat);
-        quantumGroup.add(singularity);
-
-        // Gyro Rings
-        const torusMat1 = new THREE.MeshBasicMaterial({ color: 0x00FF87, wireframe: true });
-        const torusMat2 = new THREE.MeshBasicMaterial({ color: 0xFFD166, wireframe: true });
-        const torusMat3 = new THREE.MeshBasicMaterial({ color: 0x00FF87, wireframe: true });
-
-        const gyroRing1 = new THREE.Mesh(new THREE.TorusGeometry(2.8, 0.02, 16, 100), torusMat1);
-        const gyroRing2 = new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.02, 16, 100), torusMat2);
-        const gyroRing3 = new THREE.Mesh(new THREE.TorusGeometry(3.6, 0.02, 16, 100), torusMat3);
-
-        gyroRing1.rotation.x = Math.PI / 4;
-        gyroRing2.rotation.y = Math.PI / 3;
-        gyroRing3.rotation.z = Math.PI / 6;
-
-        quantumGroup.add(gyroRing1);
-        quantumGroup.add(gyroRing2);
-        quantumGroup.add(gyroRing3);
-
-        // Vortex Particle Field
-        const particleCount = 1200;
-        const particleGeo = new THREE.BufferGeometry();
-        const positions = new Float32Array(particleCount * 3);
-        const colors = new Float32Array(particleCount * 3);
-
-        const colorEmerald = new THREE.Color(0x00FF87);
-        const colorGold = new THREE.Color(0xFFD166);
-
-        for (let i = 0; i < particleCount; i++) {
-            const radius = 2.5 + Math.random() * 6.0;
-            const theta = Math.random() * Math.PI * 2;
-            const phi = Math.acos((Math.random() * 2) - 1);
-
-            positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-            positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-            positions[i * 3 + 2] = radius * Math.cos(phi);
-
-            const pickedColor = (i % 2 === 0) ? colorEmerald : colorGold;
-            colors[i * 3] = pickedColor.r;
-            colors[i * 3 + 1] = pickedColor.g;
-            colors[i * 3 + 2] = pickedColor.b;
-        }
-
-        particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-        const particleMat = new THREE.PointsMaterial({
-            size: 0.05,
-            vertexColors: true,
-            transparent: true,
-            opacity: 0.8,
-            blending: THREE.AdditiveBlending
-        });
-
-        const particleSystem = new THREE.Points(particleGeo, particleMat);
-        scene.add(particleSystem);
-
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(0x111612, 1.2);
-        scene.add(ambientLight);
-
-        const keyGoldLight = new THREE.DirectionalLight(0xFFD166, 2.5);
-        keyGoldLight.position.set(5, 7, 5);
-        scene.add(keyGoldLight);
-
-        const emeraldPointLight = new THREE.PointLight(0x00FF87, 3, 20);
-        emeraldPointLight.position.set(0, 0, 0);
-        scene.add(emeraldPointLight);
-
-        function adjustCoreLayout() {
-            if (window.innerWidth < 1024) {
-                quantumGroup.position.set(0, 0.2, -1);
-                quantumGroup.scale.set(0.7, 0.7, 0.7);
-            } else {
-                // Lower y to -1.1 and scale to 0.85 so rotating rings never collide with or overlap the fixed navbar
-                quantumGroup.position.set(3.2, -1.1, 0);
-                quantumGroup.scale.set(0.85, 0.85, 0.85);
+        function initThreeScene() {
+            if (typeof THREE === 'undefined') {
+                setTimeout(initThreeScene, 60);
+                return;
             }
-        }
-        adjustCoreLayout();
 
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
+            const canvas = document.getElementById('webgl-canvas');
+            if (!canvas) return;
+
+            const scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x020406, 0.045);
+
+            const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+            camera.position.set(0, 0, 11);
+
+            let renderer;
+            try {
+                renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true, powerPreference: "default" });
+            } catch (e) {
+                try {
+                    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+                } catch (e2) {
+                    console.error("WebGL initialization error:", e2);
+                    return;
+                }
+            }
+
             renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            const quantumGroup = new THREE.Group();
+            scene.add(quantumGroup);
+
+            // Geodesic Wireframe
+            const outerGeo = new THREE.IcosahedronGeometry(2.35, 2);
+            const outerMat = new THREE.MeshBasicMaterial({ color: 0x00FF87, wireframe: true, transparent: true, opacity: 0.35 });
+            const outerMesh = new THREE.Mesh(outerGeo, outerMat);
+            quantumGroup.add(outerMesh);
+
+            // Faceted Core
+            const innerGeo = new THREE.DodecahedronGeometry(1.35, 0);
+            const innerMat = new THREE.MeshStandardMaterial({ color: 0xFFD166, roughness: 0.15, metalness: 0.85, flatShading: true });
+            const innerCore = new THREE.Mesh(innerGeo, innerMat);
+            quantumGroup.add(innerCore);
+
+            // Singularity Sphere
+            const singularityGeo = new THREE.SphereGeometry(0.4, 32, 32);
+            const singularityMat = new THREE.MeshBasicMaterial({ color: 0x00FF87 });
+            const singularity = new THREE.Mesh(singularityGeo, singularityMat);
+            quantumGroup.add(singularity);
+
+            // Gyro Rings
+            const torusMat1 = new THREE.MeshBasicMaterial({ color: 0x00FF87, wireframe: true });
+            const torusMat2 = new THREE.MeshBasicMaterial({ color: 0xFFD166, wireframe: true });
+            const torusMat3 = new THREE.MeshBasicMaterial({ color: 0x00FF87, wireframe: true });
+
+            const gyroRing1 = new THREE.Mesh(new THREE.TorusGeometry(2.8, 0.02, 16, 100), torusMat1);
+            const gyroRing2 = new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.02, 16, 100), torusMat2);
+            const gyroRing3 = new THREE.Mesh(new THREE.TorusGeometry(3.6, 0.02, 16, 100), torusMat3);
+
+            gyroRing1.rotation.x = Math.PI / 4;
+            gyroRing2.rotation.y = Math.PI / 3;
+            gyroRing3.rotation.z = Math.PI / 6;
+
+            quantumGroup.add(gyroRing1);
+            quantumGroup.add(gyroRing2);
+            quantumGroup.add(gyroRing3);
+
+            // Vortex Particle Field
+            const particleCount = 1200;
+            const particleGeo = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            const colorEmerald = new THREE.Color(0x00FF87);
+            const colorGold = new THREE.Color(0xFFD166);
+
+            for (let i = 0; i < particleCount; i++) {
+                const radius = 2.5 + Math.random() * 6.0;
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos((Math.random() * 2) - 1);
+
+                positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+                positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+                positions[i * 3 + 2] = radius * Math.cos(phi);
+
+                const pickedColor = (i % 2 === 0) ? colorEmerald : colorGold;
+                colors[i * 3] = pickedColor.r;
+                colors[i * 3 + 1] = pickedColor.g;
+                colors[i * 3 + 2] = pickedColor.b;
+            }
+
+            particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const particleMat = new THREE.PointsMaterial({
+                size: 0.05,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8,
+                blending: THREE.AdditiveBlending
+            });
+
+            const particleSystem = new THREE.Points(particleGeo, particleMat);
+            scene.add(particleSystem);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x111612, 1.2);
+            scene.add(ambientLight);
+
+            const keyGoldLight = new THREE.DirectionalLight(0xFFD166, 2.5);
+            keyGoldLight.position.set(5, 7, 5);
+            scene.add(keyGoldLight);
+
+            const emeraldPointLight = new THREE.PointLight(0x00FF87, 3, 20);
+            emeraldPointLight.position.set(0, 0, 0);
+            scene.add(emeraldPointLight);
+
+            function adjustCoreLayout() {
+                if (window.innerWidth < 1024) {
+                    quantumGroup.position.set(0, 0.2, -1);
+                    quantumGroup.scale.set(0.75, 0.75, 0.75);
+                } else {
+                    // Positioned in hero right zone, comfortably below top navbar
+                    quantumGroup.position.set(3.4, -0.6, 0);
+                    quantumGroup.scale.set(0.9, 0.9, 0.9);
+                }
+            }
             adjustCoreLayout();
-        });
 
-        let clock = new THREE.Clock();
-        function animate() {
-            requestAnimationFrame(animate);
-            const time = clock.getElapsedTime();
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                adjustCoreLayout();
+            });
 
-            outerMesh.rotation.x += 0.003;
-            outerMesh.rotation.y += 0.005;
+            let clock = new THREE.Clock();
+            function animate() {
+                requestAnimationFrame(animate);
+                const time = clock.getElapsedTime();
 
-            innerCore.rotation.x -= 0.008;
-            innerCore.rotation.y += 0.012;
+                outerMesh.rotation.x += 0.003;
+                outerMesh.rotation.y += 0.005;
 
-            gyroRing1.rotation.x += 0.015;
-            gyroRing2.rotation.y += 0.02;
-            gyroRing3.rotation.z += 0.018;
+                innerCore.rotation.x -= 0.008;
+                innerCore.rotation.y += 0.012;
 
-            const pulse = 1 + Math.sin(time * 3) * 0.15;
-            singularity.scale.set(pulse, pulse, pulse);
+                gyroRing1.rotation.x += 0.015;
+                gyroRing2.rotation.y += 0.02;
+                gyroRing3.rotation.z += 0.018;
 
-            particleSystem.rotation.y = time * 0.04;
+                const pulse = 1 + Math.sin(time * 3) * 0.15;
+                singularity.scale.set(pulse, pulse, pulse);
 
-            const targetX = (mouseX / window.innerWidth - 0.5) * 1.5;
-            const targetY = -(mouseY / window.innerHeight - 0.5) * 1.5;
-            camera.position.x += (targetX - camera.position.x) * 0.05;
-            camera.position.y += (targetY - camera.position.y) * 0.05;
-            camera.lookAt(0, 0, 0);
+                particleSystem.rotation.y = time * 0.04;
 
-            renderer.render(scene, camera);
+                const targetX = (mouseX / window.innerWidth - 0.5) * 1.5;
+                const targetY = -(mouseY / window.innerHeight - 0.5) * 1.5;
+                camera.position.x += (targetX - camera.position.x) * 0.05;
+                camera.position.y += (targetY - camera.position.y) * 0.05;
+                camera.lookAt(0, 0, 0);
+
+                renderer.render(scene, camera);
+            }
+            animate();
         }
-        animate();
+        initThreeScene();
 
         // -------------------------------------------------------------
         // Services Filter Logic
@@ -338,7 +359,7 @@
             dels.innerHTML = data.deliverables.map(d => `<span class="px-2.5 py-1 rounded bg-obsidian-void border border-slate-800 text-slate-300">${d}</span>`).join('');
 
             document.getElementById('service-modal').classList.remove('hidden');
-            if (window.lucide) lucide.createIcons();
+            if (window.lucide) if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
         };
 
         window.closeServiceModal = function() {
@@ -538,7 +559,7 @@
         // =====================================================================
         window.openTermsModal = function() {
             document.getElementById('terms-modal').classList.remove('hidden');
-            if (window.lucide) lucide.createIcons();
+            if (window.lucide) if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
         };
 
         window.closeTermsModal = function() {
@@ -547,7 +568,7 @@
 
         window.openRefundModal = function() {
             document.getElementById('refund-modal').classList.remove('hidden');
-            if (window.lucide) lucide.createIcons();
+            if (window.lucide) if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
         };
 
         window.closeRefundModal = function() {
@@ -556,7 +577,7 @@
 
         window.openSupportModal = function() {
             document.getElementById('support-modal').classList.remove('hidden');
-            if (window.lucide) lucide.createIcons();
+            if (window.lucide) if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
         };
 
         window.closeSupportModal = function() {
@@ -565,7 +586,7 @@
 
         window.openDpdpModal = function() {
             document.getElementById('dpdp-policy-modal').classList.remove('hidden');
-            if (window.lucide) lucide.createIcons();
+            if (window.lucide) if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
         };
 
         window.closeDpdpModal = function() {
@@ -574,7 +595,7 @@
 
         window.openDataRightsModal = function() {
             document.getElementById('dpdp-rights-modal').classList.remove('hidden');
-            if (window.lucide) lucide.createIcons();
+            if (window.lucide) if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
         };
 
         window.closeDataRightsModal = function() {
@@ -583,7 +604,7 @@
 
         window.openPreferencesModal = function() {
             document.getElementById('dpdp-pref-modal').classList.remove('hidden');
-            if (window.lucide) lucide.createIcons();
+            if (window.lucide) if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
         };
 
         window.closePreferencesModal = function() {
@@ -592,7 +613,7 @@
 
         window.openDpoModal = function() {
             document.getElementById('dpdp-dpo-modal').classList.remove('hidden');
-            if (window.lucide) lucide.createIcons();
+            if (window.lucide) if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
         };
 
         window.closeDpoModal = function() {

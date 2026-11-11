@@ -28,3 +28,10 @@ RewriteRule ^(.*?)/?$ $1/index.html [L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*?)/?$ $1.html [L]
+
+# Force revalidation of CSS and JS so users and Hostinger CDN always get latest version
+<IfModule mod_headers.c>
+    <FilesMatch "\.(js|css)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+</IfModule>
