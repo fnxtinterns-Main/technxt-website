@@ -1,3 +1,20 @@
+// ===================================================================
+// CLEAN URL ENGINE: Automatically strip .html from address bar
+// ===================================================================
+(function removeHtmlExtensionFromAddressBar() {
+    try {
+        if (window.history && window.history.replaceState && window.location.protocol.startsWith('http')) {
+            const loc = window.location;
+            const path = loc.pathname;
+            if (path.endsWith('.html')) {
+                let clean = path.replace(/\.html$/, '');
+                if (clean.endsWith('/index')) clean = clean.replace(/\/index$/, '') || '/';
+                window.history.replaceState(null, '', clean + loc.search + loc.hash);
+            }
+        }
+    } catch (e) {}
+})();
+
 
         lucide.createIcons();
 

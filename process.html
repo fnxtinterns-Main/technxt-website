@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>7-Stage Execution Methodology | TechNxtAi</title>
     <meta name="description" content="Learn about our structured 7-stage delivery protocol from architectural discovery to 24/7 post-launch SLA monitoring.">
-    <!-- Official High-Resolution Favicons -->
+    <!-- Official Favicons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 
-    <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -80,7 +81,7 @@
         <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-5 py-3.5 flex items-center justify-between border border-cyber-emerald/20 shadow-2xl">
             
             <!-- Bespoke TechNxtAi Brand Logo -->
-            <a href="index.html" class="flex items-center gap-3.5 group">
+            <a href="/" class="flex items-center gap-3.5 group">
                 <div class="relative w-11 h-11 flex items-center justify-center rounded-xl bg-obsidian-void border border-cyber-emerald/30 group-hover:border-cyber-emerald transition-all shadow-[0_0_20px_rgba(0,255,135,0.2)]">
                     <svg viewBox="0 0 100 100" class="w-8 h-8 filter drop-shadow-[0_0_8px_rgba(0,255,135,0.7)]">
                         <defs>
@@ -132,16 +133,36 @@
             </a>
 
             <!-- Clean Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-slate-300">
-                <a href="about.html" class="hover:text-cyber-emerald transition-colors">About</a>
-                <a href="services.html" class="hover:text-cyber-emerald transition-colors">Services</a>
-                <a href="projects.html" class="hover:text-cyber-emerald text-cyber-emerald/90 transition-colors flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span>Live Projects</a>
-                <a href="blueprints.html" class="hover:text-cyber-emerald transition-colors">Blueprints</a>
-                <a href="process.html" class="text-champagne-gold font-bold border-b-2 border-champagne-gold pb-0.5">Process</a>
-                <a href="why-us.html" class="hover:text-cyber-emerald transition-colors">Why Us</a>
-                <a href="sectors.html" class="hover:text-cyber-emerald transition-colors">Sectors</a>
-                <a href="faq.html" class="hover:text-cyber-emerald transition-colors">FAQ</a>
-                <a href="contact.html" class="hover:text-cyber-emerald transition-colors">Contact</a>
+            <nav class="hidden lg:flex items-center gap-3 text-xs font-mono uppercase tracking-wider text-slate-300">
+                <a href="about" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    About
+                </a>
+                <a href="services" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Services
+                </a>
+                <a href="projects" class="px-3 py-1.5 text-cyber-emerald/90 hover:text-white hover:bg-white/5 rounded-xl transition-all flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span>
+                    <span>Live Projects</span>
+                </a>
+                <a href="blueprints" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Blueprints
+                </a>
+                <a href="process" class="px-3.5 py-1.5 rounded-xl bg-cyber-emerald/15 border border-cyber-emerald text-cyber-emerald font-bold tracking-wider shadow-[0_0_15px_rgba(0,255,135,0.3)] flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyber-emerald animate-pulse"></span>
+                <span>PROCESS</span>
+            </a>
+                <a href="why-us" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Why Us
+                </a>
+                <a href="sectors" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Sectors
+                </a>
+                <a href="faq" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    FAQ
+                </a>
+                <a href="contact" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Contact
+                </a>
             </nav>
 
             <!-- Right CTA Button -->
@@ -157,19 +178,18 @@
 
 
     <main class="relative z-10 pt-28 pb-16">
-        <!-- Clean Centered Breadcrumb Pill -->
+        <!-- Prominent Active Section Indicator Badge -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-4 pb-2 text-center">
-            <div class="inline-flex items-center justify-center gap-2 text-xs font-mono text-slate-400 bg-obsidian-surface/90 border border-cyber-emerald/25 px-4 py-1.5 rounded-full shadow-lg">
-                <a href="index.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5">
-                    <i data-lucide="home" class="w-3.5 h-3.5 text-slate-400"></i>
-                    <span>HOME</span>
-                </a>
-                <span class="text-slate-600">/</span>
-                <span class="text-cyber-emerald font-bold tracking-wider uppercase">Process</span>
+            <div class="inline-flex items-center justify-center gap-2.5 text-xs font-mono bg-obsidian-surface/90 border border-cyber-emerald/40 px-5 py-2 rounded-full shadow-[0_0_20px_rgba(0,255,135,0.15)]">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-emerald opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-emerald"></span>
+                </span>
+                <span class="text-slate-400 font-medium">OPEN SECTION:</span>
+                <span class="text-cyber-emerald font-bold tracking-widest uppercase">7-STAGE PROCESS</span>
             </div>
         </div>
 
-        <!-- Dedicated Section Content (100% Centered Section Header) -->
         <section id="process" class="pt-4 pb-20 relative z-10  bg-obsidian-void/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
             
@@ -312,12 +332,12 @@
                         <span>Services &amp; Solutions</span>
                     </h4>
                     <ul class="space-y-2.5 text-xs text-slate-400">
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Website Development</span></a></li>
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Website Maintenance</span></a></li>
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Cloud &amp; Infrastructure</span></a></li>
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Enterprise Web Portals</span></a></li>
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>AI &amp; Automation Swarms</span></a></li>
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Digital Marketing &amp; SEO</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Website Development</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Website Maintenance</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Cloud &amp; Infrastructure</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Enterprise Web Portals</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>AI &amp; Automation Swarms</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Digital Marketing &amp; SEO</span></a></li>
                     </ul>
                 </div>
 
@@ -328,14 +348,14 @@
                         <span>Navigation</span>
                     </h4>
                     <ul class="space-y-2.5 text-xs text-slate-400">
-                        <li><a href="about.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>About Us</span></a></li>
-                        <li><a href="projects.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Live Client Projects</span></a></li>
-                        <li><a href="blueprints.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Blueprints</span></a></li>
-                        <li><a href="process.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>7-Stage Process</span></a></li>
-                        <li><a href="why-us.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Why Choose Us</span></a></li>
-                        <li><a href="sectors.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Sectors</span></a></li>
-                        <li><a href="faq.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>FAQ</span></a></li>
-                        <li><a href="contact.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Contact &amp; Support</span></a></li>
+                        <li><a href="about" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>About Us</span></a></li>
+                        <li><a href="projects" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Live Client Projects</span></a></li>
+                        <li><a href="blueprints" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Blueprints</span></a></li>
+                        <li><a href="process" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>7-Stage Process</span></a></li>
+                        <li><a href="why-us" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Why Choose Us</span></a></li>
+                        <li><a href="sectors" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Sectors</span></a></li>
+                        <li><a href="faq" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>FAQ</span></a></li>
+                        <li><a href="contact" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Contact &amp; Support</span></a></li>
                     </ul>
                 </div>
 
@@ -346,9 +366,9 @@
                         <span>Legal &amp; Governance</span>
                     </h4>
                     <ul class="space-y-2.5 text-xs text-slate-400">
-                        <li><a href="terms.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="file-check" class="w-3.5 h-3.5 text-champagne-gold/70"></i><span>Terms &amp; Conditions</span></a></li>
-                        <li><a href="refund.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-champagne-gold/70"></i><span>Refund &amp; Cancellation</span></a></li>
-                        <li><a href="privacy.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyber-emerald/70"></i><span>DPDP Act 2026 Policy</span></a></li>
+                        <li><a href="terms" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="file-check" class="w-3.5 h-3.5 text-champagne-gold/70"></i><span>Terms &amp; Conditions</span></a></li>
+                        <li><a href="refund" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-champagne-gold/70"></i><span>Refund &amp; Cancellation</span></a></li>
+                        <li><a href="privacy" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyber-emerald/70"></i><span>DPDP Act 2026 Policy</span></a></li>
                         <li><button onclick="openDataRightsModal()" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5 text-left font-semibold text-cyber-emerald"><i data-lucide="user-check" class="w-3.5 h-3.5 text-cyber-emerald"></i><span>Exercise Data Rights</span></button></li>
                         <li><button onclick="openPreferencesModal()" class="hover:text-slate-300 transition-colors flex items-center gap-1.5 text-left"><i data-lucide="cookie" class="w-3.5 h-3.5 text-slate-500"></i><span>Cookies Settings</span></button></li>
                         <li><button onclick="openDpoModal()" class="hover:text-slate-300 transition-colors flex items-center gap-1.5 text-left text-slate-400"><i data-lucide="briefcase" class="w-3.5 h-3.5 text-slate-500"></i><span>Data Protection Officer</span></button></li>

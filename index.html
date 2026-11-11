@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechNxtAi — Autonomous AI Intelligence & Enterprise Architecture</title>
-    <meta name="description" content="TechNxtAi delivers comprehensive IT engineering — from bespoke web applications and enterprise portals to AWS cloud architecture, automated AI workflows, and digital growth.">
-    <!-- Official High-Resolution Favicons for Googlebot & Modern Browsers -->
+    <title>TechNxtAi — Autonomous AI & Enterprise Architecture</title>
+    <meta name="description" content="TechNxtAi delivers next-generation AI agents, bespoke web engineering, and enterprise cloud architecture.">
+    <!-- Official Favicons -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
 
-    <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -60,198 +61,7 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        /* ===================================================================
-           STRICT ZERO-BLUE POLICY STYLES
-           Deep Obsidian Velvet, Cyber Emerald, Champagne Gold
-           =================================================================== */
-        :root {
-            --bg-void: #020406;
-            --bg-obsidian: #05080C;
-            --emerald-neon: #00FF87;
-            --emerald-mint: #05DF72;
-            --gold-champagne: #FFD166;
-            --gold-amber: #F59E0B;
-            --titanium: #E2C792;
-            --text-offwhite: #F8FAFC;
-            --text-muted: #94A3B8;
-        }
-
-        * {
-            box-sizing: border-box;
-            cursor: none !important; /* Managed by custom laser cursor */
-        }
-
-        body {
-            background-color: var(--bg-void);
-            color: var(--text-offwhite);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3, h4, .font-heading {
-            font-family: 'Space Grotesk', sans-serif;
-            letter-spacing: -0.025em;
-        }
-
-        /* Fullscreen WebGL canvas */
-        #webgl-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-            pointer-events: none;
-            will-change: transform;
-        }
-
-        /* Glassmorphism Matrix Acrylic */
-        .glass-panel {
-            background: rgba(8, 12, 18, 0.78);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 135, 0.15);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        }
-
-        .glass-panel-gold {
-            background: rgba(12, 14, 18, 0.78);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 209, 102, 0.22);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 209, 102, 0.1);
-        }
-
-        /* Metallic Gold Gradient Text */
-        .text-gradient-gold {
-            background: linear-gradient(135deg, #FFF1CC 0%, #FFD166 45%, #D4973B 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Emerald Neon Gradient Text */
-        .text-gradient-emerald {
-            background: linear-gradient(135deg, #FFFFFF 0%, #00FF87 55%, #05DF72 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Dual Gold-Emerald Brand Gradient */
-        .text-gradient-brand {
-            background: linear-gradient(90deg, #FFFFFF 0%, #FFD166 40%, #00FF87 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Custom Laser Cursor */
-        #laser-cursor-dot {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 8px;
-            height: 8px;
-            background-color: var(--emerald-neon);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 12px var(--emerald-neon), 0 0 24px var(--emerald-neon);
-            transition: opacity 0.2s ease;
-        }
-
-        #laser-cursor-ring {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 36px;
-            height: 36px;
-            border: 1.5px solid var(--gold-champagne);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: width 0.25s ease-out, height 0.25s ease-out, border-color 0.25s ease-out, background-color 0.25s ease-out;
-            box-shadow: 0 0 15px rgba(255, 209, 102, 0.25);
-        }
-
-        .cursor-active #laser-cursor-ring {
-            width: 58px;
-            height: 58px;
-            border-color: var(--emerald-neon);
-            background-color: rgba(0, 255, 135, 0.08);
-            box-shadow: 0 0 25px rgba(0, 255, 135, 0.4);
-        }
-
-        /* Dot Matrix Texture Overlay */
-        .dot-matrix-bg {
-            background-image: radial-gradient(rgba(0, 255, 135, 0.08) 1px, transparent 1px);
-            background-size: 28px 28px;
-        }
-
-        /* Button Glow & Shimmer */
-        .btn-emerald-glow {
-            background: linear-gradient(135deg, #00FF87 0%, #05DF72 100%);
-            color: #020406;
-            font-weight: 700;
-            box-shadow: 0 0 30px rgba(0, 255, 135, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .btn-emerald-glow:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 0 45px rgba(0, 255, 135, 0.65), 0 8px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        .btn-gold-glow {
-            background: linear-gradient(135deg, #FFD166 0%, #F59E0B 100%);
-            color: #020406;
-            font-weight: 700;
-            box-shadow: 0 0 30px rgba(255, 209, 102, 0.35);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .btn-gold-glow:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 0 45px rgba(255, 209, 102, 0.6), 0 8px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        /* 3D Tilt Card Container */
-        .perspective-1000 {
-            perspective: 1000px;
-        }
-        
-        .tilt-card {
-            transform-style: preserve-3d;
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-        }
-
-        /* Custom Scrollbar (Zero Blue) */
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #020406;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #111A15;
-            border: 1px solid rgba(0, 255, 135, 0.25);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00FF87;
-        }
-
-        /* Chat bubble animation */
-        .chat-bubble {
-            animation: chat-fade 0.3s ease-out;
-        }
-        @keyframes chat-fade {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <!-- Master Cyber-Luxury Stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="bg-obsidian-base text-slate-100 antialiased selection:bg-cyber-emerald selection:text-black">
@@ -260,45 +70,42 @@
     <div id="laser-cursor-dot"></div>
     <div id="laser-cursor-ring"></div>
 
-    <!-- WebGL Background Viewport Canvas -->
+    <!-- WebGL Background Viewport Canvas (Runs on EVERY page) -->
     <canvas id="webgl-canvas"></canvas>
 
     <!-- Ambient Subtle Grain Texture Overlay -->
-    <div class="fixed inset-0 pointer-events-none z-[1] dot-matrix-bg opacity-30"></div>
+    <div class="fixed inset-0 pointer-events-none dot-matrix-bg opacity-30 z-0"></div>
 
-    <!-- ===================================================================
-         1. FLOATING GLASS NAVBAR (Clean links, No '//', No 'SLA 99.9%')
-         =================================================================== -->
-        <!-- Floating Navigation Bar -->
+    <!-- Floating Navigation Bar -->
     <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-10 py-4 transition-all duration-300">
         <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-5 py-3.5 flex items-center justify-between border border-cyber-emerald/20 shadow-2xl">
             
             <!-- Bespoke TechNxtAi Brand Logo -->
-            <a href="index.html" class="flex items-center gap-3.5 group">
+            <a href="/" class="flex items-center gap-3.5 group">
                 <div class="relative w-11 h-11 flex items-center justify-center rounded-xl bg-obsidian-void border border-cyber-emerald/30 group-hover:border-cyber-emerald transition-all shadow-[0_0_20px_rgba(0,255,135,0.2)]">
                     <svg viewBox="0 0 100 100" class="w-8 h-8 filter drop-shadow-[0_0_8px_rgba(0,255,135,0.7)]">
                         <defs>
-                            <linearGradient id="goldFacetGrad_home" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <linearGradient id="goldFacetGrad_about" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#FFF5D6"/>
                                 <stop offset="60%" stop-color="#FFD166"/>
                                 <stop offset="100%" stop-color="#C98A2C"/>
                             </linearGradient>
-                            <linearGradient id="emeraldFacetGrad_home" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <linearGradient id="emeraldFacetGrad_about" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#7BFFB9"/>
                                 <stop offset="50%" stop-color="#00FF87"/>
                                 <stop offset="100%" stop-color="#028A46"/>
                             </linearGradient>
-                            <linearGradient id="orbitalSwooshGrad_home" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <linearGradient id="orbitalSwooshGrad_about" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stop-color="#FFD166" stop-opacity="0.1"/>
                                 <stop offset="50%" stop-color="#00FF87" stop-opacity="0.9"/>
                                 <stop offset="100%" stop-color="#FFD166" stop-opacity="1"/>
                             </linearGradient>
                         </defs>
-                        <path d="M 12,68 C 10,35 60,10 88,32 C 95,38 90,52 75,58 C 45,70 20,78 12,68 Z" fill="none" stroke="url(#orbitalSwooshGrad_home)" stroke-width="3" stroke-linecap="round"/>
-                        <polygon points="18,22 50,22 45,38 14,38" fill="url(#goldFacetGrad_home)"/>
-                        <polygon points="50,22 84,22 88,38 45,38" fill="url(#emeraldFacetGrad_home)"/>
-                        <polygon points="45,38 52,38 44,82 36,82" fill="url(#goldFacetGrad_home)"/>
-                        <polygon points="52,38 64,38 52,82 44,82" fill="url(#emeraldFacetGrad_home)"/>
+                        <path d="M 12,68 C 10,35 60,10 88,32 C 95,38 90,52 75,58 C 45,70 20,78 12,68 Z" fill="none" stroke="url(#orbitalSwooshGrad_about)" stroke-width="3" stroke-linecap="round"/>
+                        <polygon points="18,22 50,22 45,38 14,38" fill="url(#goldFacetGrad_about)"/>
+                        <polygon points="50,22 84,22 88,38 45,38" fill="url(#emeraldFacetGrad_about)"/>
+                        <polygon points="45,38 52,38 44,82 36,82" fill="url(#goldFacetGrad_about)"/>
+                        <polygon points="52,38 64,38 52,82 44,82" fill="url(#emeraldFacetGrad_about)"/>
                         <circle cx="88" cy="32" r="3" fill="#FFD166" class="animate-pulse"/>
                     </svg>
                 </div>
@@ -326,16 +133,36 @@
             </a>
 
             <!-- Clean Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-slate-300">
-                <a href="about.html" class="hover:text-cyber-emerald transition-colors">About</a>
-                <a href="services.html" class="hover:text-cyber-emerald transition-colors">Services</a>
-                <a href="projects.html" class="hover:text-cyber-emerald text-cyber-emerald/90 transition-colors flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span>Live Projects</a>
-                <a href="blueprints.html" class="hover:text-cyber-emerald transition-colors">Blueprints</a>
-                <a href="process.html" class="hover:text-cyber-emerald transition-colors">Process</a>
-                <a href="why-us.html" class="hover:text-cyber-emerald transition-colors">Why Us</a>
-                <a href="sectors.html" class="hover:text-cyber-emerald transition-colors">Sectors</a>
-                <a href="faq.html" class="hover:text-cyber-emerald transition-colors">FAQ</a>
-                <a href="contact.html" class="hover:text-cyber-emerald transition-colors">Contact</a>
+            <nav class="hidden lg:flex items-center gap-3 text-xs font-mono uppercase tracking-wider text-slate-300">
+                <a href="about" class="px-3.5 py-1.5 rounded-xl bg-cyber-emerald/15 border border-cyber-emerald text-cyber-emerald font-bold tracking-wider shadow-[0_0_15px_rgba(0,255,135,0.3)] flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyber-emerald animate-pulse"></span>
+                <span>ABOUT</span>
+            </a>
+                <a href="services" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Services
+                </a>
+                <a href="projects" class="px-3 py-1.5 text-cyber-emerald/90 hover:text-white hover:bg-white/5 rounded-xl transition-all flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span>
+                    <span>Live Projects</span>
+                </a>
+                <a href="blueprints" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Blueprints
+                </a>
+                <a href="process" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Process
+                </a>
+                <a href="why-us" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Why Us
+                </a>
+                <a href="sectors" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Sectors
+                </a>
+                <a href="faq" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    FAQ
+                </a>
+                <a href="contact" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-white/5 rounded-xl transition-all">
+                    Contact
+                </a>
             </nav>
 
             <!-- Right CTA Button -->
@@ -350,10 +177,21 @@
     </header>
 
 
-    <!-- ===================================================================
-         2. HERO SECTION (NO LOGO CARD ON RIGHT — 3D CORE SPOTLIGHT)
-         =================================================================== -->
-    <section class="relative min-h-screen pt-36 pb-24 flex items-center z-10">
+    <main class="relative z-10 pt-28">
+        <!-- Prominent Active Section Indicator Badge -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-4 pb-2 text-center">
+            <div class="inline-flex items-center justify-center gap-2.5 text-xs font-mono bg-obsidian-surface/90 border border-cyber-emerald/40 px-5 py-2 rounded-full shadow-[0_0_20px_rgba(0,255,135,0.15)]">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-emerald opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-emerald"></span>
+                </span>
+                <span class="text-slate-400 font-medium">OPEN SECTION:</span>
+                <span class="text-cyber-emerald font-bold tracking-widest uppercase">STARTING // ABOUT US</span>
+            </div>
+        </div>
+
+        <!-- Starting Hero Section -->
+        <section class="relative min-h-screen pt-36 pb-24 flex items-center z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 w-full">
             <!-- Centered Luxury Enterprise Content (Spacious & 3D Core View) -->
                 <div class="max-w-4xl mx-auto text-center space-y-8">
@@ -429,10 +267,8 @@
         </div>
     </section>
 
-    <!-- ===================================================================
-         3. SECTION: ABOUT TECHNXTAI ("WHO WE ARE")
-         =================================================================== -->
-    <section id="about" class="py-24 md:py-32 relative z-10 border-t border-slate-800">
+        <!-- About Us Section -->
+        <section id="about" class="py-24 md:py-32 relative z-10 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
             
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
@@ -517,1223 +353,9 @@
 
         </div>
     </section>
+    </main>
 
-    <!-- ===================================================================
-         4. SECTION: CORE SERVICES (01 - 06 WITH TABS & MODALS)
-         =================================================================== -->
-    <section id="services" class="py-24 md:py-32 relative z-10 border-t border-slate-800 bg-obsidian-void/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-            
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-obsidian-surface border border-cyber-emerald/30 text-cyber-emerald text-xs font-mono uppercase tracking-wider">
-                    What We Do · Services 01 – 06
-                </div>
-                <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
-                    End-to-End <span class="text-gradient-emerald">Digital & IT Services</span>
-                </h2>
-                <p class="text-slate-300 text-base sm:text-lg font-body">
-                    Comprehensive technology solutions covering every aspect of modern digital infrastructure, from initial web development to scalable cloud hosting and AI automation.
-                </p>
-            </div>
-
-            <!-- Category Filter Tabs -->
-            <div class="flex flex-wrap items-center justify-center gap-2 mb-12 font-mono text-xs">
-                <button onclick="filterServices('all')" class="service-tab-btn px-4 py-2 rounded-full border border-cyber-emerald bg-cyber-emerald text-black font-bold shadow-[0_0_15px_rgba(0,255,135,0.4)]" data-filter="all">All Services (6)</button>
-                <button onclick="filterServices('web')" class="service-tab-btn px-4 py-2 rounded-full border border-slate-800 bg-obsidian-void text-slate-300 hover:border-champagne-gold hover:text-champagne-gold" data-filter="web">Web & Portals</button>
-                <button onclick="filterServices('cloud')" class="service-tab-btn px-4 py-2 rounded-full border border-slate-800 bg-obsidian-void text-slate-300 hover:border-cyber-emerald hover:text-cyber-emerald" data-filter="cloud">Cloud & Maintenance</button>
-                <button onclick="filterServices('ai')" class="service-tab-btn px-4 py-2 rounded-full border border-slate-800 bg-obsidian-void text-slate-300 hover:border-champagne-gold hover:text-champagne-gold" data-filter="ai">AI & Automation</button>
-                <button onclick="filterServices('marketing')" class="service-tab-btn px-4 py-2 rounded-full border border-slate-800 bg-obsidian-void text-slate-300 hover:border-cyber-emerald hover:text-cyber-emerald" data-filter="marketing">Digital Marketing</button>
-            </div>
-
-            <!-- 6 Services Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Service 01: Website Development -->
-                <div class="service-card-item tilt-card glass-panel rounded-3xl p-7 flex flex-col justify-between group border border-slate-800 hover:border-cyber-emerald/50" data-category="web">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <div class="w-14 h-14 rounded-2xl bg-obsidian-void border border-cyber-emerald/40 p-3.5 flex items-center justify-center text-cyber-emerald shadow-[0_0_25px_rgba(0,255,135,0.25)]">
-                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#00FF87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                            </div>
-                            <span class="text-xs font-mono font-bold text-cyber-emerald px-2.5 py-1 rounded-md bg-cyber-emerald/10 border border-cyber-emerald/30">SERVICE 01</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-cyber-emerald transition-colors">
-                            Website Development
-                        </h3>
-                        <p class="text-slate-300 text-sm leading-relaxed font-body">
-                            Fast, secure and responsive websites and web applications tailored to your brand identity and conversion goals.
-                        </p>
-                        <ul class="space-y-2 text-xs font-mono text-slate-300 pt-3 border-t border-slate-800">
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> Custom Website Development</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> Corporate and Business Websites</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> Responsive Mobile-First Design</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> E-commerce Development</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> PHP & Modern Web Technologies</li>
-                        </ul>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between font-mono text-xs">
-                        <button onclick="openServiceModal('01')" class="text-cyber-emerald hover:underline flex items-center gap-1 font-bold">
-                            <span>Explore Full Scope</span>
-                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </button>
-                        <a href="#contact" class="text-slate-400 hover:text-white underline">Inquire Now</a>
-                    </div>
-                </div>
-
-                <!-- Service 02: Website Maintenance & Management -->
-                <div class="service-card-item tilt-card glass-panel rounded-3xl p-7 flex flex-col justify-between group border border-slate-800 hover:border-champagne-gold/50" data-category="cloud">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <div class="w-14 h-14 rounded-2xl bg-obsidian-void border border-champagne-gold/40 p-3.5 flex items-center justify-center text-champagne-gold shadow-[0_0_25px_rgba(255,209,102,0.25)]">
-                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-                            </div>
-                            <span class="text-xs font-mono font-bold text-champagne-gold px-2.5 py-1 rounded-md bg-champagne-gold/10 border border-champagne-gold/30">SERVICE 02</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-champagne-gold transition-colors">
-                            Website Maintenance & Management
-                        </h3>
-                        <p class="text-slate-300 text-sm leading-relaxed font-body">
-                            Keep your digital assets secure, blazing fast and always up to date with dependable ongoing maintenance.
-                        </p>
-                        <ul class="space-y-2 text-xs font-mono text-slate-300 pt-3 border-t border-slate-800">
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Regular Website Updates & Content Sync</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Bug Fixing & Rapid Troubleshooting</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Website Security Management</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Performance & Speed Optimization</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Automated Backup and Recovery</li>
-                        </ul>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between font-mono text-xs">
-                        <button onclick="openServiceModal('02')" class="text-champagne-gold hover:underline flex items-center gap-1 font-bold">
-                            <span>Explore Full Scope</span>
-                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </button>
-                        <a href="#contact" class="text-slate-400 hover:text-white underline">Inquire Now</a>
-                    </div>
-                </div>
-
-                <!-- Service 03: Cloud Solutions & Infrastructure -->
-                <div class="service-card-item tilt-card glass-panel rounded-3xl p-7 flex flex-col justify-between group border border-slate-800 hover:border-cyber-emerald/50" data-category="cloud">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <div class="w-14 h-14 rounded-2xl bg-obsidian-void border border-cyber-emerald/40 p-3.5 flex items-center justify-center text-cyber-emerald shadow-[0_0_25px_rgba(0,255,135,0.25)]">
-                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#00FF87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
-                            </div>
-                            <span class="text-xs font-mono font-bold text-cyber-emerald px-2.5 py-1 rounded-md bg-cyber-emerald/10 border border-cyber-emerald/30">SERVICE 03</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-cyber-emerald transition-colors">
-                            Cloud Solutions & Infrastructure
-                        </h3>
-                        <p class="text-slate-300 text-sm leading-relaxed font-body">
-                            Deploy, host and scale your applications on reliable cloud infrastructure, engineered with security and speed.
-                        </p>
-                        <ul class="space-y-2 text-xs font-mono text-slate-300 pt-3 border-t border-slate-800">
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> AWS Cloud Services & Architecture</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> Cloud Hosting & Deployment Pipelines</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> Server Configuration & Hardening</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> Database Hosting & Management</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> Seamless Cloud Migration</li>
-                        </ul>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between font-mono text-xs">
-                        <button onclick="openServiceModal('03')" class="text-cyber-emerald hover:underline flex items-center gap-1 font-bold">
-                            <span>Explore Full Scope</span>
-                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </button>
-                        <a href="#contact" class="text-slate-400 hover:text-white underline">Inquire Now</a>
-                    </div>
-                </div>
-
-                <!-- Service 04: Web Portal Development -->
-                <div class="service-card-item tilt-card glass-panel rounded-3xl p-7 flex flex-col justify-between group border border-slate-800 hover:border-champagne-gold/50" data-category="web">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <div class="w-14 h-14 rounded-2xl bg-obsidian-void border border-champagne-gold/40 p-3.5 flex items-center justify-center text-champagne-gold shadow-[0_0_25px_rgba(255,209,102,0.25)]">
-                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                            </div>
-                            <span class="text-xs font-mono font-bold text-champagne-gold px-2.5 py-1 rounded-md bg-champagne-gold/10 border border-champagne-gold/30">SERVICE 04</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-champagne-gold transition-colors">
-                            Web Portal Development
-                        </h3>
-                        <p class="text-slate-300 text-sm leading-relaxed font-body">
-                            Custom enterprise portals and management platforms that streamline operations for businesses and institutions.
-                        </p>
-                        <ul class="space-y-2 text-xs font-mono text-slate-300 pt-3 border-t border-slate-800">
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Custom Business Web Portals</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Educational and Student Portals</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Admin Management Dashboards</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Customer and Employee Portals</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> User Authentication & Access Control</li>
-                        </ul>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between font-mono text-xs">
-                        <button onclick="openServiceModal('04')" class="text-champagne-gold hover:underline flex items-center gap-1 font-bold">
-                            <span>Explore Full Scope</span>
-                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </button>
-                        <a href="#contact" class="text-slate-400 hover:text-white underline">Inquire Now</a>
-                    </div>
-                </div>
-
-                <!-- Service 05: AI Integration & Automation -->
-                <div class="service-card-item tilt-card glass-panel rounded-3xl p-7 flex flex-col justify-between group border border-slate-800 hover:border-cyber-emerald/50" data-category="ai">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <div class="w-14 h-14 rounded-2xl bg-obsidian-void border border-cyber-emerald/40 p-3.5 flex items-center justify-center text-cyber-emerald shadow-[0_0_25px_rgba(0,255,135,0.25)]">
-                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#00FF87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-                            </div>
-                            <span class="text-xs font-mono font-bold text-cyber-emerald px-2.5 py-1 rounded-md bg-cyber-emerald/10 border border-cyber-emerald/30">SERVICE 05</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-cyber-emerald transition-colors">
-                            AI Integration & Automation
-                        </h3>
-                        <p class="text-slate-300 text-sm leading-relaxed font-body">
-                            Bring intelligent automation and modern AI capabilities into your websites, workflows and business applications.
-                        </p>
-                        <ul class="space-y-2 text-xs font-mono text-slate-300 pt-3 border-t border-slate-800">
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> AI-Powered Website Integration</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> AI Chatbots and Virtual Assistants</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> Business Process Automation (BPA)</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> AI-Based Data Analytics</li>
-                            <li class="flex items-center gap-2"><span class="text-cyber-emerald">▪</span> Intelligent Search Systems & LLMs</li>
-                        </ul>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between font-mono text-xs">
-                        <button onclick="openServiceModal('05')" class="text-cyber-emerald hover:underline flex items-center gap-1 font-bold">
-                            <span>Explore Full Scope</span>
-                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </button>
-                        <a href="#contact" class="text-slate-400 hover:text-white underline">Inquire Now</a>
-                    </div>
-                </div>
-
-                <!-- Service 06: Digital Marketing -->
-                <div class="service-card-item tilt-card glass-panel rounded-3xl p-7 flex flex-col justify-between group border border-slate-800 hover:border-champagne-gold/50" data-category="marketing">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <div class="w-14 h-14 rounded-2xl bg-obsidian-void border border-champagne-gold/40 p-3.5 flex items-center justify-center text-champagne-gold shadow-[0_0_25px_rgba(255,209,102,0.25)]">
-                                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                            </div>
-                            <span class="text-xs font-mono font-bold text-champagne-gold px-2.5 py-1 rounded-md bg-champagne-gold/10 border border-champagne-gold/30">SERVICE 06</span>
-                        </div>
-                        <h3 class="text-xl font-bold font-heading text-white group-hover:text-champagne-gold transition-colors">
-                            Digital Marketing & Growth
-                        </h3>
-                        <p class="text-slate-300 text-sm leading-relaxed font-body">
-                            Strengthen your online visibility, customer acquisition, and brand presence with high-converting marketing strategies.
-                        </p>
-                        <ul class="space-y-2 text-xs font-mono text-slate-300 pt-3 border-t border-slate-800">
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Search Engine Optimization (SEO)</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Targeted Social Media Marketing</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> High-ROI Google Ads Campaigns</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Content Marketing & Brand Building</li>
-                            <li class="flex items-center gap-2"><span class="text-champagne-gold">▪</span> Online Reputation Management (ORM)</li>
-                        </ul>
-                    </div>
-                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between font-mono text-xs">
-                        <button onclick="openServiceModal('06')" class="text-champagne-gold hover:underline flex items-center gap-1 font-bold">
-                            <span>Explore Full Scope</span>
-                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                        </button>
-                        <a href="#contact" class="text-slate-400 hover:text-white underline">Inquire Now</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ===================================================================
-         4.5. SECTION: FEATURED CLIENT PROJECTS (LIVE DEPLOYMENTS)
-         =================================================================== -->
-    <section id="portfolio" class="py-24 md:py-32 relative z-10 border-t border-slate-800 bg-obsidian-void/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-            
-            <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-obsidian-surface border border-cyber-emerald/30 text-cyber-emerald text-xs font-mono uppercase tracking-wider shadow-[0_0_15px_rgba(0,255,135,0.15)]">
-                    <span class="w-2 h-2 rounded-full bg-cyber-emerald animate-pulse"></span>
-                    <span>Live In Production • Verified Case Studies</span>
-                </div>
-                <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
-                    Featured <span class="text-gradient-emerald">Live Deployments</span> &amp; <span class="text-gradient-gold">Client Projects</span>
-                </h2>
-                <p class="text-slate-300 text-base sm:text-lg font-body leading-relaxed">
-                    Explore real-world platforms engineered, deployed, and powered by TechNxtAi. Built with high-performance architectures, modern design, and enterprise-grade reliability.
-                </p>
-            </div>
-
-            <!-- 3 Client Project Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                <!-- 1. Infinty Learning -->
-                <div class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-cyber-emerald/30 shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex flex-col justify-between hover:border-cyber-emerald transition-all duration-300 group">
-                    <div class="space-y-5">
-                        
-                        <!-- Browser Window Header Mockup -->
-                        <div class="rounded-2xl bg-obsidian-void p-3.5 border border-slate-800 space-y-2.5">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-1.5">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-cyber-emerald/80"></span>
-                                </div>
-                                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyber-emerald/10 text-cyber-emerald border border-cyber-emerald/20 flex items-center gap-1">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span> LIVE
-                                </span>
-                            </div>
-                            <!-- Mockup Address Bar -->
-                            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-obsidian-base border border-slate-800/80 text-[11px] font-mono text-slate-300">
-                                <i data-lucide="lock" class="w-3 h-3 text-cyber-emerald shrink-0"></i>
-                                <span class="truncate text-slate-400">https://<span class="text-white font-semibold">infintylearning.net</span></span>
-                            </div>
-                        </div>
-
-                        <!-- Card Visual Glyph & Badge -->
-                        <div class="flex items-center justify-between pt-1">
-                            <div class="w-12 h-12 rounded-2xl bg-obsidian-void border border-cyber-emerald/40 p-3 flex items-center justify-center text-cyber-emerald shadow-[0_0_20px_rgba(0,255,135,0.25)]">
-                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#00FF87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-                            </div>
-                            <span class="text-xs font-mono font-bold text-cyber-emerald px-2.5 py-1 rounded-md bg-cyber-emerald/10 border border-cyber-emerald/30">EDTECH PLATFORM</span>
-                        </div>
-
-                        <!-- Content -->
-                        <div class="space-y-2">
-                            <h3 class="text-xl font-bold font-heading text-white group-hover:text-cyber-emerald transition-colors">
-                                Infinty Learning
-                            </h3>
-                            <p class="text-slate-300 text-sm leading-relaxed font-body">
-                                Next-generation educational ecosystem and LMS portal providing scalable digital classrooms, course catalogs, student analytics, and automated certification workflows.
-                            </p>
-                        </div>
-
-                        <!-- Technical Highlights -->
-                        <div class="space-y-1.5 pt-3 border-t border-slate-800/80 text-xs font-mono text-slate-300">
-                            <div class="flex items-center gap-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald shrink-0"></i>
-                                <span>Interactive Course &amp; Video LMS</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald shrink-0"></i>
-                                <span>Student Dashboards &amp; Exam Engine</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald shrink-0"></i>
-                                <span>Cloudflare CDN &amp; High Availability</span>
-                            </div>
-                        </div>
-
-                        <!-- Tech Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-2">
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-obsidian-void border border-slate-800 text-slate-400">Web Portal</span>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-obsidian-void border border-slate-800 text-slate-400">LMS Engine</span>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-obsidian-void border border-slate-800 text-slate-400">Cloud Host</span>
-                        </div>
-
-                    </div>
-
-                    <!-- Live URL CTA Button -->
-                    <div class="pt-6 mt-4 border-t border-slate-800/80">
-                        <a href="https://infintylearning.net/" target="_blank" rel="noopener noreferrer" class="group/btn inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-obsidian-void border border-cyber-emerald/40 hover:bg-cyber-emerald hover:text-black text-cyber-emerald font-mono text-xs font-bold transition-all shadow-sm">
-                            <span class="flex items-center gap-2">
-                                <i data-lucide="globe" class="w-4 h-4"></i>
-                                <span>VISIT INFINTY LEARNING</span>
-                            </span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 2. Prithviwasi -->
-                <div class="tilt-card glass-panel-gold rounded-3xl p-6 sm:p-7 border border-champagne-gold/30 shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex flex-col justify-between hover:border-champagne-gold transition-all duration-300 group">
-                    <div class="space-y-5">
-                        
-                        <!-- Browser Window Header Mockup -->
-                        <div class="rounded-2xl bg-obsidian-void p-3.5 border border-slate-800 space-y-2.5">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-1.5">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-cyber-emerald/80"></span>
-                                </div>
-                                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-champagne-gold/10 text-champagne-gold border border-champagne-gold/20 flex items-center gap-1">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-champagne-gold animate-pulse"></span> LIVE
-                                </span>
-                            </div>
-                            <!-- Mockup Address Bar -->
-                            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-obsidian-base border border-slate-800/80 text-[11px] font-mono text-slate-300">
-                                <i data-lucide="lock" class="w-3 h-3 text-champagne-gold shrink-0"></i>
-                                <span class="truncate text-slate-400">https://<span class="text-white font-semibold">prithviwasi.org</span></span>
-                            </div>
-                        </div>
-
-                        <!-- Card Visual Glyph & Badge -->
-                        <div class="flex items-center justify-between pt-1">
-                            <div class="w-12 h-12 rounded-2xl bg-obsidian-void border border-champagne-gold/40 p-3 flex items-center justify-center text-champagne-gold shadow-[0_0_20px_rgba(255,209,102,0.25)]">
-                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
-                            </div>
-                            <span class="text-xs font-mono font-bold text-champagne-gold px-2.5 py-1 rounded-md bg-champagne-gold/10 border border-champagne-gold/30">SUSTAINABILITY NGO</span>
-                        </div>
-
-                        <!-- Content -->
-                        <div class="space-y-2">
-                            <h3 class="text-xl font-bold font-heading text-white group-hover:text-champagne-gold transition-colors">
-                                Prithviwasi
-                            </h3>
-                            <p class="text-slate-300 text-sm leading-relaxed font-body">
-                                Purpose-driven environmental and social foundation platform designed for sustainability campaigns, plantation tracking, volunteer onboarding, and verified CSR initiatives.
-                            </p>
-                        </div>
-
-                        <!-- Technical Highlights -->
-                        <div class="space-y-1.5 pt-3 border-t border-slate-800/80 text-xs font-mono text-slate-300">
-                            <div class="flex items-center gap-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-champagne-gold shrink-0"></i>
-                                <span>Impact Campaign &amp; Donation Flow</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-champagne-gold shrink-0"></i>
-                                <span>Volunteer Management Network</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-champagne-gold shrink-0"></i>
-                                <span>SSL Encrypted &amp; Mobile-Optimized</span>
-                            </div>
-                        </div>
-
-                        <!-- Tech Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-2">
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-obsidian-void border border-slate-800 text-slate-400">NGO Portal</span>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-obsidian-void border border-slate-800 text-slate-400">Social Impact</span>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-obsidian-void border border-slate-800 text-slate-400">AWS S3</span>
-                        </div>
-
-                    </div>
-
-                    <!-- Live URL CTA Button -->
-                    <div class="pt-6 mt-4 border-t border-slate-800/80">
-                        <a href="https://prithviwasi.org/" target="_blank" rel="noopener noreferrer" class="group/btn inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-obsidian-void border border-champagne-gold/40 hover:bg-champagne-gold hover:text-black text-champagne-gold font-mono text-xs font-bold transition-all shadow-sm">
-                            <span class="flex items-center gap-2">
-                                <i data-lucide="globe" class="w-4 h-4"></i>
-                                <span>VISIT PRITHVIWASI.ORG</span>
-                            </span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- 3. FitIndia4U -->
-                <div class="tilt-card glass-panel rounded-3xl p-6 sm:p-7 border border-cyber-emerald/30 shadow-[0_15px_40px_rgba(0,0,0,0.6)] flex flex-col justify-between hover:border-cyber-emerald transition-all duration-300 group">
-                    <div class="space-y-5">
-                        
-                        <!-- Browser Window Header Mockup -->
-                        <div class="rounded-2xl bg-obsidian-void p-3.5 border border-slate-800 space-y-2.5">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-1.5">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-cyber-emerald/80"></span>
-                                </div>
-                                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyber-emerald/10 text-cyber-emerald border border-cyber-emerald/20 flex items-center gap-1">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span> LIVE
-                                </span>
-                            </div>
-                            <!-- Mockup Address Bar -->
-                            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-obsidian-base border border-slate-800/80 text-[11px] font-mono text-slate-300">
-                                <i data-lucide="lock" class="w-3 h-3 text-cyber-emerald shrink-0"></i>
-                                <span class="truncate text-slate-400">https://<span class="text-white font-semibold">fitindia4u.com</span></span>
-                            </div>
-                        </div>
-
-                        <!-- Card Visual Glyph & Badge -->
-                        <div class="flex items-center justify-between pt-1">
-                            <div class="w-12 h-12 rounded-2xl bg-obsidian-void border border-cyber-emerald/40 p-3 flex items-center justify-center text-cyber-emerald shadow-[0_0_20px_rgba(0,255,135,0.25)]">
-                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#00FF87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                            </div>
-                            <span class="text-xs font-mono font-bold text-cyber-emerald px-2.5 py-1 rounded-md bg-cyber-emerald/10 border border-cyber-emerald/30">HEALTH &amp; FITNESS</span>
-                        </div>
-
-                        <!-- Content -->
-                        <div class="space-y-2">
-                            <h3 class="text-xl font-bold font-heading text-white group-hover:text-cyber-emerald transition-colors">
-                                FitIndia4U
-                            </h3>
-                            <p class="text-slate-300 text-sm leading-relaxed font-body">
-                                Comprehensive wellness and athletic transformation hub engineered with workout program tracking, dietary guides, trainer consultations, and active community fitness programs.
-                            </p>
-                        </div>
-
-                        <!-- Technical Highlights -->
-                        <div class="space-y-1.5 pt-3 border-t border-slate-800/80 text-xs font-mono text-slate-300">
-                            <div class="flex items-center gap-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald shrink-0"></i>
-                                <span>Workout &amp; Nutrition Catalog</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald shrink-0"></i>
-                                <span>Consultation Booking &amp; Member Portal</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald shrink-0"></i>
-                                <span>Mobile-First Responsive UX</span>
-                            </div>
-                        </div>
-
-                        <!-- Tech Tags -->
-                        <div class="flex flex-wrap gap-1.5 pt-2">
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-obsidian-void border border-slate-800 text-slate-400">HealthTech</span>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-obsidian-void border border-slate-800 text-slate-400">Fitness Portal</span>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-obsidian-void border border-slate-800 text-slate-400">High Speed</span>
-                        </div>
-
-                    </div>
-
-                    <!-- Live URL CTA Button -->
-                    <div class="pt-6 mt-4 border-t border-slate-800/80">
-                        <a href="https://fitindia4u.com/" target="_blank" rel="noopener noreferrer" class="group/btn inline-flex items-center justify-between w-full px-4 py-3 rounded-xl bg-obsidian-void border border-cyber-emerald/40 hover:bg-cyber-emerald hover:text-black text-cyber-emerald font-mono text-xs font-bold transition-all shadow-sm">
-                            <span class="flex items-center gap-2">
-                                <i data-lucide="globe" class="w-4 h-4"></i>
-                                <span>VISIT FITINDIA4U.COM</span>
-                            </span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         5. SECTION: ARCHITECTURE BLUEPRINTS (PROOF OF WORK)
-         =================================================================== -->
-    <section id="blueprints" class="py-24 md:py-32 relative z-10 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-obsidian-surface border border-champagne-gold/30 text-champagne-gold text-xs font-mono uppercase tracking-wider">
-                    Engineered For Impact
-                </div>
-                <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
-                    Featured Solutions & <span class="text-gradient-gold">Architecture Blueprints</span>
-                </h2>
-                <p class="text-slate-300 text-base sm:text-lg font-body">
-                    Real-world system prototypes and architectural frameworks built by TechNxt to demonstrate how we solve operational bottlenecks.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                
-                <!-- Solution 01: EduNxt Smart Campus Suite -->
-                <div class="tilt-card glass-panel rounded-3xl p-7 flex flex-col justify-between group border border-slate-800">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-obsidian-void text-slate-300 border border-slate-800">
-                                Educational Technology
-                            </span>
-                            <span class="text-xs text-cyber-emerald flex items-center gap-1 font-mono font-medium">
-                                <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald"></span> Production Ready
-                            </span>
-                        </div>
-                        <h3 class="text-2xl font-bold font-heading text-white group-hover:text-cyber-emerald transition-colors">
-                            EduNxt Smart Campus Portal
-                        </h3>
-                        <p class="text-slate-300 text-sm leading-relaxed font-body">
-                            A centralized multi-tenant education management system integrating automated student admissions, fee payment gateway, digital attendance, and LMS exam evaluation.
-                        </p>
-                        
-                        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs font-mono text-slate-300">
-                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald"></i> Role-Based Dashboards (Admin, Faculty, Student)</div>
-                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald"></i> Automated Fee Invoicing & SMS/WhatsApp Alerts</div>
-                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald"></i> Secure Cloud Database with 99.9% High Availability</div>
-                        </div>
-
-                        <div class="flex flex-wrap gap-1.5 pt-2 font-mono">
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">React</span>
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">PHP/Laravel</span>
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">MySQL</span>
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">AWS S3</span>
-                        </div>
-                    </div>
-
-                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between font-mono">
-                        <button onclick="openCallModal()" class="px-4 py-2 rounded-xl text-xs font-semibold border border-cyber-emerald/40 text-cyber-emerald hover:bg-cyber-emerald/10 transition-colors flex items-center gap-1.5">
-                            <span>Request Demo</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Solution 02: CloudSync Enterprise ERP -->
-                <div class="tilt-card glass-panel rounded-3xl p-7 flex flex-col justify-between group border border-slate-800">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-obsidian-void text-slate-300 border border-slate-800">
-                                Enterprise SaaS & Ops
-                            </span>
-                            <span class="text-xs text-champagne-gold flex items-center gap-1 font-mono font-medium">
-                                <span class="w-1.5 h-1.5 rounded-full bg-champagne-gold"></span> High Throughput
-                            </span>
-                        </div>
-                        <h3 class="text-2xl font-bold font-heading text-white group-hover:text-champagne-gold transition-colors">
-                            CloudSync Business Portal & ERP
-                        </h3>
-                        <p class="text-slate-300 text-sm leading-relaxed font-body">
-                            Bespoke enterprise platform built for business process automation, multi-branch inventory tracking, employee performance management, and real-time revenue analytics.
-                        </p>
-                        
-                        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs font-mono text-slate-300">
-                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-champagne-gold"></i> Real-time Stock, Sales & Supply Chain Tracking</div>
-                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-champagne-gold"></i> Dynamic Role Permissions (RBAC) & Audit Logs</div>
-                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-champagne-gold"></i> Automated GST-compliant Invoicing & Financial Reports</div>
-                        </div>
-
-                        <div class="flex flex-wrap gap-1.5 pt-2 font-mono">
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">Next.js 14</span>
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">Node.js</span>
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">PostgreSQL</span>
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">AWS ECS</span>
-                        </div>
-                    </div>
-
-                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between font-mono">
-                        <button onclick="openCallModal()" class="px-4 py-2 rounded-xl text-xs font-semibold border border-champagne-gold/40 text-champagne-gold hover:bg-champagne-gold/10 transition-colors flex items-center gap-1.5">
-                            <span>Request Demo</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Solution 03: OmniCare Healthcare Engine -->
-                <div class="tilt-card glass-panel rounded-3xl p-7 flex flex-col justify-between group border border-slate-800">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-obsidian-void text-slate-300 border border-slate-800">
-                                Healthcare Architecture
-                            </span>
-                            <span class="text-xs text-cyber-emerald flex items-center gap-1 font-mono font-medium">
-                                <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald"></span> HIPAA Ready
-                            </span>
-                        </div>
-                        <h3 class="text-2xl font-bold font-heading text-white group-hover:text-cyber-emerald transition-colors">
-                            OmniCare Healthcare Suite
-                        </h3>
-                        <p class="text-slate-300 text-sm leading-relaxed font-body">
-                            Patient intake management portal with automated doctor appointment scheduling, tele-consultation webhook integration, and end-to-end encrypted medical report delivery.
-                        </p>
-                        
-                        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs font-mono text-slate-300">
-                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald"></i> Online Slot Booking & Doctor Availability Sync</div>
-                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald"></i> Automated WhatsApp Prescription Alerts</div>
-                            <div class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-cyber-emerald"></i> Encrypted Patient Data Storage with AES-256</div>
-                        </div>
-
-                        <div class="flex flex-wrap gap-1.5 pt-2 font-mono">
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">React</span>
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">Python</span>
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">MongoDB</span>
-                            <span class="px-2.5 py-0.5 text-[10px] rounded bg-obsidian-void text-slate-300 border border-slate-800">Docker</span>
-                        </div>
-                    </div>
-
-                    <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between font-mono">
-                        <button onclick="openCallModal()" class="px-4 py-2 rounded-xl text-xs font-semibold border border-cyber-emerald/40 text-cyber-emerald hover:bg-cyber-emerald/10 transition-colors flex items-center gap-1.5">
-                            <span>Request Demo</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         6. SECTION: WORK PROCESS (7-STAGE LIFECYCLE)
-         =================================================================== -->
-    <section id="process" class="py-24 md:py-32 relative z-10 border-t border-slate-800 bg-obsidian-void/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-obsidian-surface border border-cyber-emerald/30 text-cyber-emerald text-xs font-mono uppercase tracking-wider">
-                    Our Methodology
-                </div>
-                <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
-                    Our 7-Stage <span class="text-gradient-emerald">Project Lifecycle</span>
-                </h2>
-                <p class="text-slate-300 text-base sm:text-lg font-body">
-                    A clear, collaborative, milestone-driven framework that guarantees clarity, timely delivery, and zero surprise costs.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Stage 01 -->
-                <div class="tilt-card glass-panel rounded-3xl p-6 relative group border border-slate-800">
-                    <div class="text-3xl font-mono font-bold text-cyber-emerald mb-3">01</div>
-                    <h3 class="text-lg font-bold font-heading text-white mb-2">Requirement Gathering & Discovery</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">
-                        We listen closely to understand your business objectives, target audience, and specific technical requirements.
-                    </p>
-                </div>
-
-                <!-- Stage 02 -->
-                <div class="tilt-card glass-panel rounded-3xl p-6 relative group border border-slate-800">
-                    <div class="text-3xl font-mono font-bold text-champagne-gold mb-3">02</div>
-                    <h3 class="text-lg font-bold font-heading text-white mb-2">Planning & Strategy</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">
-                        We prepare a concrete technical roadmap covering features, architecture choices, milestone schedules, and timelines.
-                    </p>
-                </div>
-
-                <!-- Stage 03 -->
-                <div class="tilt-card glass-panel rounded-3xl p-6 relative group border border-slate-800">
-                    <div class="text-3xl font-mono font-bold text-cyber-emerald mb-3">03</div>
-                    <h3 class="text-lg font-bold font-heading text-white mb-2">UI/UX Design</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">
-                        We craft wireframes and interactive visual designs that are intuitive, frictionless, user-friendly, and true to your brand.
-                    </p>
-                </div>
-
-                <!-- Stage 04 -->
-                <div class="tilt-card glass-panel rounded-3xl p-6 relative group border border-slate-800">
-                    <div class="text-3xl font-mono font-bold text-champagne-gold mb-3">04</div>
-                    <h3 class="text-lg font-bold font-heading text-white mb-2">Development & Implementation</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">
-                        Our engineering team builds clean, scalable code and integrates all required backend APIs and third-party systems.
-                    </p>
-                </div>
-
-                <!-- Stage 05 -->
-                <div class="tilt-card glass-panel rounded-3xl p-6 relative group border border-slate-800">
-                    <div class="text-3xl font-mono font-bold text-cyber-emerald mb-3">05</div>
-                    <h3 class="text-lg font-bold font-heading text-white mb-2">Testing & Quality Assurance</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">
-                        We check functionality, performance, security, and multi-device compatibility before public release.
-                    </p>
-                </div>
-
-                <!-- Stage 06 -->
-                <div class="tilt-card glass-panel rounded-3xl p-6 relative group border border-slate-800">
-                    <div class="text-3xl font-mono font-bold text-champagne-gold mb-3">06</div>
-                    <h3 class="text-lg font-bold font-heading text-white mb-2">Deployment & Launch</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">
-                        We configure your production cloud environment, establish SSL, domain DNS, and take your solution live with care.
-                    </p>
-                </div>
-
-                <!-- Stage 07 -->
-                <div class="tilt-card glass-panel-gold rounded-3xl p-6 lg:col-span-3 relative group border border-champagne-gold/30">
-                    <div class="flex items-center justify-between mb-3 font-mono">
-                        <div class="text-3xl font-bold text-champagne-gold">07</div>
-                        <span class="px-2.5 py-1 text-xs rounded bg-champagne-gold/15 text-champagne-gold border border-champagne-gold/30 font-semibold">Ongoing Partnership</span>
-                    </div>
-                    <h3 class="text-lg font-bold font-heading text-white mb-2">Maintenance & Ongoing Support</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">
-                        We provide continuous software updates, server health monitoring, and responsive technical support to keep everything running seamlessly.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         7. SECTION: WHY CHOOSE TECHNXT (8 DIFFERENTIATORS + QUOTE)
-         =================================================================== -->
-    <section id="why-us" class="py-24 md:py-32 relative z-10 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-obsidian-surface border border-champagne-gold/30 text-champagne-gold text-xs font-mono uppercase tracking-wider">
-                    Your Technology Partner
-                </div>
-                <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
-                    Why Choose <span class="text-gradient-gold">TechNxt?</span>
-                </h2>
-                <p class="text-slate-300 text-base sm:text-lg font-body">
-                    Eight reasons why innovative businesses and institutions trust TechNxt as their digital backbone.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <div class="tilt-card glass-panel rounded-2xl p-6 border border-slate-800">
-                    <div class="text-xs font-mono text-cyber-emerald font-bold mb-2">01</div>
-                    <h4 class="text-lg font-bold font-heading text-white mb-2">End-to-End Solutions</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">Design, engineering, cloud hosting, AI and marketing from a single accountable partner.</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 border border-slate-800">
-                    <div class="text-xs font-mono text-champagne-gold font-bold mb-2">02</div>
-                    <h4 class="text-lg font-bold font-heading text-white mb-2">Customized Tech</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">Solutions tailored specifically around your business workflows rather than generic products.</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 border border-slate-800">
-                    <div class="text-xs font-mono text-cyber-emerald font-bold mb-2">03</div>
-                    <h4 class="text-lg font-bold font-heading text-white mb-2">Modern Frameworks</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">Current technologies and best engineering practices for fast, maintainable digital platforms.</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 border border-slate-800">
-                    <div class="text-xs font-mono text-champagne-gold font-bold mb-2">04</div>
-                    <h4 class="text-lg font-bold font-heading text-white mb-2">AI-Powered Innovation</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">Practical AI integration that automates repetitive work and empowers data-driven decisions.</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 border border-slate-800">
-                    <div class="text-xs font-mono text-cyber-emerald font-bold mb-2">05</div>
-                    <h4 class="text-lg font-bold font-heading text-white mb-2">Reliable Cloud</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">Scalable, monitored cloud architectures built for dependable high availability.</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 border border-slate-800">
-                    <div class="text-xs font-mono text-champagne-gold font-bold mb-2">06</div>
-                    <h4 class="text-lg font-bold font-heading text-white mb-2">Security & Speed</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">Enterprise-grade security standards and optimal performance considered at every stage.</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 border border-slate-800">
-                    <div class="text-xs font-mono text-cyber-emerald font-bold mb-2">07</div>
-                    <h4 class="text-lg font-bold font-heading text-white mb-2">Professional Support</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">Responsive technical assistance, SLA monitoring, and proactive system health checks.</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 border border-slate-800">
-                    <div class="text-xs font-mono text-champagne-gold font-bold mb-2">08</div>
-                    <h4 class="text-lg font-bold font-heading text-white mb-2">Long-Term Partner</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed font-body">We aim to grow alongside our clients and support every phase of your digital journey.</p>
-                </div>
-
-            </div>
-
-            <!-- Editorial Client Spotlight Quote -->
-            <div class="mt-16 glass-panel rounded-3xl p-8 sm:p-12 border border-champagne-gold/30 shadow-2xl relative overflow-hidden">
-                <div class="max-w-3xl space-y-6 relative z-10">
-                    <div class="flex items-center gap-1.5 text-amber-400 text-sm tracking-widest">
-                        ★ ★ ★ ★ ★
-                    </div>
-                    <blockquote class="text-xl sm:text-2xl font-heading font-medium text-white leading-relaxed">
-                        “TechNxt engineered our end-to-end digital infrastructure from ground zero. Their engineering team delivered zero-downtime AWS deployment and streamlined our entire operations with modern AI automation.”
-                    </blockquote>
-                    <div class="flex items-center gap-4 pt-2">
-                        <div class="w-12 h-12 rounded-full bg-champagne-gold text-black font-bold flex items-center justify-center text-sm shadow-md">
-                            SK
-                        </div>
-                        <div>
-                            <div class="font-bold text-white text-sm">Sanjay Kumar</div>
-                            <div class="text-xs text-slate-400 font-mono">Managing Director · Enterprise Client Partner</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         8. SECTION: INDUSTRIES WE SERVE
-         =================================================================== -->
-    <section id="sectors" class="py-24 md:py-32 relative z-10 border-t border-slate-800 bg-obsidian-void/60">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-obsidian-surface border border-cyber-emerald/30 text-cyber-emerald text-xs font-mono uppercase tracking-wider">
-                    Sectors
-                </div>
-                <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
-                    Industries <span class="text-gradient-emerald">We Serve</span>
-                </h2>
-                <p class="text-slate-300 text-base sm:text-lg font-body">
-                    Our solutions are adaptable across sectors, helping organizations of different sizes build a strong digital foundation.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 font-mono">
-                
-                <div class="tilt-card glass-panel rounded-2xl p-6 text-center space-y-3 border border-slate-800">
-                    <div class="w-12 h-12 mx-auto rounded-xl bg-cyber-emerald/10 text-cyber-emerald flex items-center justify-center border border-cyber-emerald/20">
-                        <i data-lucide="book-open" class="w-6 h-6"></i>
-                    </div>
-                    <div class="font-bold font-sans text-white text-base">Education & E-learning</div>
-                    <p class="text-xs text-slate-400 font-body">LMS, Student Portals, Online Exam Engines</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 text-center space-y-3 border border-slate-800">
-                    <div class="w-12 h-12 mx-auto rounded-xl bg-champagne-gold/10 text-champagne-gold flex items-center justify-center border border-champagne-gold/20">
-                        <i data-lucide="activity" class="w-6 h-6"></i>
-                    </div>
-                    <div class="font-bold font-sans text-white text-base">Healthcare & Clinics</div>
-                    <p class="text-xs text-slate-400 font-body">Appointment Scheduling, Patient Management Portals</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 text-center space-y-3 border border-slate-800">
-                    <div class="w-12 h-12 mx-auto rounded-xl bg-cyber-emerald/10 text-cyber-emerald flex items-center justify-center border border-cyber-emerald/20">
-                        <i data-lucide="home" class="w-6 h-6"></i>
-                    </div>
-                    <div class="font-bold font-sans text-white text-base">Real Estate & Builders</div>
-                    <p class="text-xs text-slate-400 font-body">Property Showcase Sites, Inquiry & CRM Systems</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 text-center space-y-3 border border-slate-800">
-                    <div class="w-12 h-12 mx-auto rounded-xl bg-champagne-gold/10 text-champagne-gold flex items-center justify-center border border-champagne-gold/20">
-                        <i data-lucide="sparkles" class="w-6 h-6"></i>
-                    </div>
-                    <div class="font-bold font-sans text-white text-base">Startups & SMBs</div>
-                    <p class="text-xs text-slate-400 font-body">Rapid MVP Launch, Scalable SaaS Backend</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 text-center space-y-3 border border-slate-800">
-                    <div class="w-12 h-12 mx-auto rounded-xl bg-cyber-emerald/10 text-cyber-emerald flex items-center justify-center border border-cyber-emerald/20">
-                        <i data-lucide="building" class="w-6 h-6"></i>
-                    </div>
-                    <div class="font-bold font-sans text-white text-base">Corporate Enterprises</div>
-                    <p class="text-xs text-slate-400 font-body">Custom ERP, Employee Portals, Workflow Ops</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 text-center space-y-3 border border-slate-800">
-                    <div class="w-12 h-12 mx-auto rounded-xl bg-champagne-gold/10 text-champagne-gold flex items-center justify-center border border-champagne-gold/20">
-                        <i data-lucide="shopping-cart" class="w-6 h-6"></i>
-                    </div>
-                    <div class="font-bold font-sans text-white text-base">E-commerce & Retail</div>
-                    <p class="text-xs text-slate-400 font-body">Online Stores, Payment Gateways, Inventories</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 text-center space-y-3 border border-slate-800">
-                    <div class="w-12 h-12 mx-auto rounded-xl bg-cyber-emerald/10 text-cyber-emerald flex items-center justify-center border border-cyber-emerald/20">
-                        <i data-lucide="briefcase" class="w-6 h-6"></i>
-                    </div>
-                    <div class="font-bold font-sans text-white text-base">Professional Services</div>
-                    <p class="text-xs text-slate-400 font-body">Legal, Finance, Consultancy Portals</p>
-                </div>
-
-                <div class="tilt-card glass-panel rounded-2xl p-6 text-center space-y-3 border border-slate-800">
-                    <div class="w-12 h-12 mx-auto rounded-xl bg-champagne-gold/10 text-champagne-gold flex items-center justify-center border border-champagne-gold/20">
-                        <i data-lucide="layers" class="w-6 h-6"></i>
-                    </div>
-                    <div class="font-bold font-sans text-white text-base">Large Institutions</div>
-                    <p class="text-xs text-slate-400 font-body">Multi-tenant Cloud Portals, Big Data & AI</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         9. SECTION: INTERACTIVE LIVE AI ASSISTANT DEMO
-         =================================================================== -->
-    <section id="ai-demo" class="py-24 md:py-32 relative z-10 border-t border-slate-800">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-obsidian-surface border border-cyber-emerald/30 text-cyber-emerald text-xs font-mono uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-cyber-emerald animate-pulse"></span>
-                    Interactive AI Intelligence
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-black font-heading text-white">
-                    Test TechNxt's <span class="text-gradient-emerald">AI In Real Time</span>
-                </h2>
-                <p class="text-slate-300 text-sm font-body">
-                    Experience how we integrate intelligent conversational agents into websites and applications. Try asking a question below:
-                </p>
-            </div>
-
-            <!-- AI Chat Interactive Widget Box -->
-            <div class="glass-panel rounded-3xl p-6 sm:p-8 max-w-3xl mx-auto shadow-2xl border border-cyber-emerald/30">
-                <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-cyber-emerald/15 text-cyber-emerald flex items-center justify-center border border-cyber-emerald/30">
-                            <i data-lucide="bot" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <div class="text-sm font-bold font-heading text-white">TechNxt AI Assistant</div>
-                            <div class="text-[10px] text-cyber-emerald flex items-center gap-1 font-mono font-medium">
-                                <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-ping"></span> Online · Knowledge Base Active
-                            </div>
-                        </div>
-                    </div>
-                    <span class="px-2.5 py-1 text-[10px] font-mono rounded bg-obsidian-void text-slate-300 border border-slate-800">
-                        RAG AI Engine
-                    </span>
-                </div>
-
-                <!-- Chat Messages Scroll Container -->
-                <div id="ai-chat-messages" class="h-64 overflow-y-auto space-y-3 pr-2 mb-4 text-xs font-body">
-                    <div class="flex justify-start chat-bubble">
-                        <div class="max-w-[85%] rounded-2xl px-4 py-2.5 text-xs bg-obsidian-void border border-slate-800 text-slate-200 rounded-tl-none flex items-start gap-2 shadow-sm">
-                            <span class="w-2 h-2 rounded-full bg-cyber-emerald mt-1 shrink-0"></span>
-                            <span>Hello! I'm the TechNxt AI Assistant. Ask me anything about our services, office location, MVP turnaround, or cloud architecture.</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quick Prompt Buttons -->
-                <div class="flex flex-wrap gap-2 mb-4 pt-3 border-t border-slate-800 font-mono">
-                    <button onclick="askAiPrompt('What core services do you offer?')" class="px-3 py-1.5 rounded-lg bg-obsidian-void hover:bg-slate-800 border border-slate-800 text-xs text-slate-300 transition-colors">
-                        "What services do you offer?"
-                    </button>
-                    <button onclick="askAiPrompt('Where is your office located?')" class="px-3 py-1.5 rounded-lg bg-obsidian-void hover:bg-slate-800 border border-slate-800 text-xs text-slate-300 transition-colors">
-                        "Where is your office?"
-                    </button>
-                    <button onclick="askAiPrompt('How long does MVP development take?')" class="px-3 py-1.5 rounded-lg bg-obsidian-void hover:bg-slate-800 border border-slate-800 text-xs text-slate-300 transition-colors">
-                        "MVP turnaround time?"
-                    </button>
-                </div>
-
-                <!-- Input Row -->
-                <div class="flex gap-2.5">
-                    <input type="text" id="ai-chat-input" placeholder="Type a question for TechNxt AI..." class="flex-1 bg-obsidian-void border border-slate-800 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-cyber-emerald focus:ring-1 focus:ring-cyber-emerald">
-                    <button id="ai-chat-send" class="btn-emerald-glow px-5 py-2.5 rounded-xl text-xs font-mono font-bold flex items-center gap-1.5">
-                        <span>Send</span>
-                        <i data-lucide="send" class="w-3.5 h-3.5"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         10. SECTION: FAQ ACCORDION
-         =================================================================== -->
-    <section id="faq" class="py-24 md:py-32 relative z-10 border-t border-slate-800 bg-obsidian-void/60">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                <span class="px-3.5 py-1 rounded-full bg-obsidian-surface border border-champagne-gold/30 text-champagne-gold text-xs font-mono uppercase tracking-wider">
-                    Frequently Asked Questions
-                </span>
-                <h2 class="text-3xl sm:text-4xl font-black font-heading text-white">
-                    Everything You <span class="text-gradient-gold">Need To Know</span>
-                </h2>
-                <p class="text-slate-300 text-sm font-body">
-                    Common questions about partnering with TechNxt for your digital and engineering needs.
-                </p>
-            </div>
-
-            <div class="space-y-4">
-                
-                <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold font-heading text-white">Where is TechNxt located?</span>
-                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-cyber-emerald shrink-0 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 font-body leading-relaxed border-t border-slate-800/60 pt-4">
-                        Our primary office is located at <strong>505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001, India</strong>. We serve businesses across India and internationally through modern remote collaboration tools.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold font-heading text-white">What technologies does TechNxt specialize in?</span>
-                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-cyber-emerald shrink-0 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 font-body leading-relaxed border-t border-slate-800/60 pt-4">
-                        We specialize in modern web technologies (React, Next.js, PHP, Node.js, Python), cloud platforms (Amazon Web Services AWS, Docker), databases (PostgreSQL, MySQL), AI LLM integrations, and comprehensive digital marketing.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold font-heading text-white">How does the project development process work?</span>
-                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-cyber-emerald shrink-0 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 font-body leading-relaxed border-t border-slate-800/60 pt-4">
-                        We follow a transparent 7-stage lifecycle: Discovery & Requirements, Strategy, UI/UX Design, Development, QA & Testing, Deployment & Launch, and Ongoing Maintenance. You receive weekly milestone demonstrations throughout.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold font-heading text-white">Do you offer post-launch maintenance and technical support?</span>
-                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-cyber-emerald shrink-0 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 font-body leading-relaxed border-t border-slate-800/60 pt-4">
-                        Yes, absolutely. We provide tailored monthly maintenance packages that include security monitoring, bug fixes, automated database backups, speed optimization, and prompt technical support.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold font-heading text-white">How can AI help my business?</span>
-                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-cyber-emerald shrink-0 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 font-body leading-relaxed border-t border-slate-800/60 pt-4">
-                        AI can automate customer support (intelligent 24/7 web and WhatsApp chatbots), auto-classify inquiries, extract data from documents, personalize user experiences, and provide analytics that save manual labor.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden">
-                    <button class="faq-toggle w-full p-6 text-left flex items-center justify-between gap-4" onclick="toggleFaq(this)">
-                        <span class="text-base font-bold font-heading text-white">How do we get started with a new project?</span>
-                        <i data-lucide="plus" class="faq-icon w-5 h-5 text-cyber-emerald shrink-0 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-content hidden px-6 pb-6 text-sm text-slate-300 font-body leading-relaxed border-t border-slate-800/60 pt-4">
-                        Simply submit your requirement through our contact form, book a 15-minute strategy call, or reach out directly on WhatsApp at <strong>+91 9801506511</strong>. Our engineering team will review your scope and provide a detailed roadmap and estimate within 24 hours.
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===================================================================
-         11. SECTION: CONTACT & CONSULTATION
-         =================================================================== -->
-    <section id="contact" class="py-24 md:py-32 relative z-10 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-obsidian-surface border border-cyber-emerald/30 text-cyber-emerald text-xs font-mono uppercase tracking-wider">
-                    Get In Touch
-                </div>
-                <h2 class="text-3xl sm:text-5xl font-black font-heading text-white">
-                    Let's Build Something <span class="text-gradient-emerald">Exceptional Together</span>
-                </h2>
-                <p class="text-slate-300 text-base sm:text-lg font-body">
-                    We would be glad to discuss your requirements and explore how TechNxt can support your journey towards digital transformation.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                
-                <!-- Left: Contact Details & Location -->
-                <div class="lg:col-span-5 space-y-6">
-                    <!-- Office Address Card -->
-                    <div class="glass-panel p-6 space-y-4 rounded-3xl border border-slate-800">
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 rounded-xl bg-cyber-emerald/15 text-cyber-emerald shrink-0 border border-cyber-emerald/30">
-                                <i data-lucide="map-pin" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-mono text-slate-400 uppercase">Office Address</h4>
-                                <p class="text-white font-medium text-base mt-1 font-body">
-                                    505, Mahabir Tower, Main Road,<br>
-                                    Ranchi, Jharkhand – 834001
-                                </p>
-                                <span class="text-xs text-cyber-emerald mt-1 inline-block font-mono font-medium">Registered Headquarters</span>
-                            </div>
-                        </div>
-
-                        <!-- Direct Call -->
-                        <div class="flex items-start gap-4 pt-4 border-t border-slate-800">
-                            <div class="p-3 rounded-xl bg-champagne-gold/15 text-champagne-gold shrink-0 border border-champagne-gold/30">
-                                <i data-lucide="phone-call" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-mono text-slate-400 uppercase">Contact Number</h4>
-                                <a href="tel:+919801506511" class="text-champagne-gold font-bold text-lg hover:underline block mt-1 font-mono">
-                                    +91 9801506511
-                                </a>
-                                <span class="text-xs text-slate-400 font-mono">Available Mon – Sat, 10:00 AM – 7:00 PM IST</span>
-                            </div>
-                        </div>
-
-                        <!-- Email Address -->
-                        <div class="flex items-start gap-4 pt-4 border-t border-slate-800">
-                            <div class="p-3 rounded-xl bg-cyber-emerald/15 text-cyber-emerald shrink-0 border border-cyber-emerald/30">
-                                <i data-lucide="mail" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xs font-mono text-slate-400 uppercase">Email Address</h4>
-                                <a href="mailto:india.futurenxt@gmail.com" class="text-white font-medium text-base hover:text-cyber-emerald transition-colors block mt-1 font-mono">
-                                    india.futurenxt@gmail.com
-                                </a>
-                                <span class="text-xs text-slate-400 font-mono">Official Communication & Quotes</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Direct WhatsApp Connect Banner -->
-                    <div class="p-6 rounded-3xl glass-panel-gold border border-champagne-gold/40 shadow-sm space-y-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-champagne-gold/20 text-champagne-gold flex items-center justify-center">
-                                <i data-lucide="message-circle" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <div class="text-white font-bold text-sm">Fastest Response on WhatsApp</div>
-                                <div class="text-xs text-slate-400 font-mono">Typically replies within 30 minutes</div>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/919801506511?text=Hi%20TechNxt%20team%2C%20I%20would%20like%20to%20discuss%20a%20new%20project%20requirement." target="_blank" class="btn-emerald-glow w-full py-3 rounded-xl font-mono font-bold text-xs flex items-center justify-center gap-2">
-                            <span>Open Direct WhatsApp Chat</span>
-                            <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right: Interactive Lead & Consultation Form -->
-                <div class="lg:col-span-7 glass-panel rounded-3xl p-8 border border-cyber-emerald/30 shadow-2xl">
-                    <h3 class="text-2xl font-bold font-heading text-white mb-2">Send Project Requirement</h3>
-                    <p class="text-slate-400 text-sm mb-6 font-body">Fill in your requirements and our technical team will reach out with a tailored architecture & quotation.</p>
-
-                    <form id="contact-form" class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Your Full Name *</label>
-                                <input type="text" id="contact-name" required placeholder="e.g. Rahul Sharma" class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyber-emerald focus:ring-1 focus:ring-cyber-emerald transition-all">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Phone Number *</label>
-                                <input type="tel" id="contact-phone" required placeholder="e.g. +91 9876543210" class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyber-emerald focus:ring-1 focus:ring-cyber-emerald transition-all">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Email Address</label>
-                                <input type="email" id="contact-email" placeholder="e.g. rahul@company.com" class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyber-emerald focus:ring-1 focus:ring-cyber-emerald transition-all">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Service Required</label>
-                                <select id="contact-service" class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyber-emerald focus:ring-1 focus:ring-cyber-emerald transition-all font-mono">
-                                    <option value="Website Development">Website Development</option>
-                                    <option value="Website Maintenance & Management">Website Maintenance</option>
-                                    <option value="Cloud Solutions & Infrastructure">Cloud Solutions & Infrastructure</option>
-                                    <option value="Web Portal Development">Web Portal Development</option>
-                                    <option value="AI Integration & Automation">AI Integration & Automation</option>
-                                    <option value="Digital Marketing">Digital Marketing</option>
-                                    <option value="End-to-End Technology Consulting">Full Suite Consulting</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Project Details / Goals</label>
-                            <textarea id="contact-message" rows="4" placeholder="Briefly describe what you're looking to build or optimize..." class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyber-emerald focus:ring-1 focus:ring-cyber-emerald transition-all"></textarea>
-                        </div>
-
-                        <!-- Mandatory DPDP Act 2026 Consent Notice & Checkbox (Section 5 & 6) -->
-                        <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-2 text-left">
-                            <label class="flex items-start gap-2.5 text-xs text-slate-300 cursor-pointer select-none">
-                                <input type="checkbox" id="dpdp-contact-consent" required class="mt-0.5 rounded border-slate-700 bg-obsidian-surface text-cyber-emerald focus:ring-cyber-emerald/40 accent-[#00FF87] cursor-pointer">
-                                <span>I grant free, specific, informed, and unambiguous consent under the <b>Digital Personal Data Protection (DPDP) Act, 2026</b> for TechNxtAi to process my name, contact number, and email solely for responding to this technical requirement.</span>
-                            </label>
-                            <div class="flex flex-wrap items-center justify-between text-[11px] font-mono text-slate-400 pt-1 border-t border-slate-800/80">
-                                <span>Purpose: Quotation &amp; Architectural Scoping</span>
-                                <div class="flex items-center gap-2 text-cyber-emerald">
-                                    <button type="button" onclick="openDpdpModal()" class="hover:underline">Read DPDP Notice</button>
-                                    <span>•</span>
-                                    <button type="button" onclick="openDataRightsModal()" class="hover:underline">Your Data Rights</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn-emerald-glow w-full py-4 rounded-xl font-heading font-bold text-sm transition-all flex items-center justify-center gap-2">
-                            <span>Submit Project Requirement</span>
-                            <i data-lucide="send" class="w-4 h-4"></i>
-                        </button>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-        <!-- ===================================================================
-         12. EXECUTIVE COLUMN-WISE FOOTER
-         =================================================================== -->
-        <!-- 4-Column Executive Footer -->
+    <!-- 4-Column Executive Footer -->
     <footer class="pt-16 pb-12 border-t border-slate-800 bg-obsidian-base relative z-10 text-xs font-mono">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 space-y-12">
             
@@ -1787,12 +409,12 @@
                         <span>Services &amp; Solutions</span>
                     </h4>
                     <ul class="space-y-2.5 text-xs text-slate-400">
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Website Development</span></a></li>
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Website Maintenance</span></a></li>
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Cloud &amp; Infrastructure</span></a></li>
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Enterprise Web Portals</span></a></li>
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>AI &amp; Automation Swarms</span></a></li>
-                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Digital Marketing &amp; SEO</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Website Development</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Website Maintenance</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Cloud &amp; Infrastructure</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Enterprise Web Portals</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>AI &amp; Automation Swarms</span></a></li>
+                        <li><a href="services" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Digital Marketing &amp; SEO</span></a></li>
                     </ul>
                 </div>
 
@@ -1803,14 +425,14 @@
                         <span>Navigation</span>
                     </h4>
                     <ul class="space-y-2.5 text-xs text-slate-400">
-                        <li><a href="about.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>About Us</span></a></li>
-                        <li><a href="projects.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Live Client Projects</span></a></li>
-                        <li><a href="blueprints.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Blueprints</span></a></li>
-                        <li><a href="process.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>7-Stage Process</span></a></li>
-                        <li><a href="why-us.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Why Choose Us</span></a></li>
-                        <li><a href="sectors.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Sectors</span></a></li>
-                        <li><a href="faq.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>FAQ</span></a></li>
-                        <li><a href="contact.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Contact &amp; Support</span></a></li>
+                        <li><a href="about" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>About Us</span></a></li>
+                        <li><a href="projects" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Live Client Projects</span></a></li>
+                        <li><a href="blueprints" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Blueprints</span></a></li>
+                        <li><a href="process" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>7-Stage Process</span></a></li>
+                        <li><a href="why-us" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Why Choose Us</span></a></li>
+                        <li><a href="sectors" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Sectors</span></a></li>
+                        <li><a href="faq" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>FAQ</span></a></li>
+                        <li><a href="contact" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Contact &amp; Support</span></a></li>
                     </ul>
                 </div>
 
@@ -1821,9 +443,9 @@
                         <span>Legal &amp; Governance</span>
                     </h4>
                     <ul class="space-y-2.5 text-xs text-slate-400">
-                        <li><a href="terms.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="file-check" class="w-3.5 h-3.5 text-champagne-gold/70"></i><span>Terms &amp; Conditions</span></a></li>
-                        <li><a href="refund.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-champagne-gold/70"></i><span>Refund &amp; Cancellation</span></a></li>
-                        <li><a href="privacy.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyber-emerald/70"></i><span>DPDP Act 2026 Policy</span></a></li>
+                        <li><a href="terms" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="file-check" class="w-3.5 h-3.5 text-champagne-gold/70"></i><span>Terms &amp; Conditions</span></a></li>
+                        <li><a href="refund" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-champagne-gold/70"></i><span>Refund &amp; Cancellation</span></a></li>
+                        <li><a href="privacy" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyber-emerald/70"></i><span>DPDP Act 2026 Policy</span></a></li>
                         <li><button onclick="openDataRightsModal()" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5 text-left font-semibold text-cyber-emerald"><i data-lucide="user-check" class="w-3.5 h-3.5 text-cyber-emerald"></i><span>Exercise Data Rights</span></button></li>
                         <li><button onclick="openPreferencesModal()" class="hover:text-slate-300 transition-colors flex items-center gap-1.5 text-left"><i data-lucide="cookie" class="w-3.5 h-3.5 text-slate-500"></i><span>Cookies Settings</span></button></li>
                         <li><button onclick="openDpoModal()" class="hover:text-slate-300 transition-colors flex items-center gap-1.5 text-left text-slate-400"><i data-lucide="briefcase" class="w-3.5 h-3.5 text-slate-500"></i><span>Data Protection Officer</span></button></li>
@@ -1874,7 +496,7 @@
     </footer>
 
 
-    
+    <!-- Statutory Legal, DPDP Act 2026 & Service Modals -->
     <!-- ===================================================================
          1. TERMS & CONDITIONS MODAL
          =================================================================== -->
@@ -2638,6 +1260,8 @@
     <!-- ===================================================================
          15. THREE.JS 3D WEBGL CORE ENGINE & SCRIPTING
          =================================================================== -->
+
+    <!-- Main Production JavaScript (Three.js WebGL Core, Laser Cursor, Modals, Forms) -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>
