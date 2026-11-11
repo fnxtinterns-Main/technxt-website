@@ -4,3 +4,10 @@ node_modules/
 .vscode/
 .idea/
 *.log
+*.tmp
+*.bak
+*.swp
+*~
+.env
+.env.*
+

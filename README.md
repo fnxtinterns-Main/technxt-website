@@ -103,8 +103,21 @@ The website integrates 5 corporate governance pillars directly accessible via th
 technxt-website/
 │
 ├── .gitignore                          # Git exclusion rules
+├── .htaccess                           # Clean URL routing & Apache caching headers
 ├── favicon.ico                         # Root multi-size icon (16, 32, 48, 64px) for Googlebot
-├── index.html                          # Complete, self-contained single-file production website
+├── index.html                          # Homepage & hero overview
+├── about.html                          # Company mission & leadership
+├── services.html                       # 6 core enterprise service domains
+├── sectors.html                        # 6 industry sector transformations
+├── process.html                        # 4-stage delivery lifecycle
+├── blueprints.html                     # Enterprise architecture & tech stack
+├── why-us.html                         # 8 key differentiators & SLAs
+├── projects.html                       # Featured live client projects
+├── contact.html                        # Inquiry desk & multi-channel helpdesk
+├── faq.html                            # Enterprise technical FAQ
+├── privacy.html                        # DPDP Act 2026 privacy policy
+├── terms.html                          # Terms of service
+├── refund.html                         # Service SLA & refund terms
 ├── README.md                           # Enterprise documentation (this file)
 │
 └── assets/
@@ -112,7 +125,7 @@ technxt-website/
     │   └── style.css                   # Custom styles, glassmorphism, zero-blue rules & animations
     │
     ├── js/
-    │   └── main.js                     # Client logic: modals, service filters, and interactive widgets
+    │   └── main.js                     # Client logic: modals, service filters, Three.js 3D core & interactive widgets
     │
     └── images/
         ├── apple-touch-icon.png        # 180x180 iOS home-screen icon
