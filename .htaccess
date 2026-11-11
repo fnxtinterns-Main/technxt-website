@@ -11,25 +11,16 @@ RewriteRule ^about/?$ / [R=301,L]
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# 3. 301 Redirect: Remove trailing slash from non-root URLs (e.g. /services/ -> /services)
-RewriteCond %{REQUEST_FILENAME} !-d
+# 3. 301 Redirect: Remove trailing slash from URLs (e.g. /services/ -> /services)
 RewriteCond %{REQUEST_URI} ^/(.+)/$
 RewriteRule ^ /%1 [R=301,L]
 
-# 4. Turn DirectorySlash Off so Apache does NOT force trailing slashes
-DirectorySlash Off
-
-# 5. If directory exists, internally serve its index.html without trailing slash
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteCond %{REQUEST_FILENAME}/index.html -f
-RewriteRule ^(.*?)/?$ $1/index.html [L]
-
-# 6. If file.html exists at root, internally serve file.html
+# 4. Internally serve file.html for clean URL (e.g. /services -> services.html)
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*?)/?$ $1.html [L]
 
-# Force revalidation of CSS and JS so users and Hostinger CDN always get latest version
+# 5. Cache-Control: ensure fresh JS/CSS on Hostinger
 <IfModule mod_headers.c>
     <FilesMatch "\.(js|css)$">
         Header set Cache-Control "no-cache, must-revalidate"
