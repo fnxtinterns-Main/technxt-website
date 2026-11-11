@@ -1,420 +1,192 @@
-/* ==========================================================================
-   TechNxt — Luxury Editorial Edition
-   Palette:
-     - Cream: #F2EBDD (Primary Background & Light Text on Dark)
-     - Ink Black: #171717 (Typography, Navbar, Dark Editorial Sections)
-     - Burnt Orange: #D94B26 (Refined Accent for CTAs, Highlights & Focus)
-   ========================================================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
-:root {
-  --color-cream: #F2EBDD;
-  --color-cream-surface: #FAF7F2;
-  --color-cream-card: #FFFFFF;
-  --color-black: #171717;
-  --color-charcoal: #262626;
-  --color-muted: #666666;
-  --color-orange: #D94B26;
-  --color-orange-hover: #C23E1B;
-  --color-orange-tint: rgba(217, 75, 38, 0.09);
-  --color-border-cream: rgba(23, 23, 23, 0.08);
-  --color-border-dark: rgba(242, 235, 221, 0.12);
-  --mouse-x: 50%;
-  --mouse-y: 50%;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  background-color: var(--color-cream);
-}
-
-body {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: var(--color-cream);
-  color: var(--color-black);
-  overflow-x: hidden;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Typography Classes */
-h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: 'Outfit', sans-serif;
-  letter-spacing: -0.02em;
-}
-
-.font-serif {
-  font-family: 'Playfair Display', Georgia, serif;
-}
-
-.font-mono {
-  font-family: 'JetBrains Mono', monospace;
-}
-
-/* Luxury Grain & Texture Overlay */
-.bg-cream-primary {
-  background-color: var(--color-cream);
-}
-
-.bg-cream-surface {
-  background-color: var(--color-cream-surface);
-}
-
-.bg-ink-black {
-  background-color: var(--color-black);
-}
-
-/* Luxury Card — Light on Cream */
-.luxury-card {
-  position: relative;
-  background: var(--color-cream-card);
-  border: 1px solid var(--color-border-cream);
-  border-radius: 1.25rem;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px -2px rgba(23, 23, 23, 0.03);
-}
-
-.luxury-card:hover {
-  border-color: rgba(217, 75, 38, 0.4);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -12px rgba(23, 23, 23, 0.08), 0 0 0 1px rgba(217, 75, 38, 0.15);
-}
-
-/* Luxury Card — Dark on Ink Black */
-.luxury-card-dark {
-  position: relative;
-  background: #1f1f1f;
-  border: 1px solid var(--color-border-dark);
-  border-radius: 1.25rem;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  color: var(--color-cream);
-}
-
-.luxury-card-dark:hover {
-  border-color: rgba(217, 75, 38, 0.5);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5), 0 0 25px -5px rgba(217, 75, 38, 0.2);
-}
-
-/* Spotlight Mouse Glow for Luxury Cards */
-.spotlight-card {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.spotlight-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(217, 75, 38, 0.1), transparent 45%);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.spotlight-card:hover::before {
-  opacity: 1;
-}
-
-/* Luxury Buttons */
-.btn-burnt-orange {
-  background-color: var(--color-orange);
-  color: #FFFFFF;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 20px -4px rgba(217, 75, 38, 0.3);
-}
-
-.btn-burnt-orange:hover {
-  background-color: var(--color-orange-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px -6px rgba(217, 75, 38, 0.4);
-}
-
-.btn-burnt-orange:active {
-  transform: scale(0.98);
-}
-
-.btn-ink-black {
-  background-color: var(--color-black);
-  color: var(--color-cream);
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 20px -4px rgba(23, 23, 23, 0.2);
-}
-
-.btn-ink-black:hover {
-  background-color: var(--color-charcoal);
-  color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px -6px rgba(23, 23, 23, 0.3);
-}
-
-.btn-luxury-outline {
-  background-color: transparent;
-  color: var(--color-black);
-  border: 1px solid rgba(23, 23, 23, 0.25);
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn-luxury-outline:hover {
-  background-color: var(--color-black);
-  color: var(--color-cream);
-  border-color: var(--color-black);
-  transform: translateY(-2px);
-}
-
-/* Shimmer Light Reflection */
-@keyframes luxury-shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(200%); }
-}
-
-.btn-shimmer {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-shimmer::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 60%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-  transform: translateX(-100%);
-  animation: luxury-shimmer 3.5s infinite;
-}
-
-/* Ambient Cursor Glow Orb — Warm Editorial Glow */
-#cursor-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 480px;
-  height: 480px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(217, 75, 38, 0.05) 0%, rgba(242, 235, 221, 0.02) 40%, transparent 70%);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  transition: opacity 0.5s ease;
-  filter: blur(40px);
-}
-
-/* 3D Perspective Card Tilt */
-.tilt-card-container {
-  perspective: 1000px;
-}
-
-.tilt-card {
-  transform-style: preserve-3d;
-  transition: transform 0.15s ease-out;
-}
-
-/* Floating Badges Animation */
-@keyframes float-badge-1 {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-7px); }
-}
-
-@keyframes float-badge-2 {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-9px); }
-}
-
-.float-badge-1 {
-  animation: float-badge-1 5s infinite ease-in-out;
-}
-
-.float-badge-2 {
-  animation: float-badge-2 6s infinite ease-in-out 1.5s;
-}
-
-/* Pulse Beacon */
-@keyframes beacon {
-  0% { transform: scale(0.9); opacity: 0.9; }
-  50% { transform: scale(1.35); opacity: 0.25; }
-  100% { transform: scale(0.9); opacity: 0.9; }
-}
-
-.animate-beacon {
-  animation: beacon 2s infinite ease-in-out;
-}
-
-/* Custom Scrollbar — Luxury Burnt Orange & Cream */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-cream);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #D94B26;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #C23E1B;
-}
-
-/* Back to Top Floating Button */
-#back-to-top {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-#back-to-top.show {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-#back-to-top.hide {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(16px);
-}
-
-/* Chat bubble animation */
-.chat-bubble {
-  animation: chat-fade 0.3s ease-out;
-}
-
-@keyframes chat-fade {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Selection Color */
-::selection {
-  background-color: rgba(217, 75, 38, 0.25);
-  color: #171717;
-}
-
-/* ==========================================================================
-   Advanced Luxury Editorial Enhancements
-   ========================================================================== */
-
-/* Subtle Tactile Mesh Texture */
-.luxury-canvas-mesh {
-  background-color: var(--color-cream);
-  background-image: 
-    radial-gradient(rgba(23, 23, 23, 0.035) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-/* Enhanced Luxury Card with micro-border & deep soft ambient shadow */
-.luxury-card-elevated {
-  position: relative;
-  background: #FFFFFF;
-  border: 1px solid rgba(23, 23, 23, 0.07);
-  border-radius: 1.5rem;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 
-    0 1px 2px rgba(23, 23, 23, 0.02),
-    0 8px 24px -4px rgba(23, 23, 23, 0.04);
-}
-
-.luxury-card-elevated:hover {
-  transform: translateY(-6px);
-  border-color: rgba(217, 75, 38, 0.35);
-  box-shadow: 
-    0 24px 48px -12px rgba(23, 23, 23, 0.08),
-    0 0 0 1px rgba(217, 75, 38, 0.15),
-    0 0 30px -8px rgba(217, 75, 38, 0.08);
-}
-
-/* Glassmorphic Luxury Badge */
-.glass-badge {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(23, 23, 23, 0.08);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-}
-
-/* Interactive Offset Card Animation on Hover */
-.offset-container:hover .offset-backdrop {
-  transform: translate(16px, 16px);
-}
-.offset-container:hover .offset-card {
-  transform: translate(-3px, -3px);
-}
-.offset-backdrop, .offset-card {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Scroll Reveal Transition */
-.reveal-init {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hand-drawn Underline Pulse */
-@keyframes stroke-glow {
-  0%, 100% { opacity: 0.95; }
-  50% { opacity: 0.65; }
-}
-
-.animate-stroke-glow {
-  animation: stroke-glow 4s infinite ease-in-out;
-}
-
-/* Infinite Smooth Marquee Ticker */
-@keyframes luxury-marquee-left {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.marquee-container {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: luxury-marquee-left 32s linear infinite;
-  will-change: transform;
-}
-
-.marquee-container:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-/* Three Dots Typing Indicator */
-.typing-dots span {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: var(--color-orange);
-  margin: 0 1.5px;
-  animation: typing-bounce 1.4s infinite ease-in-out both;
-}
-
-.typing-dots span:nth-child(1) { animation-delay: -0.32s; }
-.typing-dots span:nth-child(2) { animation-delay: -0.16s; }
-
-@keyframes typing-bounce {
-  0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
-  40% { transform: scale(1); opacity: 1; }
-}
+
+        /* ===================================================================
+           STRICT ZERO-BLUE POLICY STYLES
+           Deep Obsidian Velvet, Cyber Emerald, Champagne Gold
+           =================================================================== */
+        :root {
+            --bg-void: #020406;
+            --bg-obsidian: #05080C;
+            --emerald-neon: #00FF87;
+            --emerald-mint: #05DF72;
+            --gold-champagne: #FFD166;
+            --gold-amber: #F59E0B;
+            --titanium: #E2C792;
+            --text-offwhite: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            cursor: none !important; /* Managed by custom laser cursor */
+        }
+
+        body {
+            background-color: var(--bg-void);
+            color: var(--text-offwhite);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.025em;
+        }
+
+        /* Fullscreen WebGL canvas */
+        #webgl-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        /* Glassmorphism Matrix Acrylic */
+        .glass-panel {
+            background: rgba(8, 12, 18, 0.78);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 135, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-panel-gold {
+            background: rgba(12, 14, 18, 0.78);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 209, 102, 0.22);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 209, 102, 0.1);
+        }
+
+        /* Metallic Gold Gradient Text */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FFF1CC 0%, #FFD166 45%, #D4973B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Emerald Neon Gradient Text */
+        .text-gradient-emerald {
+            background: linear-gradient(135deg, #FFFFFF 0%, #00FF87 55%, #05DF72 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Dual Gold-Emerald Brand Gradient */
+        .text-gradient-brand {
+            background: linear-gradient(90deg, #FFFFFF 0%, #FFD166 40%, #00FF87 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Laser Cursor */
+        #laser-cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background-color: var(--emerald-neon);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 12px var(--emerald-neon), 0 0 24px var(--emerald-neon);
+            transition: opacity 0.2s ease;
+        }
+
+        #laser-cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid var(--gold-champagne);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: width 0.25s ease-out, height 0.25s ease-out, border-color 0.25s ease-out, background-color 0.25s ease-out;
+            box-shadow: 0 0 15px rgba(255, 209, 102, 0.25);
+        }
+
+        .cursor-active #laser-cursor-ring {
+            width: 58px;
+            height: 58px;
+            border-color: var(--emerald-neon);
+            background-color: rgba(0, 255, 135, 0.08);
+            box-shadow: 0 0 25px rgba(0, 255, 135, 0.4);
+        }
+
+        /* Dot Matrix Texture Overlay */
+        .dot-matrix-bg {
+            background-image: radial-gradient(rgba(0, 255, 135, 0.08) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        /* Button Glow & Shimmer */
+        .btn-emerald-glow {
+            background: linear-gradient(135deg, #00FF87 0%, #05DF72 100%);
+            color: #020406;
+            font-weight: 700;
+            box-shadow: 0 0 30px rgba(0, 255, 135, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-emerald-glow:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 45px rgba(0, 255, 135, 0.65), 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-gold-glow {
+            background: linear-gradient(135deg, #FFD166 0%, #F59E0B 100%);
+            color: #020406;
+            font-weight: 700;
+            box-shadow: 0 0 30px rgba(255, 209, 102, 0.35);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-gold-glow:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 45px rgba(255, 209, 102, 0.6), 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        /* 3D Tilt Card Container */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+        }
+
+        /* Custom Scrollbar (Zero Blue) */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020406;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #111A15;
+            border: 1px solid rgba(0, 255, 135, 0.25);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00FF87;
+        }
+
+        /* Chat bubble animation */
+        .chat-bubble {
+            animation: chat-fade 0.3s ease-out;
+        }
+        @keyframes chat-fade {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    

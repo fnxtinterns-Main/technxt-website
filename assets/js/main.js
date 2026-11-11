@@ -1,749 +1,605 @@
-// TechNxt Next-Gen Interactive Engine
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Ambient Mouse Glow Orb
-    const cursorGlow = document.getElementById('cursor-glow');
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let glowX = mouseX;
-    let glowY = mouseY;
 
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
+        lucide.createIcons();
 
-    function animateCursorGlow() {
-        glowX += (mouseX - glowX) * 0.12;
-        glowY += (mouseY - glowY) * 0.12;
-        if (cursorGlow) {
-            cursorGlow.style.left = `${glowX}px`;
-            cursorGlow.style.top = `${glowY}px`;
-        }
-        requestAnimationFrame(animateCursorGlow);
-    }
-    animateCursorGlow();
+        // -------------------------------------------------------------
+        // Custom Laser Cursor
+        // -------------------------------------------------------------
+        const cursorDot = document.getElementById('laser-cursor-dot');
+        const cursorRing = document.getElementById('laser-cursor-ring');
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
 
-    // 2. Spotlight Mouse Tracking for Cards
-    const spotlightCards = document.querySelectorAll('.spotlight-card');
-    document.addEventListener('mousemove', (e) => {
-        spotlightCards.forEach(card => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
-    });
-
-    // 3. Interactive Hero Canvas: Dynamic Particle Mesh & Constellation
-    const canvas = document.getElementById('tech-particles-canvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let width = canvas.width = canvas.parentElement.offsetWidth;
-        let height = canvas.height = canvas.parentElement.offsetHeight;
-
-        window.addEventListener('resize', () => {
-            if (!canvas.parentElement) return;
-            width = canvas.width = canvas.parentElement.offsetWidth;
-            height = canvas.height = canvas.parentElement.offsetHeight;
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (cursorDot) {
+                cursorDot.style.left = mouseX + 'px';
+                cursorDot.style.top = mouseY + 'px';
+            }
         });
 
-        const particles = [];
-        const particleCount = Math.min(65, Math.floor((width * height) / 14000));
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.8;
-                this.vy = (Math.random() - 0.5) * 0.8;
-                this.radius = Math.random() * 2 + 1;
-                this.color = Math.random() > 0.35 ? '#D94B26' : '#171717';
+        function renderCursorRing() {
+            ringX += (mouseX - ringX) * 0.18;
+            ringY += (mouseY - ringY) * 0.18;
+            if (cursorRing) {
+                cursorRing.style.left = ringX + 'px';
+                cursorRing.style.top = ringY + 'px';
             }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                if (this.x < 0 || this.x > width) this.vx *= -1;
-                if (this.y < 0 || this.y > height) this.vy *= -1;
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = this.color;
-                ctx.fill();
-                ctx.shadowBlur = 0;
-            }
+            requestAnimationFrame(renderCursorRing);
         }
+        renderCursorRing();
+
+        const clickables = document.querySelectorAll('a, button, input, select, textarea, .tilt-card');
+        clickables.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
+        });
+
+        // 3D Perspective Tilt for Cards
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                const rotX = -(y / rect.height) * 12;
+                const rotY = (x / rect.width) * 12;
+                card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+
+        // -------------------------------------------------------------
+        // Three.js 3D Quantum Core Engine (Zero Blue Policy)
+        // -------------------------------------------------------------
+        const canvas = document.getElementById('webgl-canvas');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x020406, 0.045);
+
+        const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 0, 11);
+
+        const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true, powerPreference: "high-performance" });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        const quantumGroup = new THREE.Group();
+        scene.add(quantumGroup);
+
+        // Geodesic Wireframe
+        const outerGeo = new THREE.IcosahedronGeometry(2.35, 2);
+        const outerMat = new THREE.MeshBasicMaterial({ color: 0x00FF87, wireframe: true, transparent: true, opacity: 0.35 });
+        const outerMesh = new THREE.Mesh(outerGeo, outerMat);
+        quantumGroup.add(outerMesh);
+
+        // Faceted Core
+        const innerGeo = new THREE.DodecahedronGeometry(1.35, 0);
+        const innerMat = new THREE.MeshStandardMaterial({ color: 0xFFD166, roughness: 0.15, metalness: 0.85, flatShading: true });
+        const innerCore = new THREE.Mesh(innerGeo, innerMat);
+        quantumGroup.add(innerCore);
+
+        // Singularity Sphere
+        const singularityGeo = new THREE.SphereGeometry(0.4, 32, 32);
+        const singularityMat = new THREE.MeshBasicMaterial({ color: 0x00FF87 });
+        const singularity = new THREE.Mesh(singularityGeo, singularityMat);
+        quantumGroup.add(singularity);
+
+        // Gyro Rings
+        const torusMat1 = new THREE.MeshBasicMaterial({ color: 0x00FF87, wireframe: true });
+        const torusMat2 = new THREE.MeshBasicMaterial({ color: 0xFFD166, wireframe: true });
+        const torusMat3 = new THREE.MeshBasicMaterial({ color: 0x00FF87, wireframe: true });
+
+        const gyroRing1 = new THREE.Mesh(new THREE.TorusGeometry(2.8, 0.02, 16, 100), torusMat1);
+        const gyroRing2 = new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.02, 16, 100), torusMat2);
+        const gyroRing3 = new THREE.Mesh(new THREE.TorusGeometry(3.6, 0.02, 16, 100), torusMat3);
+
+        gyroRing1.rotation.x = Math.PI / 4;
+        gyroRing2.rotation.y = Math.PI / 3;
+        gyroRing3.rotation.z = Math.PI / 6;
+
+        quantumGroup.add(gyroRing1);
+        quantumGroup.add(gyroRing2);
+        quantumGroup.add(gyroRing3);
+
+        // Vortex Particle Field
+        const particleCount = 1200;
+        const particleGeo = new THREE.BufferGeometry();
+        const positions = new Float32Array(particleCount * 3);
+        const colors = new Float32Array(particleCount * 3);
+
+        const colorEmerald = new THREE.Color(0x00FF87);
+        const colorGold = new THREE.Color(0xFFD166);
 
         for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
+            const radius = 2.5 + Math.random() * 6.0;
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos((Math.random() * 2) - 1);
+
+            positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+            positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+            positions[i * 3 + 2] = radius * Math.cos(phi);
+
+            const pickedColor = (i % 2 === 0) ? colorEmerald : colorGold;
+            colors[i * 3] = pickedColor.r;
+            colors[i * 3 + 1] = pickedColor.g;
+            colors[i * 3 + 2] = pickedColor.b;
         }
 
-        let heroMouseX = null;
-        let heroMouseY = null;
-        canvas.parentElement.addEventListener('mousemove', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            heroMouseX = e.clientX - rect.left;
-            heroMouseY = e.clientY - rect.top;
+        particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        const particleMat = new THREE.PointsMaterial({
+            size: 0.05,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
         });
-        canvas.parentElement.addEventListener('mouseleave', () => {
-            heroMouseX = null;
-            heroMouseY = null;
-        });
 
-        function renderCanvas() {
-            ctx.clearRect(0, 0, width, height);
+        const particleSystem = new THREE.Points(particleGeo, particleMat);
+        scene.add(particleSystem);
 
-            // Connect lines between nearby particles
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0x111612, 1.2);
+        scene.add(ambientLight);
 
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
+        const keyGoldLight = new THREE.DirectionalLight(0xFFD166, 2.5);
+        keyGoldLight.position.set(5, 7, 5);
+        scene.add(keyGoldLight);
 
-                    if (dist < 110) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(23, 23, 23, ${0.07 * (1 - dist / 110)})`;
-                        ctx.lineWidth = 0.8;
-                        ctx.stroke();
-                    }
-                }
+        const emeraldPointLight = new THREE.PointLight(0x00FF87, 3, 20);
+        emeraldPointLight.position.set(0, 0, 0);
+        scene.add(emeraldPointLight);
 
-                // Connect to mouse cursor
-                if (heroMouseX !== null && heroMouseY !== null) {
-                    const mdx = particles[i].x - heroMouseX;
-                    const mdy = particles[i].y - heroMouseY;
-                    const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-                    if (mdist < 140) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(heroMouseX, heroMouseY);
-                        ctx.strokeStyle = `rgba(217, 75, 38, ${0.35 * (1 - mdist / 140)})`;
-                        ctx.lineWidth = 1.2;
-                        ctx.stroke();
-                    }
-                }
+        function adjustCoreLayout() {
+            if (window.innerWidth < 1024) {
+                quantumGroup.position.set(0, 1.0, -1);
+                quantumGroup.scale.set(0.75, 0.75, 0.75);
+            } else {
+                quantumGroup.position.set(3.4, 0, 0);
+                quantumGroup.scale.set(1.0, 1.0, 1.0);
             }
-            requestAnimationFrame(renderCanvas);
         }
-        renderCanvas();
-    }
+        adjustCoreLayout();
 
-    // 4. Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            adjustCoreLayout();
         });
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    }
+        let clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = clock.getElapsedTime();
 
-    // 5. Service Filter Tabs
-    const filterBtns = document.querySelectorAll('.service-filter-btn');
-    const serviceCards = document.querySelectorAll('.service-card-item');
+            outerMesh.rotation.x += 0.003;
+            outerMesh.rotation.y += 0.005;
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => {
-                b.classList.remove('bg-[#D94B26]', 'text-white', 'border-[#D94B26]');
-                b.classList.add('bg-[#262626]', 'text-[#F2EBDD]/70', 'border-white/10');
-            });
-            btn.classList.add('bg-[#D94B26]', 'text-white', 'border-[#D94B26]');
-            btn.classList.remove('bg-[#262626]', 'text-[#F2EBDD]/70', 'border-white/10');
+            innerCore.rotation.x -= 0.008;
+            innerCore.rotation.y += 0.012;
 
-            const category = btn.getAttribute('data-filter');
-            serviceCards.forEach(card => {
-                const cardCat = card.getAttribute('data-category');
-                if (category === 'all' || cardCat.includes(category)) {
-                    card.classList.remove('hidden');
+            gyroRing1.rotation.x += 0.015;
+            gyroRing2.rotation.y += 0.02;
+            gyroRing3.rotation.z += 0.018;
+
+            const pulse = 1 + Math.sin(time * 3) * 0.15;
+            singularity.scale.set(pulse, pulse, pulse);
+
+            particleSystem.rotation.y = time * 0.04;
+
+            const targetX = (mouseX / window.innerWidth - 0.5) * 1.5;
+            const targetY = -(mouseY / window.innerHeight - 0.5) * 1.5;
+            camera.position.x += (targetX - camera.position.x) * 0.05;
+            camera.position.y += (targetY - camera.position.y) * 0.05;
+            camera.lookAt(0, 0, 0);
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // -------------------------------------------------------------
+        // Services Filter Logic
+        // -------------------------------------------------------------
+        window.filterServices = function(category) {
+            document.querySelectorAll('.service-tab-btn').forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.className = 'service-tab-btn px-4 py-2 rounded-full border border-cyber-emerald bg-cyber-emerald text-black font-bold shadow-[0_0_15px_rgba(0,255,135,0.4)]';
                 } else {
-                    card.classList.add('hidden');
+                    btn.className = 'service-tab-btn px-4 py-2 rounded-full border border-slate-800 bg-obsidian-void text-slate-300 hover:border-champagne-gold hover:text-champagne-gold';
                 }
             });
-        });
-    });
 
-    // 6. Service Details Modal Data
-    const serviceDetails = {
-        '01': {
-            title: 'Website Development',
-            tag: 'Web Engineering & High-Performance UI',
-            icon: 'assets/images/icon_service_webdev.png',
-            desc: 'We design and build fast, secure and responsive websites and modern web applications tailored to your brand and business goals. Using modern frameworks (React, Next.js, PHP, Tailwind), we ensure your website loads in under 1 second with 100% mobile perfection.',
-            features: [
-                'Custom Website Development tailored to brand identity',
-                'Corporate and Enterprise Business Portals',
-                '100% Responsive Mobile-First Design across all devices',
-                'E-commerce Development (Cart, Payment Gateways, Order Ops)',
-                'PHP and Modern Web Technologies (React, Node.js, Next.js)',
-                'Website Redesign, UI Modernization & Core Web Vitals (95+ score)',
-                'Custom Web Applications with Scalable Backend Architecture'
-            ],
-            deliverables: ['Custom Codebase & Architecture', 'Admin Control Panel', 'Full SEO & Performance Optimization', 'Production Deployment & SSL', '30-Day Post-Launch Warranty']
-        },
-        '02': {
-            title: 'Website Maintenance & Management',
-            tag: '24/7 Managed Uptime & SLA Support',
-            icon: 'assets/images/icon_service_maintenance.png',
-            desc: 'Keep your website secure, lightning-fast and up to date with dependable ongoing maintenance and proactive technical support. Our engineers monitor your uptime 24/7 and resolve bugs before your users notice.',
-            features: [
-                'Regular Website Content & Software Updates',
-                'Bug Fixing and Rapid Issue Troubleshooting',
-                'Website Security Management & Automated Malware Scanning',
-                'Performance & Database Speed Optimization',
-                'Automated Daily / Weekly Cloud Backup and Instant Recovery',
-                'Hosting, DNS, and Server Management',
-                'Dedicated Technical Support with Rapid SLAs'
-            ],
-            deliverables: ['Monthly Technical Health Audit', 'Real-Time Uptime Monitoring', 'Security Patches & Firewalls', 'Dedicated Developer Hours']
-        },
-        '03': {
-            title: 'Cloud Solutions & Infrastructure',
-            tag: 'AWS, Cloud Migration & DevOps',
-            icon: 'assets/images/icon_service_cloud.png',
-            desc: 'Deploy, host and scale your applications on reliable AWS cloud infrastructure with a relentless focus on security, zero-downtime, and performance. We handle load balancing, containerization, and cost optimization.',
-            features: [
-                'AWS Cloud Architecture, Provisioning & Migration',
-                'High-Availability Cloud Hosting and Deployment Pipelines',
-                'Cloud Server Configuration, Load Balancing & SSL Automation',
-                'Database Hosting, Replication and Multi-AZ Management',
-                'Legacy-to-Cloud Infrastructure Migration',
-                '24/7 Server Health, Disk & CPU Resource Monitoring',
-                'Scalable Cloud Infrastructure for sudden traffic surges',
-                'Cloud Security Hardening, IAM Best Practices & Cost Optimization'
-            ],
-            deliverables: ['Cloud Architecture Topology Diagram', 'Automated CI/CD Pipeline', 'Security Audit Report', 'Disaster Recovery Playbook']
-        },
-        '04': {
-            title: 'Web Portal Development',
-            tag: 'Enterprise Dashboards & Multi-Role Portals',
-            icon: 'assets/images/icon_service_portal.png',
-            desc: 'Custom web portals and multi-tenant management platforms that streamline complex operations for educational institutions, enterprises, and fast-growing businesses.',
-            features: [
-                'Custom Business Web Portals with Granular Access Roles',
-                'Educational & Student Portals (Admissions, Fee, LMS, Exam engines)',
-                'Advanced Admin Management Dashboards with Real-time BI',
-                'Customer Self-Service and Employee Workflow Portals',
-                'Enterprise User Authentication (SSO, OAuth, Role Permissions)',
-                'High-Throughput Database-Driven Web Applications',
-                'Custom Management Platforms & Automated Workflows'
-            ],
-            deliverables: ['Role-Based Permission Matrix', 'Real-time Analytical Dashboards', 'RESTful / GraphQL APIs', 'Staff User Training Guide']
-        },
-        '05': {
-            title: 'AI Integration & Automation',
-            tag: 'Custom AI Agents, LLMs & Process Automation',
-            icon: 'assets/images/icon_service_ai.png',
-            desc: 'Bring intelligent automation and practical AI capabilities into your websites, business workflows, and applications. From conversational AI support agents to predictive analytics and custom model fine-tuning.',
-            features: [
-                'AI-Powered Website & Business System Integration',
-                '24/7 Intelligent AI Chatbots and Conversational Assistants',
-                'Business Process Automation (BPA) & Workflow Streamlining',
-                'AI-Based Data Analytics & Predictive Insights',
-                'Intelligent Semantic Search Systems & RAG Knowledge Retrieval',
-                'AI-Powered Business Applications tailored to industry needs',
-                'Custom AI/ML Solutions and Model Fine-Tuning'
-            ],
-            deliverables: ['Trained Chatbot / Custom AI Agent', 'Knowledge Base Sync Pipeline', 'API Integration Specs', 'Automation Trigger Workflows']
-        },
-        '06': {
-            title: 'Digital Marketing & Growth',
-            tag: 'High-ROI SEO, Google Ads & Brand Domination',
-            icon: 'assets/images/icon_service_marketing.png',
-            desc: 'Strengthen your online visibility, customer acquisition, and brand authority with data-driven strategies designed for sustainable digital growth and maximum return on investment.',
-            features: [
-                'Technical, On-Page & Local Search Engine Optimization (SEO)',
-                'Targeted Social Media Marketing & High-Engagement Campaigns',
-                'High-ROI Google Ads Campaigns & Performance Search Marketing',
-                'Strategic Content Marketing & Conversion Copywriting',
-                'Brand Promotion, Visual Identity & Market Positioning',
-                'Online Reputation Management (ORM) & Review Curation',
-                'Comprehensive Digital Growth Strategies & CRO Audits'
-            ],
-            deliverables: ['Keyword Ranking Dashboard', 'Ad Spend ROI Analytics', '30-Day Content Calendar', 'Monthly Growth Reports']
-        }
-    };
-
-    const modal = document.getElementById('service-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalTag = document.getElementById('modal-tag');
-    const modalDesc = document.getElementById('modal-desc');
-    const modalIcon = document.getElementById('modal-icon');
-    const modalFeatures = document.getElementById('modal-features');
-    const modalDeliverables = document.getElementById('modal-deliverables');
-    const modalCloseBtn = document.getElementById('modal-close-btn');
-    const modalCtaBtn = document.getElementById('modal-cta-btn');
-
-    window.openServiceModal = function(id) {
-        const data = serviceDetails[id];
-        if (!data) return;
-
-        modalTitle.textContent = data.title;
-        modalTag.textContent = data.tag;
-        modalDesc.textContent = data.desc;
-        modalIcon.src = data.icon;
-
-        modalFeatures.innerHTML = data.features.map(f => `
-            <li class="flex items-start space-x-2 text-luxury-cream text-sm">
-                <span class="text-[#D94B26] font-bold">✔</span>
-                <span>${f}</span>
-            </li>
-        `).join('');
-
-        modalDeliverables.innerHTML = data.deliverables.map(d => `
-            <span class="px-2.5 py-1 text-xs rounded-full bg-[#D94B26]/10 text-[#D94B26] border border-[#D94B26]/30 font-medium">
-                ${d}
-            </span>
-        `).join('');
-
-        modalCtaBtn.onclick = () => {
-            closeServiceModal();
-            const contactSection = document.getElementById('contact');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-                const serviceSelect = document.getElementById('contact-service');
-                if (serviceSelect) {
-                    serviceSelect.value = data.title;
+            document.querySelectorAll('.service-card-item').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
                 }
+            });
+        };
+
+        // -------------------------------------------------------------
+        // Service Details Modal Data & Handlers
+        // -------------------------------------------------------------
+        const serviceModalData = {
+            '01': {
+                tag: 'Service 01 · Web Engineering',
+                title: 'Website Development',
+                desc: 'We engineer blazing fast, responsive, and secure custom websites tailored to your exact business goals. Built with modern web standards to convert visitors into loyal clients.',
+                features: ['Custom Frontend & Backend Architecture', 'Corporate, Startup & Brand Portals', 'Mobile-First Responsive Layouts', 'High-Converting E-Commerce Stores', 'PHP, React, Next.js & Modern Frameworks'],
+                deliverables: ['Production-ready Source Code', 'Responsive Cross-Browser Testing', 'SEO Foundation & Core Web Vitals', 'SSL Certificate & Domain Deployment']
+            },
+            '02': {
+                tag: 'Service 02 · Reliability',
+                title: 'Website Maintenance & Management',
+                desc: 'Keep your digital systems secure, error-free, and operating at peak performance with proactive ongoing maintenance and rapid troubleshooting.',
+                features: ['Continuous Updates & Framework Patches', 'Speed Optimization & Caching Tuning', 'Malware Scanning & Security Hardening', 'Automated Database Backups', 'Zero-Downtime Bug Fixing'],
+                deliverables: ['Monthly Health Audit Reports', 'SLA Response Guarantee', '24/7 Server Health Monitoring', 'Automated Cloud Snapshot Vault']
+            },
+            '03': {
+                tag: 'Service 03 · Cloud',
+                title: 'Cloud Solutions & Infrastructure',
+                desc: 'Deploy and scale your applications with high-availability cloud architecture on Amazon Web Services (AWS) with automated scaling and enterprise security.',
+                features: ['AWS Architecture & Migration', 'Multi-AZ Database Replication', 'Docker & Container Cluster Deployment', 'CloudFront Global CDN & Caching', 'Enterprise Disaster Recovery'],
+                deliverables: ['Production AWS Topology Map', 'Terraform / CloudFormation Configs', 'IAM Security Hardening Policy', 'Automated Alerting & CloudWatch Alarms']
+            },
+            '04': {
+                tag: 'Service 04 · Enterprise Portals',
+                title: 'Web Portal Development',
+                desc: 'Centralized enterprise platforms that streamline workflows for educational campuses, healthcare operations, corporate teams, and member communities.',
+                features: ['Multi-Tenant User Roles & RBAC', 'Student & Employee Dashboards', 'Payment Gateway Integration', 'Automated Invoicing & SMS/WhatsApp APIs', 'Custom Data Visualizations'],
+                deliverables: ['Modular Full-Stack Web Portal', 'Comprehensive API Documentation', 'Staff Training & Admin Manual', 'Dedicated Production Deployment']
+            },
+            '05': {
+                tag: 'Service 05 · AI & Automation',
+                title: 'AI Integration & Automation',
+                desc: 'Integrate deterministic AI agent swarms, vector RAG knowledge retrieval, and business process automation to eliminate manual repetitive labor.',
+                features: ['Proprietary RAG Vector Knowledge Base', '24/7 Autonomous WhatsApp & Web Agents', 'Automated Document OCR & Summarization', 'Webhook Integrations with CRM & ERP', 'Predictive Analytics & Smart Funnels'],
+                deliverables: ['Trained Custom AI Agent Model', 'Vector Embeddings Pipeline', 'WhatsApp Business Webhook Integration', 'Monitoring Dashboard with Latency Telemetry']
+            },
+            '06': {
+                tag: 'Service 06 · Growth',
+                title: 'Digital Marketing & Growth',
+                desc: 'Generate predictable revenue with data-backed search engine optimization, conversion rate optimization (CRO), and targeted acquisition campaigns.',
+                features: ['Technical & On-Page SEO Architecture', 'High-Converting Google Search Ads', 'Targeted B2B & B2C Social Campaigns', 'Content Marketing & Authority Building', 'Online Reputation Management (ORM)'],
+                deliverables: ['Target Keyword Ranking Reports', 'Ad Campaign Setup & A/B Copy Testing', 'Google Analytics 4 & Conversion Tracking', 'Monthly ROI & Attribution Telemetry']
             }
         };
 
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-    };
+        window.openServiceModal = function(id) {
+            const data = serviceModalData[id];
+            if (!data) return;
 
-    window.closeServiceModal = function() {
-        if (modal) {
-            modal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-    };
+            const svgMap = {
+                '01': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#00FF87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+                '02': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>`,
+                '03': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#00FF87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>`,
+                '04': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`,
+                '05': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#00FF87" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>`,
+                '06': `<svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="#FFD166" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>`
+            };
+            const iconCont = document.getElementById('modal-icon-container');
+            if (iconCont) {
+                iconCont.innerHTML = svgMap[id] || svgMap['01'];
+            }
 
-    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeServiceModal);
-    if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeServiceModal();
-        });
-    }
+            document.getElementById('modal-tag').textContent = data.tag;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-desc').textContent = data.desc;
 
-    // 7. Interactive FAQ Accordion
-    const faqToggles = document.querySelectorAll('.faq-toggle');
-    faqToggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            const content = toggle.nextElementSibling;
-            const icon = toggle.querySelector('.faq-icon');
-            const isOpen = !content.classList.contains('hidden');
+            const feats = document.getElementById('modal-features');
+            feats.innerHTML = data.features.map(f => `<li class="flex items-center gap-2"><span class="text-cyber-emerald">✔</span> ${f}</li>`).join('');
+
+            const dels = document.getElementById('modal-deliverables');
+            dels.innerHTML = data.deliverables.map(d => `<span class="px-2.5 py-1 rounded bg-obsidian-void border border-slate-800 text-slate-300">${d}</span>`).join('');
+
+            document.getElementById('service-modal').classList.remove('hidden');
+            if (window.lucide) lucide.createIcons();
+        };
+
+        window.closeServiceModal = function() {
+            document.getElementById('service-modal').classList.add('hidden');
+        };
+
+        // -------------------------------------------------------------
+        // Strategy Call Modal
+        // -------------------------------------------------------------
+        window.openCallModal = function() {
+            document.getElementById('call-modal').classList.remove('hidden');
+        };
+
+        window.closeCallModal = function() {
+            document.getElementById('call-modal').classList.add('hidden');
+        };
+
+        // -------------------------------------------------------------
+        // FAQ Accordion Toggle
+        // -------------------------------------------------------------
+        window.toggleFaq = function(btn) {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('.faq-icon');
+            const isHidden = content.classList.contains('hidden');
 
             document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-            document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+            document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
 
-            if (!isOpen) {
+            if (isHidden) {
                 content.classList.remove('hidden');
-                if (icon) icon.classList.add('rotate-180');
+                icon.style.transform = 'rotate(45deg)';
             }
-        });
-    });
+        };
 
-    // 8. Contact Form Handler
-    const contactForm = document.getElementById('contact-form');
-    const toast = document.getElementById('toast');
+        // -------------------------------------------------------------
+        // AI Demo Chatbot Logic
+        // -------------------------------------------------------------
+        const aiChatBox = document.getElementById('ai-chat-messages');
+        const aiInput = document.getElementById('ai-chat-input');
+        const aiSendBtn = document.getElementById('ai-chat-send');
 
-    function showToast(msg) {
-        if (!toast) return;
-        toast.querySelector('.toast-text').textContent = msg;
-        toast.classList.remove('hidden');
-        setTimeout(() => {
-            toast.classList.add('hidden');
-        }, 4500);
-    }
+        const aiResponses = {
+            'services': "TechNxt delivers 6 core IT disciplines: 1) Custom Website Development, 2) Website Maintenance, 3) AWS Cloud Architecture, 4) Enterprise Web Portals, 5) AI Integration & Automation, and 6) Digital Marketing & Growth.",
+            'location': "TechNxt's registered headquarters is located at 505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001, India.",
+            'mvp': "Our agile MVP delivery timeline typically ranges from 2 to 4 weeks depending on architectural complexity, with continuous weekly milestone staging.",
+            'default': "Hello! I am the TechNxt AI Assistant. We engineer bespoke web platforms, AWS cloud microservices, and autonomous AI workflows with zero downtime."
+        };
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('contact-name').value.trim();
-            const email = document.getElementById('contact-email').value.trim();
-            const phone = document.getElementById('contact-phone').value.trim();
-            const service = document.getElementById('contact-service').value;
-            const message = document.getElementById('contact-message').value.trim();
-
-            if (!name || !phone) {
-                alert('Please provide your name and phone number.');
-                return;
-            }
-
-            const waText = encodeURIComponent(
-                `*New Project Requirement for TechNxt:*
-` +
-                `👤 Name: ${name}
-` +
-                `📞 Phone: ${phone}
-` +
-                `✉️ Email: ${email || 'Not specified'}
-` +
-                `🛠️ Service: ${service}
-` +
-                `📝 Requirement: ${message || 'I would like to discuss my project with TechNxt.'}`
-            );
-
-            window.open(`https://wa.me/919801506511?text=${waText}`, '_blank');
-            showToast('Thank you! Redirecting to WhatsApp to send your requirement directly to TechNxt...');
-            contactForm.reset();
-        });
-    }
-
-    // 9. Back To Top Button Logic
-    const backToTopBtn = document.getElementById('back-to-top');
-    if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.remove('hide');
-                backToTopBtn.classList.add('show');
-            } else {
-                backToTopBtn.classList.remove('show');
-                backToTopBtn.classList.add('hide');
-            }
-        });
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
-
-    // 10. Schedule Call Modal
-    const callModal = document.getElementById('call-modal');
-    const callModalClose = document.getElementById('call-modal-close');
-    const callForm = document.getElementById('call-booking-form');
-
-    window.openCallModal = function() {
-        if (callModal) {
-            callModal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-    };
-
-    window.closeCallModal = function() {
-        if (callModal) {
-            callModal.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-    };
-
-    if (callModalClose) callModalClose.addEventListener('click', closeCallModal);
-    if (callModal) {
-        callModal.addEventListener('click', (e) => {
-            if (e.target === callModal) closeCallModal();
-        });
-    }
-
-    if (callForm) {
-        const dateInput = document.getElementById('call-date');
-        if (dateInput) {
-            const today = new Date().toISOString().split('T')[0];
-            dateInput.min = today;
-            dateInput.value = today;
-        }
-
-        callForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('call-name').value.trim();
-            const phone = document.getElementById('call-phone').value.trim();
-            const date = document.getElementById('call-date').value;
-            const slot = document.getElementById('call-slot').value;
-            const topic = document.getElementById('call-topic').value;
-
-            if (!name || !phone) {
-                alert('Please provide your name and phone number.');
-                return;
-            }
-
-            const waMsg = encodeURIComponent(
-                `*New Strategy Call Booking with TechNxt:*
-` +
-                `👤 Name: ${name}
-` +
-                `📞 Phone: ${phone}
-` +
-                `📅 Preferred Date: ${date}
-` +
-                `⏰ Time Slot: ${slot}
-` +
-                `🛠️ Discussion Topic: ${topic}
-
-` +
-                `Looking forward to connecting with the TechNxt engineering team!`
-            );
-
-            window.open(`https://wa.me/919801506511?text=${waMsg}`, '_blank');
-            closeCallModal();
-            showToast('Opening WhatsApp to confirm your 15-Minute Strategy Call slot...');
-            callForm.reset();
-        });
-    }
-
-    // 11. Interactive Copy Code in Terminal
-    window.copyTerminalCommand = function() {
-        const text = 'technxt-deploy --cloud aws --ai enabled';
-        navigator.clipboard.writeText(text).then(() => {
-            showToast('Copied command to clipboard!');
-        });
-    };
-
-    // 12. Lucide Icons initialization
-    if (window.lucide) {
-        window.lucide.createIcons();
-    }
-
-    // 13. Theme Accent Color Switcher
-    window.setThemeAccent = function(themeName) {
-        document.body.classList.remove('theme-cyan', 'theme-violet', 'theme-emerald');
-        document.body.classList.add(`theme-${themeName}`);
-        
-        document.querySelectorAll('.theme-btn').forEach(b => {
-            b.classList.remove('ring-2', 'ring-white', 'scale-110');
-        });
-        const activeBtn = document.getElementById(`theme-btn-${themeName}`);
-        if (activeBtn) activeBtn.classList.add('ring-2', 'ring-white', 'scale-110');
-
-        showToast(`Theme accent changed to ${themeName.toUpperCase()}`);
-    };
-
-    // 14. 3D Tilt Effect on Brand Emblem
-    const tiltContainers = document.querySelectorAll('.tilt-card-container');
-    tiltContainers.forEach(container => {
-        const card = container.querySelector('.tilt-card');
-        if (!card) return;
-
-        container.addEventListener('mousemove', (e) => {
-            const rect = container.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -12;
-            const rotateY = ((x - centerX) / centerX) * 12;
-            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        container.addEventListener('mouseleave', () => {
-            card.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        });
-    });
-
-    // 15. Animated Number Counters
-    const counters = document.querySelectorAll('.counter-val');
-    let countersStarted = false;
-
-    function runCounters() {
-        if (countersStarted) return;
-        counters.forEach(counter => {
-            const target = parseFloat(counter.getAttribute('data-target') || '0');
-            const suffix = counter.getAttribute('data-suffix') || '';
-            const isFloat = counter.getAttribute('data-float') === 'true';
-            let current = 0;
-            const step = target / 40;
-
-            const timer = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                counter.textContent = (isFloat ? current.toFixed(1) : Math.floor(current)) + suffix;
-            }, 30);
-        });
-        countersStarted = true;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-            runCounters();
-        }
-    }, { threshold: 0.2 });
-
-    const statsBar = document.querySelector('.stats-bar-tracker');
-    if (statsBar) observer.observe(statsBar);
-
-    // 16. Interactive Terminal Command Runner
-    const terminalLogs = document.getElementById('terminal-output');
-    const termBtns = document.querySelectorAll('.term-cmd-btn');
-
-    const terminalScripts = {
-        'deploy': [
-            'user@technxt:~$ technxt-deploy --cloud aws --env prod',
-            '✔ Authenticating AWS IAM credentials... OK',
-            '✔ ECS Fargate cluster active (2 replicas)',
-            '✔ RDS PostgreSQL Aurora: Auto-scaling multi-AZ',
-            '✔ SSL/TLS certificate issued · CloudFront CDN active',
-            '🚀 STATUS: Live in 410ms · Zero Downtime Guaranteed'
-        ],
-        'ai': [
-            'user@technxt:~$ technxt-ai-agent --init --model custom',
-            '✔ Loading knowledge base embeddings into Vector DB...',
-            '✔ Context window calibrated: 128k tokens',
-            '✔ RAG retrieval latency: 42ms',
-            '✔ Webhook connected to WhatsApp API & Web Chat',
-            '🤖 STATUS: AI Virtual Assistant Online & Answering'
-        ],
-        'audit': [
-            'user@technxt:~$ technxt-security-audit --deep-scan',
-            '✔ OWASP Top 10 Vulnerability Check: 0 Issues found',
-            '✔ DDoS Protection: AWS Shield Standard Enabled',
-            '✔ Database Encryption: AES-256 at Rest & in Transit',
-            '✔ Core Web Vitals Score: Performance 98 / SEO 100',
-            '🛡️ STATUS: Enterprise Security Hardening Passed (A+)'
-        ]
-    };
-
-    window.runTerminalScript = function(scriptKey) {
-        if (!terminalLogs) return;
-        termBtns.forEach(b => {
-            b.classList.remove('text-luxury-orange', 'border-luxury-orange/40', 'bg-luxury-orange/10');
-            b.classList.add('text-luxury-cream/60', 'border-luxury-cream/15');
-        });
-        const activeBtn = document.getElementById(`term-btn-${scriptKey}`);
-        if (activeBtn) {
-            activeBtn.classList.add('text-luxury-orange', 'border-luxury-orange/40', 'bg-luxury-orange/10');
-            activeBtn.classList.remove('text-luxury-cream/60', 'border-luxury-cream/15');
-        }
-
-        const lines = terminalScripts[scriptKey] || terminalScripts['deploy'];
-        terminalLogs.innerHTML = '';
-        let i = 0;
-
-        function addLine() {
-            if (i < lines.length) {
-                const p = document.createElement('p');
-                if (i === 0) {
-                    p.className = 'text-luxury-cream font-bold';
-                    p.innerHTML = `<span class="text-emerald-400">user@technxt</span>:~$ <span class="text-luxury-orange">${lines[i].split('~$ ')[1]}</span>`;
-                } else if (i === lines.length - 1) {
-                    p.className = 'text-emerald-400 font-semibold pt-1';
-                    p.textContent = lines[i];
-                } else {
-                    p.className = 'text-luxury-cream/60';
-                    p.textContent = lines[i];
-                }
-                terminalLogs.appendChild(p);
-                i++;
-                setTimeout(addLine, 180);
-            }
-        }
-        addLine();
-    };
-
-    // 17. Live AI Chat Preview Simulation Widget
-    const aiChatBox = document.getElementById('ai-chat-messages');
-    const aiInput = document.getElementById('ai-chat-input');
-    const aiSendBtn = document.getElementById('ai-chat-send');
-
-    const aiKnowledge = {
-        'services': 'TechNxt provides 6 core services: 1) Custom Website Development, 2) 24/7 Website Maintenance, 3) AWS Cloud Solutions, 4) Web Portal Development, 5) AI Integration & Chatbots, and 6) Digital Marketing & SEO.',
-        'location': 'TechNxt is headquartered at 505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001. You can call us directly at +91 9801506511.',
-        'timeline': 'A typical startup MVP or website takes 2–3 weeks, while comprehensive web portals or AI integrations take 3–5 weeks with full testing and warranty.',
-        'cloud': 'We specialize in AWS cloud architecture, containerized deployments (Docker/ECS), auto-scaling databases, SSL hardening, and zero-downtime server migrations.',
-        'default': 'TechNxt empowers businesses through tailored IT and practical AI solutions. Would you like to schedule a free 15-minute consultation with our engineering team?'
-    };
-
-    window.askAiPrompt = function(question) {
-        if (!aiChatBox) return;
-        addChatMessage(question, 'user');
-        simulateAiResponse(question);
-    };
-
-    function addChatMessage(text, sender) {
-        if (!aiChatBox) return;
-        const div = document.createElement('div');
-        div.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'} chat-bubble mb-3`;
-        div.innerHTML = sender === 'user' 
-            ? `<div class="max-w-[80%] rounded-2xl px-4 py-2 text-xs bg-[#D94B26] text-white rounded-tr-none shadow-sm">${text}</div>`
-            : `<div class="max-w-[85%] rounded-2xl px-4 py-2.5 text-xs bg-[#FAF7F2] border border-[#171717]/10 text-[#171717] rounded-tl-none shadow-sm flex items-start gap-2">
-                 <span class="w-2 h-2 rounded-full bg-[#D94B26] mt-1 shrink-0"></span>
-                 <span>${text}</span>
-               </div>`;
-        aiChatBox.appendChild(div);
-        aiChatBox.scrollTop = aiChatBox.scrollHeight;
-    }
-
-    function simulateAiResponse(query) {
-        const lower = query.toLowerCase();
-        let reply = aiKnowledge['default'];
-        if (lower.includes('service') || lower.includes('kya karte') || lower.includes('offer')) {
-            reply = aiKnowledge['services'];
-        } else if (lower.includes('office') || lower.includes('location') || lower.includes('ranchi') || lower.includes('contact')) {
-            reply = aiKnowledge['location'];
-        } else if (lower.includes('time') || lower.includes('duration') || lower.includes('kitna time') || lower.includes('mvp')) {
-            reply = aiKnowledge['timeline'];
-        } else if (lower.includes('cloud') || lower.includes('aws') || lower.includes('server')) {
-            reply = aiKnowledge['cloud'];
-        }
-
-        // Show Luxury AI Typing Indicator
-        const typingId = 'ai-typing-' + Date.now();
-        const typingDiv = document.createElement('div');
-        typingDiv.id = typingId;
-        typingDiv.className = 'flex justify-start chat-bubble mb-3';
-        typingDiv.innerHTML = `<div class="rounded-2xl px-4 py-2.5 bg-[#FAF7F2] border border-[#171717]/10 text-xs flex items-center gap-2 shadow-sm">
-            <span class="text-luxury-black/60 font-mono text-[11px]">AI thinking</span>
-            <span class="typing-dots"><span></span><span></span><span></span></span>
-        </div>`;
-        if (aiChatBox) {
-            aiChatBox.appendChild(typingDiv);
+        function addChatMessage(text, sender) {
+            if (!aiChatBox) return;
+            const div = document.createElement('div');
+            div.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'} chat-bubble mb-3`;
+            div.innerHTML = sender === 'user' 
+                ? `<div class="max-w-[80%] rounded-2xl px-4 py-2 text-xs bg-cyber-emerald text-black font-semibold rounded-tr-none shadow-sm">${text}</div>`
+                : `<div class="max-w-[85%] rounded-2xl px-4 py-2.5 text-xs bg-obsidian-void border border-slate-800 text-slate-200 rounded-tl-none shadow-sm flex items-start gap-2">
+                     <span class="w-2 h-2 rounded-full bg-cyber-emerald mt-1 shrink-0"></span>
+                     <span>${text}</span>
+                   </div>`;
+            aiChatBox.appendChild(div);
             aiChatBox.scrollTop = aiChatBox.scrollHeight;
         }
 
-        setTimeout(() => {
-            const el = document.getElementById(typingId);
-            if (el) el.remove();
-            addChatMessage(reply, 'ai');
-        }, 600);
-    }
+        window.askAiPrompt = function(query) {
+            addChatMessage(query, 'user');
+            const lower = query.toLowerCase();
+            let reply = aiResponses['default'];
+            if (lower.includes('service') || lower.includes('offer')) reply = aiResponses['services'];
+            else if (lower.includes('office') || lower.includes('location') || lower.includes('ranchi')) reply = aiResponses['location'];
+            else if (lower.includes('mvp') || lower.includes('time') || lower.includes('turnaround')) reply = aiResponses['mvp'];
 
-    if (aiSendBtn && aiInput) {
-        aiSendBtn.addEventListener('click', () => {
-            const val = aiInput.value.trim();
-            if (!val) return;
-            addChatMessage(val, 'user');
-            aiInput.value = '';
-            simulateAiResponse(val);
-        });
-        aiInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                aiSendBtn.click();
-            }
-        });
-    }
+            setTimeout(() => addChatMessage(reply, 'ai'), 450);
+        };
 
-
-    // 18. Luxury Smooth Scroll Reveal Animations
-    const reveals = document.querySelectorAll('.reveal-init');
-    if (reveals.length > 0 && 'IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal-visible');
-                    revealObserver.unobserve(entry.target);
+        if (aiSendBtn && aiInput) {
+            aiSendBtn.addEventListener('click', () => {
+                const val = aiInput.value.trim();
+                if (!val) return;
+                aiInput.value = '';
+                askAiPrompt(val);
+            });
+            aiInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    aiSendBtn.click();
                 }
             });
-        }, {
-            threshold: 0.12,
-            rootMargin: '0px 0px -40px 0px'
-        });
-        reveals.forEach(el => revealObserver.observe(el));
-    }
+        }
 
-});
+        // -------------------------------------------------------------
+        // Contact Form Submission (WhatsApp Integration)
+        // -------------------------------------------------------------
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('contact-name').value;
+                const phone = document.getElementById('contact-phone').value;
+                const email = document.getElementById('contact-email').value;
+                const service = document.getElementById('contact-service').value;
+                const msg = document.getElementById('contact-message').value;
+
+                const text = `*New TechNxt Inquiry*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Email:* ${encodeURIComponent(email)}%0A*Service:* ${encodeURIComponent(service)}%0A*Message:* ${encodeURIComponent(msg)}`;
+                window.open(`https://wa.me/919801506511?text=${text}`, '_blank');
+            });
+        }
+
+        const callForm = document.getElementById('call-booking-form');
+        if (callForm) {
+            callForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('call-name').value;
+                const phone = document.getElementById('call-phone').value;
+                const date = document.getElementById('call-date').value;
+                const slot = document.getElementById('call-slot').value;
+
+                const text = `*Strategy Call Booking*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Date:* ${encodeURIComponent(date)}%0A*Slot:* ${encodeURIComponent(slot)}`;
+                window.open(`https://wa.me/919801506511?text=${text}`, '_blank');
+            });
+        }
+
+        // =====================================================================
+        // DPDP ACT 2026: CONSENT MANAGEMENT, PREFERENCES & DATA RIGHTS JS
+        // =====================================================================
+        // Purge old blocking keys so it reliably appears on entry
+        try {
+            localStorage.removeItem('technxt_dpdp_banner_dismissed');
+            sessionStorage.removeItem('technxt_dpdp_session_seen');
+        } catch(e) {}
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const formalConsent = localStorage.getItem('technxt_dpdp_consent');
+            const banner = document.getElementById('dpdp-banner');
+
+            if (!banner) return;
+
+            // If user has already formally accepted/rejected, keep it hidden
+            if (formalConsent) {
+                banner.classList.add('hidden');
+                return;
+            }
+
+            // Check if user is navigating/switching between internal pages
+            const isPageSwitch = sessionStorage.getItem('technxt_page_switched');
+
+            if (isPageSwitch) {
+                // User is navigating internal pages -> do not pop up again on page switch
+                banner.classList.add('hidden');
+            } else {
+                // Initial entrance to the site -> Show the banner smoothly after 500ms!
+                setTimeout(() => {
+                    banner.classList.remove('hidden');
+                    // Force reflow
+                    void banner.offsetWidth;
+                    banner.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
+                    banner.classList.add('opacity-100', 'translate-y-0');
+                }, 500);
+            }
+        });
+
+        // Track internal page navigation so banner doesn't repeatedly pop up on every page click
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (link) {
+                const href = link.getAttribute('href') || '';
+                if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('tel:') && !href.startsWith('mailto:')) {
+                    sessionStorage.setItem('technxt_page_switched', 'true');
+                }
+            }
+        });
+
+        window.dismissDpdpBanner = function() {
+            const banner = document.getElementById('dpdp-banner');
+            if (banner) {
+                banner.classList.remove('opacity-100', 'translate-y-0');
+                banner.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
+                setTimeout(() => banner.classList.add('hidden'), 400);
+            }
+            // Mark so it will not pop up on page switch
+            sessionStorage.setItem('technxt_page_switched', 'true');
+        };
+
+        window.acceptAllDpdp = function() {
+            localStorage.setItem('technxt_dpdp_consent', 'accepted');
+            localStorage.setItem('technxt_dpdp_timestamp', new Date().toISOString());
+            dismissDpdpBanner();
+        };
+
+        window.rejectNonEssentialDpdp = function() {
+            localStorage.setItem('technxt_dpdp_consent', 'essential_only');
+            localStorage.setItem('technxt_dpdp_timestamp', new Date().toISOString());
+            dismissDpdpBanner();
+        };
+
+        
+        // =====================================================================
+        // CORPORATE & LEGAL MODALS JS (TERMS, REFUND, SUPPORT)
+        // =====================================================================
+        window.openTermsModal = function() {
+            document.getElementById('terms-modal').classList.remove('hidden');
+            if (window.lucide) lucide.createIcons();
+        };
+
+        window.closeTermsModal = function() {
+            document.getElementById('terms-modal').classList.add('hidden');
+        };
+
+        window.openRefundModal = function() {
+            document.getElementById('refund-modal').classList.remove('hidden');
+            if (window.lucide) lucide.createIcons();
+        };
+
+        window.closeRefundModal = function() {
+            document.getElementById('refund-modal').classList.add('hidden');
+        };
+
+        window.openSupportModal = function() {
+            document.getElementById('support-modal').classList.remove('hidden');
+            if (window.lucide) lucide.createIcons();
+        };
+
+        window.closeSupportModal = function() {
+            document.getElementById('support-modal').classList.add('hidden');
+        };
+
+        window.openDpdpModal = function() {
+            document.getElementById('dpdp-policy-modal').classList.remove('hidden');
+            if (window.lucide) lucide.createIcons();
+        };
+
+        window.closeDpdpModal = function() {
+            document.getElementById('dpdp-policy-modal').classList.add('hidden');
+        };
+
+        window.openDataRightsModal = function() {
+            document.getElementById('dpdp-rights-modal').classList.remove('hidden');
+            if (window.lucide) lucide.createIcons();
+        };
+
+        window.closeDataRightsModal = function() {
+            document.getElementById('dpdp-rights-modal').classList.add('hidden');
+        };
+
+        window.openPreferencesModal = function() {
+            document.getElementById('dpdp-pref-modal').classList.remove('hidden');
+            if (window.lucide) lucide.createIcons();
+        };
+
+        window.closePreferencesModal = function() {
+            document.getElementById('dpdp-pref-modal').classList.add('hidden');
+        };
+
+        window.openDpoModal = function() {
+            document.getElementById('dpdp-dpo-modal').classList.remove('hidden');
+            if (window.lucide) lucide.createIcons();
+        };
+
+        window.closeDpoModal = function() {
+            document.getElementById('dpdp-dpo-modal').classList.add('hidden');
+        };
+
+        window.saveCustomPreferences = function() {
+            const comm = document.getElementById('pref-comm')?.checked;
+            const tele = document.getElementById('pref-telemetry')?.checked;
+            localStorage.setItem('technxt_dpdp_consent', JSON.stringify({ essential: true, communications: comm, telemetry: tele }));
+            localStorage.setItem('technxt_dpdp_timestamp', new Date().toISOString());
+            closePreferencesModal();
+            dismissDpdpBanner();
+            alert('Your DPDP Act 2026 consent preferences have been updated.');
+        };
+
+        window.revokeAllConsent = function() {
+            localStorage.removeItem('technxt_dpdp_consent');
+            localStorage.removeItem('technxt_dpdp_timestamp');
+            closePreferencesModal();
+            const banner = document.getElementById('dpdp-banner');
+            if (banner) banner.classList.remove('hidden');
+            alert('All non-essential consent has been revoked under Section 6(4) of the DPDP Act.');
+        };
+
+        window.handleDataRightsSubmit = function(e) {
+            e.preventDefault();
+            const type = document.getElementById('rights-type').value;
+            const name = document.getElementById('rights-name').value;
+            const email = document.getElementById('rights-email').value;
+            const phone = document.getElementById('rights-phone').value;
+            const details = document.getElementById('rights-details').value;
+
+            const ticketId = 'DPDP-' + Math.floor(1000 + Math.random() * 9000);
+            const ticketElem = document.getElementById('rights-ticket-id');
+            if (ticketElem) ticketElem.textContent = '#' + ticketId;
+
+            const successMsg = document.getElementById('rights-success-msg');
+            if (successMsg) successMsg.classList.remove('hidden');
+
+            // Dispatch notice via WhatsApp direct link option
+            const whatsappSummary = `*DPDP Act 2026 Statutory Request*%0A*Ticket ID:* %23${ticketId}%0A*Right:* ${encodeURIComponent(type)}%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Details:* ${encodeURIComponent(details)}`;
+            setTimeout(() => {
+                window.open(`https://wa.me/919801506511?text=${whatsappSummary}`, '_blank');
+            }, 1000);
+        };
+
+    

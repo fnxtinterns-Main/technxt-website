@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Services Agreement & Terms of Service | TechNxtAi</title>
+    <meta name="description" content="Official Master Services Agreement, Intellectual Property ownership terms, payment milestones, and legal policies of TechNxtAi.">
+    <!-- Official High-Resolution Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+    <!-- Google Fonts: Space Grotesk, Inter, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: {
+                            base: '#020406',
+                            void: '#05080C',
+                            surface: '#0B0F17',
+                            card: '#0E1420',
+                            border: 'rgba(0, 255, 135, 0.12)'
+                        },
+                        cyber: {
+                            emerald: '#00FF87',
+                            mint: '#05DF72',
+                            glow: 'rgba(0, 255, 135, 0.35)',
+                            tint: 'rgba(0, 255, 135, 0.08)'
+                        },
+                        champagne: {
+                            gold: '#FFD166',
+                            amber: '#F59E0B',
+                            titanium: '#E2C792',
+                            glow: 'rgba(255, 209, 102, 0.35)',
+                            tint: 'rgba(255, 209, 102, 0.08)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'Inter', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Three.js r128 & GSAP 3.12 CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Master Cyber-Luxury Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-obsidian-base text-slate-100 antialiased selection:bg-cyber-emerald selection:text-black">
+
+    <!-- Custom Laser Cursor Elements -->
+    <div id="laser-cursor-dot"></div>
+    <div id="laser-cursor-ring"></div>
+
+    <!-- WebGL Background Viewport Canvas (Runs on EVERY page) -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Ambient Subtle Grain Texture Overlay -->
+    <div class="fixed inset-0 pointer-events-none dot-matrix-bg opacity-30 z-0"></div>
+
+    <!-- Floating Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-10 py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-5 py-3.5 flex items-center justify-between border border-cyber-emerald/20 shadow-2xl">
+            
+            <!-- Bespoke TechNxtAi Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3.5 group">
+                <div class="relative w-11 h-11 flex items-center justify-center rounded-xl bg-obsidian-void border border-cyber-emerald/30 group-hover:border-cyber-emerald transition-all shadow-[0_0_20px_rgba(0,255,135,0.2)]">
+                    <svg viewBox="0 0 100 100" class="w-8 h-8 filter drop-shadow-[0_0_8px_rgba(0,255,135,0.7)]">
+                        <defs>
+                            <linearGradient id="goldFacetGrad_terms" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FFF5D6"/>
+                                <stop offset="60%" stop-color="#FFD166"/>
+                                <stop offset="100%" stop-color="#C98A2C"/>
+                            </linearGradient>
+                            <linearGradient id="emeraldFacetGrad_terms" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#7BFFB9"/>
+                                <stop offset="50%" stop-color="#00FF87"/>
+                                <stop offset="100%" stop-color="#028A46"/>
+                            </linearGradient>
+                            <linearGradient id="orbitalSwooshGrad_terms" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#FFD166" stop-opacity="0.1"/>
+                                <stop offset="50%" stop-color="#00FF87" stop-opacity="0.9"/>
+                                <stop offset="100%" stop-color="#FFD166" stop-opacity="1"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M 12,68 C 10,35 60,10 88,32 C 95,38 90,52 75,58 C 45,70 20,78 12,68 Z" fill="none" stroke="url(#orbitalSwooshGrad_terms)" stroke-width="3" stroke-linecap="round"/>
+                        <polygon points="18,22 50,22 45,38 14,38" fill="url(#goldFacetGrad_terms)"/>
+                        <polygon points="50,22 84,22 88,38 45,38" fill="url(#emeraldFacetGrad_terms)"/>
+                        <polygon points="45,38 52,38 44,82 36,82" fill="url(#goldFacetGrad_terms)"/>
+                        <polygon points="52,38 64,38 52,82 44,82" fill="url(#emeraldFacetGrad_terms)"/>
+                        <circle cx="88" cy="32" r="3" fill="#FFD166" class="animate-pulse"/>
+                    </svg>
+                </div>
+
+                <div class="flex flex-col">
+                    <div class="flex items-center text-xl sm:text-2xl font-black tracking-tight leading-none">
+                        <span class="text-white">Tech</span>
+                        <span class="text-white">Nxt</span>
+                        <span class="text-champagne-gold font-bold">A</span>
+                        <span class="relative text-champagne-gold font-bold">
+                            i
+                            <span class="absolute -top-1.5 right-0 w-1.5 h-1.5 bg-cyber-emerald rounded-xs shadow-[0_0_6px_#00FF87] animate-ping"></span>
+                            <span class="absolute -top-3.5 right-1.5 w-1.5 h-1.5 bg-cyber-emerald rounded-xs shadow-[0_0_6px_#00FF87]"></span>
+                        </span>
+                    </div>
+                    <span class="text-[9px] font-mono tracking-widest text-slate-400 mt-0.5 flex items-center gap-1">
+                        <span class="w-2.5 h-[1px] bg-slate-600"></span>
+                        <span>AI</span> <span class="text-cyber-emerald">◆</span>
+                        <span>Web</span> <span class="text-cyber-emerald">◆</span>
+                        <span>Cloud</span> <span class="text-champagne-gold">◆</span>
+                        <span>Digital</span>
+                        <span class="w-2.5 h-[1px] bg-slate-600"></span>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Clean Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-7 text-xs font-mono uppercase tracking-wider text-slate-300">
+                <a href="about.html" class="hover:text-cyber-emerald transition-colors">About</a>
+                <a href="services.html" class="hover:text-cyber-emerald transition-colors">Services</a>
+                <a href="projects.html" class="hover:text-cyber-emerald text-cyber-emerald/90 transition-colors flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span>Live Projects</a>
+                <a href="blueprints.html" class="hover:text-cyber-emerald transition-colors">Blueprints</a>
+                <a href="process.html" class="hover:text-cyber-emerald transition-colors">Process</a>
+                <a href="why-us.html" class="hover:text-cyber-emerald transition-colors">Why Us</a>
+                <a href="sectors.html" class="hover:text-cyber-emerald transition-colors">Sectors</a>
+                <a href="faq.html" class="hover:text-cyber-emerald transition-colors">FAQ</a>
+                <a href="contact.html" class="hover:text-cyber-emerald transition-colors">Contact</a>
+            </nav>
+
+            <!-- Right CTA Button -->
+            <div class="flex items-center gap-3">
+                <button onclick="openCallModal()" class="btn-emerald-glow px-5 py-2.5 rounded-xl text-xs font-mono tracking-wider flex items-center gap-2 group">
+                    <span>BOOK 15-MIN CALL</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+
+    <main class="relative z-10 pt-28 pb-16">
+        <!-- Clean Centered Breadcrumb Pill -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-4 pb-2 text-center">
+            <div class="inline-flex items-center justify-center gap-2 text-xs font-mono text-slate-400 bg-obsidian-surface/90 border border-cyber-emerald/25 px-4 py-1.5 rounded-full shadow-lg">
+                <a href="index.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5">
+                    <i data-lucide="home" class="w-3.5 h-3.5 text-slate-400"></i>
+                    <span>HOME</span>
+                </a>
+                <span class="text-slate-600">/</span>
+                <span class="text-cyber-emerald font-bold tracking-wider uppercase">Terms & Conditions</span>
+            </div>
+        </div>
+
+        <!-- Dedicated Section Content (100% Centered Section Header) -->
+        
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-10 py-6">
+    <!-- Centered Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-obsidian-surface border border-cyber-emerald/30 text-cyber-emerald text-xs font-mono uppercase tracking-wider">
+            Statutory Legal Governance
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black font-heading text-white">
+            Master Services Agreement &amp; <span class="text-gradient-emerald">Terms of Service</span>
+        </h1>
+        <p class="text-slate-400 text-xs font-mono">
+            Effective Date: January 1, 2026 • Governing Law: Ranchi, Jharkhand, India
+        </p>
+    </div>
+
+    <!-- Legal Glass Panel -->
+    <div class="glass-panel rounded-2xl p-8 sm:p-12 border border-cyber-emerald/20 shadow-2xl space-y-8 text-slate-300 font-body leading-relaxed">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-6">
+            <div class="flex items-center gap-2 text-xs font-mono text-champagne-gold">
+                <i data-lucide="shield-check" class="w-4 h-4 text-cyber-emerald"></i>
+                <span>OFFICIAL ENTERPRISE CONTRACT</span>
+            </div>
+            <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-obsidian-surface border border-slate-700 hover:border-cyber-emerald text-xs font-mono text-slate-300 flex items-center gap-2 transition-colors">
+                <i data-lucide="printer" class="w-4 h-4"></i>
+                <span>PRINT MSA</span>
+            </button>
+        </div>
+
+        <div class="space-y-6 text-sm">
+            <section>
+                <h3 class="text-lg font-bold font-heading text-cyber-emerald mb-2">1. Preamble &amp; Scope of Agreement</h3>
+                <p>This Master Services Agreement ("MSA", "Agreement") is entered into by and between <strong>TechNxtAi</strong> (powered by Agents Of Change and FutureNXT), having its registered principal office at 505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001, India ("Service Provider", "TechNxtAi") and the engaging entity or individual ("Client"). By engaging TechNxtAi for custom software development, artificial intelligence orchestration, AWS cloud infrastructure, or digital growth engineering, the Client agrees to be bound by the terms outlined herein.</p>
+            </section>
+
+            <section>
+                <h3 class="text-lg font-bold font-heading text-cyber-emerald mb-2">2. Statements of Work (SOW) &amp; Deliverables</h3>
+                <p>Each engagement shall be governed by an executed Statement of Work (SOW) defining the specific technical deliverables, architectural milestones, delivery timelines, and financial consideration. Any changes or feature expansions outside the initial SOW scope shall require an executed Technical Change Request (TCR) with mutual agreement on cost and timeline impacts.</p>
+            </section>
+
+            <section>
+                <h3 class="text-lg font-bold font-heading text-cyber-emerald mb-2">3. Intellectual Property (IP) Transfer &amp; Ownership</h3>
+                <p>Upon receipt of 100% final milestone payment for the specified project, all custom source code, documentation, UI/UX designs, database schemas, and proprietary business logic developed specifically for the Client shall become the sole and exclusive intellectual property of the Client. TechNxtAi retains ownership of its pre-existing proprietary frameworks, core foundational libraries, and zero-blue boilerplate components, granting the Client a perpetual, royalty-free, non-exclusive license to utilize and modify such components.</p>
+            </section>
+
+            <section>
+                <h3 class="text-lg font-bold font-heading text-cyber-emerald mb-2">4. Payment Terms &amp; Milestone Invoicing</h3>
+                <p>Billing is structured around verifiable milestones: (a) 30% Advance Deposit upon architectural discovery and project initiation, (b) 40% Mid-Sprint Alpha milestone upon staging deployment and functional verification, and (c) 30% Final milestone upon UAT sign-off and production release. Invoices are payable within 7 business days of issuance.</p>
+            </section>
+
+            <section>
+                <h3 class="text-lg font-bold font-heading text-cyber-emerald mb-2">5. Warranty, Bug-Fixing &amp; 99.9% Cloud SLA</h3>
+                <p>TechNxtAi provides a 30-day Post-Deployment Warranty period starting from official production sign-off. During this period, all verified functional bugs and deviations from the SOW shall be rectified at zero additional cost. For managed AWS cloud architectures, TechNxtAi commits to a 99.9% infrastructure availability SLA as specified in the applicable Cloud Support Addendum.</p>
+            </section>
+
+            <section>
+                <h3 class="text-lg font-bold font-heading text-cyber-emerald mb-2">6. Statutory DPDP Act 2026 Compliance</h3>
+                <p>Both parties agree to comply with the Digital Personal Data Protection Act (DPDP Act, 2023) and DPDP Rules 2026 of India. Where TechNxtAi processes personal data on behalf of the Client, TechNxtAi shall act strictly as a Data Processor, maintaining end-to-end encryption, role-based access controls, and immediate statutory breach notification within 6 hours.</p>
+            </section>
+
+            <section>
+                <h3 class="text-lg font-bold font-heading text-cyber-emerald mb-2">7. Dispute Resolution &amp; Governing Jurisdiction</h3>
+                <p>This Agreement shall be governed by, and construed in accordance with, the laws of the Republic of India. In the event of any controversy, claim, or dispute arising out of or relating to this Agreement, the parties shall first attempt in good faith to resolve the matter through senior executive negotiation. If unresolved within 30 days, the dispute shall be referred to arbitration in Ranchi, Jharkhand, under the Arbitration and Conciliation Act, 1996. The courts situated in Ranchi, Jharkhand shall have exclusive territorial jurisdiction.</p>
+            </section>
+        </div>
+
+        <div class="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-xs text-slate-400">
+                For legal inquiries or statutory notices: <a href="mailto:india.futurenxt@gmail.com" class="text-cyber-emerald hover:underline font-mono">india.futurenxt@gmail.com</a>
+            </div>
+            <button onclick="openCallModal()" class="btn-emerald-glow px-5 py-2.5 rounded-xl text-xs font-mono">SCHEDULE MSA CONSULTATION</button>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <!-- 4-Column Executive Footer -->
+    <footer class="pt-16 pb-12 border-t border-slate-800 bg-obsidian-base relative z-10 text-xs font-mono">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 space-y-12">
+            
+            <!-- 4-Column Grid Structure -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+
+                <!-- Col 1 (lg:col-span-4): Brand Identity & Corporate HQ -->
+                <div class="lg:col-span-4 space-y-5">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 rounded-lg bg-obsidian-void border border-cyber-emerald/40 flex items-center justify-center p-1.5 shadow-[0_0_15px_rgba(0,255,135,0.2)]">
+                            <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 25 L85 25 L85 40 L58 40 L58 85 L42 85 L42 40 L15 40 Z" fill="#FFD166"/>
+                                <path d="M42 40 L58 40 L58 85 L42 85 Z" fill="#00FF87"/>
+                                <circle cx="75" cy="30" r="6" fill="#00FF87"/>
+                            </svg>
+                        </div>
+                        <span class="text-white font-bold font-heading text-xl tracking-tight">TechNxt<span class="text-champagne-gold">Ai</span></span>
+                    </div>
+
+                    <p class="text-slate-400 text-xs font-body leading-relaxed">
+                        Autonomous AI engineering, bespoke software development, and enterprise cloud architecture built for forward-thinking organizations globally.
+                    </p>
+
+                    <!-- Registered HQ -->
+                    <div class="space-y-2 text-[11px] text-slate-400 font-body">
+                        <div class="flex items-start gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-cyber-emerald shrink-0 mt-0.5"></i>
+                            <span>505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001, India</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="phone" class="w-3.5 h-3.5 text-champagne-gold shrink-0"></i>
+                            <a href="tel:+919801506511" class="text-slate-300 hover:text-white transition-colors">+91 9801506511</a>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="mail" class="w-3.5 h-3.5 text-cyber-emerald shrink-0"></i>
+                            <a href="mailto:india.futurenxt@gmail.com" class="text-slate-300 hover:text-white transition-colors">india.futurenxt@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- SLA & Security Badge -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald text-[11px] font-bold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span>
+                        <span>ENTERPRISE SLA 99.9% VERIFIED</span>
+                    </div>
+                </div>
+
+                <!-- Col 2 (lg:col-span-3): Core Services & Engineering -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="font-heading font-bold text-sm text-white tracking-wider uppercase text-slate-200 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald"></span>
+                        <span>Services &amp; Solutions</span>
+                    </h4>
+                    <ul class="space-y-2.5 text-xs text-slate-400">
+                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Website Development</span></a></li>
+                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Website Maintenance</span></a></li>
+                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Cloud &amp; Infrastructure</span></a></li>
+                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Enterprise Web Portals</span></a></li>
+                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>AI &amp; Automation Swarms</span></a></li>
+                        <li><a href="services.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Digital Marketing &amp; SEO</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 (lg:col-span-2): Company & Navigation -->
+                <div class="lg:col-span-2 space-y-4">
+                    <h4 class="font-heading font-bold text-sm text-white tracking-wider uppercase text-slate-200 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-champagne-gold"></span>
+                        <span>Navigation</span>
+                    </h4>
+                    <ul class="space-y-2.5 text-xs text-slate-400">
+                        <li><a href="about.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>About Us</span></a></li>
+                        <li><a href="projects.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Live Client Projects</span></a></li>
+                        <li><a href="blueprints.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Blueprints</span></a></li>
+                        <li><a href="process.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>7-Stage Process</span></a></li>
+                        <li><a href="why-us.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Why Choose Us</span></a></li>
+                        <li><a href="sectors.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Sectors</span></a></li>
+                        <li><a href="faq.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>FAQ</span></a></li>
+                        <li><a href="contact.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3 h-3 text-slate-600"></i><span>Contact &amp; Support</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 (lg:col-span-3): Legal, DPDP & Governance -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h4 class="font-heading font-bold text-sm text-white tracking-wider uppercase text-slate-200 flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald"></span>
+                        <span>Legal &amp; Governance</span>
+                    </h4>
+                    <ul class="space-y-2.5 text-xs text-slate-400">
+                        <li><a href="terms.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="file-check" class="w-3.5 h-3.5 text-champagne-gold/70"></i><span>Terms &amp; Conditions</span></a></li>
+                        <li><a href="refund.html" class="hover:text-champagne-gold transition-colors flex items-center gap-1.5"><i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-champagne-gold/70"></i><span>Refund &amp; Cancellation</span></a></li>
+                        <li><a href="privacy.html" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-cyber-emerald/70"></i><span>DPDP Act 2026 Policy</span></a></li>
+                        <li><button onclick="openDataRightsModal()" class="hover:text-cyber-emerald transition-colors flex items-center gap-1.5 text-left font-semibold text-cyber-emerald"><i data-lucide="user-check" class="w-3.5 h-3.5 text-cyber-emerald"></i><span>Exercise Data Rights</span></button></li>
+                        <li><button onclick="openPreferencesModal()" class="hover:text-slate-300 transition-colors flex items-center gap-1.5 text-left"><i data-lucide="cookie" class="w-3.5 h-3.5 text-slate-500"></i><span>Cookies Settings</span></button></li>
+                        <li><button onclick="openDpoModal()" class="hover:text-slate-300 transition-colors flex items-center gap-1.5 text-left text-slate-400"><i data-lucide="briefcase" class="w-3.5 h-3.5 text-slate-500"></i><span>Data Protection Officer</span></button></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Strategic Partnership & Accreditation Banner -->
+            <div class="pt-8 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-6 bg-obsidian-surface/60 rounded-2xl p-6 border border-cyber-emerald/15">
+                <div class="flex flex-col sm:flex-row items-center gap-6">
+                    <span class="text-xs uppercase tracking-widest text-slate-400 font-mono flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-champagne-gold"></span>
+                        <span>POWERED BY:</span>
+                    </span>
+                    <div class="flex items-center gap-6">
+                        <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-obsidian-card border border-cyber-emerald/20 hover:border-cyber-emerald/50 transition-all">
+                            <img src="assets/images/logo_agents_of_change.png" alt="Agents Of Change Logo" class="h-6 w-auto object-contain">
+                            <span class="text-xs font-bold text-white font-heading">Agents Of Change</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-obsidian-card border border-champagne-gold/20 hover:border-champagne-gold/50 transition-all">
+                            <img src="assets/images/logo_futurenxt.png" alt="FutureNXT Logo" class="h-6 w-auto object-contain">
+                            <span class="text-xs font-bold text-champagne-gold font-heading">FutureNXT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-champagne-gold/10 border border-champagne-gold/30 text-champagne-gold text-[11px] font-bold">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-champagne-gold"></i>
+                    <span>VERIFIED ENTERPRISE PARTNER</span>
+                </div>
+            </div>
+
+            <!-- Bottom Sub-Footer Bar -->
+            <div class="pt-6 border-t border-slate-800/60 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-500 font-mono">
+                <div>
+                    © 2026 TechNxtAi. All rights reserved. Registered in Ranchi, Jharkhand, India.
+                </div>
+                <div class="flex items-center gap-2 text-slate-400">
+                    <span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald"></span>
+                    <span>DPDP Act 2026 Compliant Data Fiduciary</span>
+                    <span>•</span>
+                    <span>Zero-Blue Architecture</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- Statutory Legal, DPDP Act 2026 & Service Modals -->
+    <!-- ===================================================================
+         1. TERMS & CONDITIONS MODAL
+         =================================================================== -->
+    <div id="terms-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel max-w-3xl w-full p-6 sm:p-8 rounded-3xl border border-champagne-gold/40 relative space-y-6 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeTermsModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-obsidian-void border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                <div class="w-12 h-12 rounded-2xl bg-champagne-gold/15 border border-champagne-gold/30 flex items-center justify-center text-champagne-gold">
+                    <i data-lucide="file-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-mono text-champagne-gold uppercase tracking-widest font-bold">Official Client Engagement Agreement</span>
+                    <h3 class="text-2xl font-bold font-heading text-white">Terms &amp; Conditions</h3>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="space-y-4 text-xs font-body text-slate-300 leading-relaxed max-h-[55vh] overflow-y-auto pr-2">
+                
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">1.</span> Scope of IT Engineering &amp; Deliverables
+                    </h4>
+                    <p>
+                        TechNxtAi provides bespoke technology development across Website Engineering, Cloud Infrastructure (AWS), AI Agent Automations, and Enterprise Portals. Each engagement is governed by a technical Statement of Work (SOW) outlining defined sprint milestones, architecture diagrams, and testing criteria.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">2.</span> Intellectual Property &amp; Source Code Ownership
+                    </h4>
+                    <p>
+                        Upon 100% full settlement of all agreed project milestones and contractual invoices, complete ownership of custom bespoke source code, database architectures, and graphical assets is irrevocably transferred to the Client. TechNxtAi retains ownership only of pre-existing proprietary developer tooling, modular base libraries, and open-source frameworks.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">3.</span> Milestone Payments &amp; Invoicing
+                    </h4>
+                    <p>
+                        Project fees are scheduled in structured milestone disbursements (e.g. 40% Initiation &amp; Architecture, 30% Functional Development, 30% Final Deployment &amp; Handover). All invoices are GST-compliant and payable within 10 banking days of milestone approval.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">4.</span> Cloud Infrastructure &amp; Third-Party Services
+                    </h4>
+                    <p>
+                        Clients maintain dedicated administrative control of their third-party accounts (Amazon Web Services, domain registrars, payment gateways, WhatsApp Business APIs). Monthly usage billing from third-party cloud vendors is paid directly by the Client.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">5.</span> Enterprise SLA &amp; Support Guarantee
+                    </h4>
+                    <p>
+                        TechNxtAi guarantees an <b>Enterprise SLA of 99.9% availability</b> for managed cloud infrastructure clusters. Support includes 24/7 automated telemetry monitoring, proactive framework security patches, and automated weekly snapshot backups.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">6.</span> Confidentiality &amp; Non-Disclosure (NDA)
+                    </h4>
+                    <p>
+                        All proprietary business data, client user records, logic workflows, and system credentials shared with TechNxtAi are protected under strict mutual Non-Disclosure covenants in accordance with Indian commercial standards.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">7.</span> Governing Law &amp; Jurisdiction
+                    </h4>
+                    <p>
+                        These Terms and any dispute or claim arising out of or in connection with them shall be governed by and construed in accordance with the laws of the Republic of India. The courts of <b>Ranchi, Jharkhand, India</b> shall have exclusive jurisdiction.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex justify-end font-mono">
+                <button onclick="closeTermsModal()" class="px-6 py-2.5 rounded-full text-xs font-bold text-black btn-gold-glow">
+                    I Accept Terms
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         2. REFUND & CANCELLATION POLICY MODAL
+         =================================================================== -->
+    <div id="refund-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-champagne-gold/40 relative space-y-6 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeRefundModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-obsidian-void border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                <div class="w-12 h-12 rounded-2xl bg-champagne-gold/15 border border-champagne-gold/30 flex items-center justify-center text-champagne-gold">
+                    <i data-lucide="rotate-ccw" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-mono text-champagne-gold uppercase tracking-widest font-bold">Transparent Client Protection</span>
+                    <h3 class="text-2xl font-bold font-heading text-white">Refund &amp; Cancellation Policy</h3>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="space-y-4 text-xs font-body text-slate-300 leading-relaxed max-h-[55vh] overflow-y-auto pr-2">
+                
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">1.</span> Project Cancellation Before Sprint Commencement
+                    </h4>
+                    <p>
+                        If a client requests project cancellation within <b>48 hours</b> of contract signing and prior to the commencement of technical architecture or discovery design, <b>100% of the advance fee minus banking transaction charges</b> will be refunded without questions.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">2.</span> Milestone-Based Development Refund Schedule
+                    </h4>
+                    <p>
+                        Custom software engineering is billed against verified milestones. Once an intermediate milestone is completed, demonstrated on staging, and approved by the Client, payments allocated to that completed milestone become non-refundable. For any unstarted future milestones, remaining advance funds will be refunded on a pro-rata basis.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">3.</span> Monthly Maintenance &amp; Retainer Cancellation
+                    </h4>
+                    <p>
+                        Website Maintenance &amp; SLA Retainer contracts can be terminated at any time with a <b>15-day written notice</b> via email to india.futurenxt@gmail.com. Billing stops immediately at the end of the current billing cycle with zero penalty fees.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">4.</span> Non-Refundable Disbursals
+                    </h4>
+                    <p>
+                        Fees disbursed directly to third-party providers (such as domain registrations, third-party SSL certificates, non-transferable SaaS subscriptions, and direct AWS infrastructure usage) are non-refundable as third-party providers do not allow clawbacks.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-champagne-gold">5.</span> Refund Processing Method &amp; Timeline
+                    </h4>
+                    <p>
+                        Approved refunds are processed through the original payment channel (Bank Transfer / NEFT / RTGS / Payment Gateway) within <b>5 to 7 business banking days</b> from the date of formal cancellation confirmation.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex justify-end font-mono">
+                <button onclick="closeRefundModal()" class="px-6 py-2.5 rounded-full text-xs font-bold text-black btn-gold-glow">
+                    Close Policy
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         3. CONTACT & 24/7 SUPPORT HELPDESK MODAL
+         =================================================================== -->
+    <div id="support-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-cyber-emerald/40 relative space-y-6 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeSupportModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-obsidian-void border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                <div class="w-12 h-12 rounded-2xl bg-cyber-emerald/15 border border-cyber-emerald/30 flex items-center justify-center text-cyber-emerald">
+                    <i data-lucide="headphones" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-mono text-cyber-emerald uppercase tracking-widest font-bold">24/7 Enterprise Assistance</span>
+                    <h3 class="text-2xl font-bold font-heading text-white">Contact &amp; Technical Support</h3>
+                </div>
+            </div>
+
+            <!-- Support Channels Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+                
+                <div class="p-4 rounded-2xl bg-obsidian-void border border-slate-800 space-y-2">
+                    <div class="flex items-center gap-2 text-cyber-emerald">
+                        <i data-lucide="phone-call" class="w-4 h-4"></i>
+                        <span class="font-bold text-white uppercase text-[11px]">Direct Support Hotline</span>
+                    </div>
+                    <div class="text-sm font-bold text-cyber-emerald">
+                        <a href="tel:+919801506511" class="hover:underline">+91 9801506511</a>
+                    </div>
+                    <p class="text-[11px] text-slate-400 font-body">Available Monday – Saturday, 10:00 AM – 7:00 PM IST for architectural &amp; scoping queries.</p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-obsidian-void border border-slate-800 space-y-2">
+                    <div class="flex items-center gap-2 text-champagne-gold">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span class="font-bold text-white uppercase text-[11px]">Priority Support Email</span>
+                    </div>
+                    <div class="text-sm font-bold text-champagne-gold truncate">
+                        <a href="mailto:india.futurenxt@gmail.com" class="hover:underline">india.futurenxt@gmail.com</a>
+                    </div>
+                    <p class="text-[11px] text-slate-400 font-body">Guaranteed initial technical acknowledgment within 4 hours.</p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-obsidian-void border border-slate-800 space-y-2">
+                    <div class="flex items-center gap-2 text-cyber-emerald">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span class="font-bold text-white uppercase text-[11px]">Instant WhatsApp Desk</span>
+                    </div>
+                    <div class="text-sm font-bold text-cyber-emerald">
+                        <a href="https://wa.me/919801506511?text=Hello%20TechNxtAi%20Support%2C%20I%20need%20assistance." target="_blank" class="hover:underline flex items-center gap-1">
+                            <span>Open WhatsApp Chat</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                    <p class="text-[11px] text-slate-400 font-body">Direct chat link with our on-call solutions architect.</p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-obsidian-void border border-slate-800 space-y-2">
+                    <div class="flex items-center gap-2 text-champagne-gold">
+                        <i data-lucide="map-pin" class="w-4 h-4"></i>
+                        <span class="font-bold text-white uppercase text-[11px]">Registered Headquarters</span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 font-body leading-relaxed">
+                        505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001, India.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Support SLA Matrix -->
+            <div class="p-4 rounded-2xl bg-obsidian-void border border-slate-800 space-y-2.5 text-xs font-mono">
+                <span class="font-bold text-white uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-cyber-emerald"></i>
+                    <span>Service Desk Response SLA Matrix</span>
+                </span>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
+                    <div class="p-2.5 rounded-lg bg-obsidian-surface border border-slate-800">
+                        <span class="text-rose-400 font-bold block">P1 - Critical Outage</span>
+                        <span class="text-slate-300">Under 60 Mins</span>
+                    </div>
+                    <div class="p-2.5 rounded-lg bg-obsidian-surface border border-slate-800">
+                        <span class="text-amber-400 font-bold block">P2 - Standard Issue</span>
+                        <span class="text-slate-300">Under 4 Hours</span>
+                    </div>
+                    <div class="p-2.5 rounded-lg bg-obsidian-surface border border-slate-800">
+                        <span class="text-cyber-emerald font-bold block">P3 - Feature Request</span>
+                        <span class="text-slate-300">Within 24 Hours</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
+                <a href="#contact" onclick="closeSupportModal()" class="text-cyber-emerald hover:underline flex items-center gap-1">
+                    <span>Go to Contact Form</span>
+                    <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                </a>
+                <button onclick="closeSupportModal()" class="px-6 py-2.5 rounded-full text-xs font-bold text-black btn-emerald-glow">
+                    Close Helpdesk
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         13. SERVICE DETAILS MODAL
+         =================================================================== -->
+    <div id="service-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-cyber-emerald/40 relative space-y-6 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeServiceModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-obsidian-void border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-obsidian-void border border-slate-800 p-2.5 flex items-center justify-center shadow-sm">
+                    <div id="modal-icon-container" class="w-12 h-12 rounded-xl bg-obsidian-surface border border-cyber-emerald/40 p-2.5 flex items-center justify-center text-cyber-emerald shadow-[0_0_15px_rgba(0,255,135,0.2)]">
+                        <i id="modal-icon-elem" data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                </div>
+                <div>
+                    <span id="modal-tag" class="text-xs font-mono text-cyber-emerald tracking-wider uppercase font-semibold">Domain</span>
+                    <h3 id="modal-title" class="text-2xl font-bold font-heading text-white">Service Title</h3>
+                </div>
+            </div>
+
+            <p id="modal-desc" class="text-slate-300 text-sm leading-relaxed font-body"></p>
+
+            <div class="space-y-2 font-mono">
+                <h4 class="text-xs uppercase text-slate-400 tracking-wider">Key Capabilities Included:</h4>
+                <ul id="modal-features" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300"></ul>
+            </div>
+
+            <div class="space-y-2 pt-2 border-t border-slate-800 font-mono">
+                <h4 class="text-xs uppercase text-slate-400 tracking-wider">Standard Deliverables:</h4>
+                <div id="modal-deliverables" class="flex flex-wrap gap-2 text-xs"></div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex justify-end gap-3 font-mono">
+                <button onclick="closeServiceModal()" class="px-5 py-2.5 rounded-full text-sm font-medium text-slate-300 hover:text-white bg-obsidian-void border border-slate-800 transition-colors">
+                    Close
+                </button>
+                <a href="#contact" onclick="closeServiceModal()" class="btn-emerald-glow px-6 py-2.5 rounded-full text-sm font-heading font-semibold text-black shadow-md">
+                    Inquire For This Service
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===================================================================
+         DPDP ACT 2026: FLOATING CONSENT NOTICE BANNER (SECTION 5 & 6)
+         =================================================================== -->
+    <div id="dpdp-banner" class="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto md:max-w-xl z-50 transition-all duration-500 transform translate-y-8 opacity-0 pointer-events-none hidden">
+        <div class="glass-panel rounded-2xl p-5 border border-cyber-emerald/40 shadow-[0_20px_50px_rgba(0,0,0,0.85)] space-y-3.5">
+            <div class="flex items-start justify-between gap-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-cyber-emerald/15 border border-cyber-emerald/30 flex items-center justify-center text-cyber-emerald">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold font-heading text-white">DPDP Act 2026 • Consent &amp; Privacy Notice</h4>
+                        <span class="text-[10px] font-mono text-cyber-emerald uppercase tracking-wider">Digital Personal Data Protection Compliant</span>
+                    </div>
+                </div>
+                <button onclick="dismissDpdpBanner()" class="text-slate-400 hover:text-white p-1 rounded-lg bg-obsidian-void border border-slate-800 text-xs">
+                    <i data-lucide="x" class="w-3.5 h-3.5"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-slate-300 font-body leading-relaxed">
+                TechNxtAi processes your digital personal data in strict compliance with the <b>Digital Personal Data Protection Act, 2023 &amp; DPDP Rules 2026</b>. Data collected via inquiry forms is processed strictly for specified service scoping and is encrypted using AES-256. You retain statutory rights to access, correct, or erase your data at any time.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-1 font-mono text-xs">
+                <div class="flex items-center gap-3">
+                    <button onclick="openDpdpModal()" class="text-slate-300 hover:text-white underline text-[11px]">Notice (Sec 5)</button>
+                    <button onclick="openPreferencesModal()" class="text-champagne-gold hover:underline text-[11px]">Preferences</button>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="rejectNonEssentialDpdp()" class="px-3 py-1.5 rounded-lg bg-obsidian-void border border-slate-700 text-slate-300 hover:text-white text-xs font-medium transition-colors">
+                        Essential Only
+                    </button>
+                    <button onclick="acceptAllDpdp()" class="px-4 py-1.5 rounded-lg btn-emerald-glow text-xs font-bold text-black font-heading transition-all">
+                        Accept &amp; Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Persistent DPDP Compliance Badge (Bottom Left) -->
+    <div class="fixed bottom-4 left-4 z-40 hidden md:block">
+        <button onclick="openPreferencesModal()" class="group glass-panel px-3 py-1.5 rounded-full border border-cyber-emerald/30 hover:border-cyber-emerald shadow-[0_0_15px_rgba(0,255,135,0.12)] flex items-center gap-2 transition-all">
+            <span class="w-2 h-2 rounded-full bg-cyber-emerald animate-pulse"></span>
+            <span class="font-mono text-[11px] font-bold text-slate-300 group-hover:text-cyber-emerald transition-colors">DPDP 2026 Protected</span>
+            <i data-lucide="shield" class="w-3 h-3 text-cyber-emerald"></i>
+        </button>
+    </div>
+
+    <!-- ===================================================================
+         MODAL 1: COMPREHENSIVE DPDP PRIVACY & STATUTORY NOTICE (SECTION 5)
+         =================================================================== -->
+    <div id="dpdp-policy-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel max-w-3xl w-full p-6 sm:p-8 rounded-3xl border border-cyber-emerald/40 relative space-y-6 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeDpdpModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-obsidian-void border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                <div class="w-12 h-12 rounded-2xl bg-cyber-emerald/15 border border-cyber-emerald/30 flex items-center justify-center text-cyber-emerald">
+                    <i data-lucide="file-text" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-mono text-cyber-emerald uppercase tracking-widest font-bold">Statutory Notice Under Section 5</span>
+                    <h3 class="text-2xl font-bold font-heading text-white">Digital Personal Data Protection Policy</h3>
+                </div>
+            </div>
+
+            <!-- Legal Disclosures Accordion/Text -->
+            <div class="space-y-4 text-xs font-body text-slate-300 leading-relaxed max-h-[55vh] overflow-y-auto pr-2">
+                
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-cyber-emerald">1.</span> Identity of the Data Fiduciary
+                    </h4>
+                    <p>
+                        <b>TechNxtAi</b> acts as the Data Fiduciary under the Digital Personal Data Protection Act, 2023. Registered Headquarters: <b>505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001, India</b>. Contact: india.futurenxt@gmail.com | +91 9801506511.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-cyber-emerald">2.</span> Itemised Personal Data Collected &amp; Purpose of Processing (Section 5(1))
+                    </h4>
+                    <p>We collect and process personal data strictly on a need-to-know basis for specified lawful purposes:</p>
+                    <ul class="list-disc pl-5 space-y-1 text-slate-400">
+                        <li><b>Full Name &amp; Contact Number:</b> To verify client identity and discuss project quotations, timeline estimations, and technical deliverables.</li>
+                        <li><b>Email Address:</b> To dispatch tailored system architectures, proposals, contractual agreements, and formal invoices.</li>
+                        <li><b>Project Scope Details:</b> To perform preliminary feasibility analysis and assign dedicated full-stack engineering teams.</li>
+                        <li><b>Technical Logs (IP &amp; Browser Telemetry):</b> For firewall threat prevention, DDoS mitigation, and ensuring 99.9% uptime.</li>
+                    </ul>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-cyber-emerald">3.</span> Explicit, Free &amp; Unconditional Consent (Section 6)
+                    </h4>
+                    <p>
+                        Processing of personal data is founded strictly upon affirmative, unconditional consent granted through our forms. Consent checkboxes are unchecked by default. You retain the absolute statutory right to <b>withdraw consent at any time</b> with the ease with which it was provided.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-cyber-emerald">4.</span> Protection of Children's Data (Section 9)
+                    </h4>
+                    <p>
+                        TechNxtAi strictly adheres to Section 9 of the DPDP Act. We do not knowingly process personal data of children (individuals under 18 years of age) without verifiable parental consent, nor do we engage in targeted advertising or behavioral tracking directed at minors.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-cyber-emerald">5.</span> Security Safeguards &amp; Breach Protocol (Section 8(5) &amp; 8(6))
+                    </h4>
+                    <p>
+                        Personal data is secured using <b>AES-256 encryption at rest</b> and <b>TLS 1.3 in transit</b>. Access is governed by strict Role-Based Access Controls (RBAC). In the unlikely event of a personal data breach, TechNxtAi will notify the <b>Data Protection Board of India (DPBI)</b> and affected Data Principals in the prescribed form and manner.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-cyber-emerald">6.</span> Data Retention &amp; Purpose-Limitation (Section 8(7))
+                    </h4>
+                    <p>
+                        We do not retain personal data beyond the period required to fulfill the specified purpose for which it was collected. Once project delivery or inquiry discussions conclude without ongoing contractual obligations, data is irreversibly purged from our active databases.
+                    </p>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5">
+                    <h4 class="text-sm font-bold font-heading text-white flex items-center gap-2">
+                        <span class="text-cyber-emerald">7.</span> Grievance Redressal Officer &amp; Appellate Board (Section 13)
+                    </h4>
+                    <p>
+                        If you have any questions or complaints regarding the processing of your personal data, you may reach our designated Grievance Officer:
+                        <br><span class="text-white font-mono font-bold">Grievance Officer:</span> Data Protection Lead, TechNxtAi
+                        <br><span class="text-white font-mono font-bold">Official Email:</span> india.futurenxt@gmail.com
+                        <br><span class="text-white font-mono font-bold">Physical Address:</span> 505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001, India.
+                        <br>You also have the statutory right to appeal directly to the <b>Data Protection Board of India (DPBI)</b> if your grievance is unresolved.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 font-mono">
+                <button onclick="openDataRightsModal()" class="px-5 py-2.5 rounded-full text-xs font-semibold text-cyber-emerald bg-cyber-emerald/10 border border-cyber-emerald/30 hover:bg-cyber-emerald/20 transition-all">
+                    Exercise Your Data Rights (Sec 11-14)
+                </button>
+                <button onclick="closeDpdpModal()" class="px-6 py-2.5 rounded-full text-xs font-bold text-black btn-emerald-glow">
+                    I Understand &amp; Agree
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         MODAL 2: DATA PRINCIPAL RIGHTS EXERCISE PORTAL (SECTIONS 11-14)
+         =================================================================== -->
+    <div id="dpdp-rights-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel max-w-xl w-full p-6 sm:p-8 rounded-3xl border border-cyber-emerald/40 relative space-y-6 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeDataRightsModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-obsidian-void border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                <div class="w-12 h-12 rounded-2xl bg-cyber-emerald/15 border border-cyber-emerald/30 flex items-center justify-center text-cyber-emerald">
+                    <i data-lucide="user-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-mono text-cyber-emerald uppercase tracking-widest font-bold">DPDP Act Sections 11, 12, 13 &amp; 14</span>
+                    <h3 class="text-2xl font-bold font-heading text-white">Data Principal Rights Portal</h3>
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-300 font-body leading-relaxed">
+                As a citizen / Data Principal under Indian law, you are legally empowered to exercise statutory rights over your personal data. Submit your request below for immediate action by our Data Protection Officer within <b>72 hours</b>.
+            </p>
+
+            <form id="dpdp-rights-form" onsubmit="handleDataRightsSubmit(event)" class="space-y-4 font-mono text-xs">
+                <div>
+                    <label class="block text-slate-400 uppercase mb-1">Select Statutory Right to Exercise *</label>
+                    <select id="rights-type" required class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cyber-emerald transition-all">
+                        <option value="Right to Access (Section 11)">Right to Access: Summary of personal data processed &amp; third-party sharing</option>
+                        <option value="Right to Correction (Section 12)">Right to Correction: Correct inaccurate, misleading or outdated data</option>
+                        <option value="Right to Erasure (Section 12)">Right to Erasure / Deletion: Complete purge of personal data ("Right to be Forgotten")</option>
+                        <option value="Withdraw Consent (Section 6(4))">Right to Withdraw Consent: Immediately revoke previously granted consent</option>
+                        <option value="Right of Grievance Redressal (Section 13)">Right to Grievance Redressal: File a formal complaint to Grievance Officer</option>
+                        <option value="Right to Nominate (Section 14)">Right to Nominate: Designate a nominee in event of death/incapacity</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-slate-400 uppercase mb-1">Full Legal Name *</label>
+                        <input type="text" id="rights-name" required placeholder="e.g. Rahul Sharma" class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-cyber-emerald">
+                    </div>
+                    <div>
+                        <label class="block text-slate-400 uppercase mb-1">Registered Email *</label>
+                        <input type="email" id="rights-email" required placeholder="e.g. rahul@company.com" class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-cyber-emerald">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-slate-400 uppercase mb-1">Registered Phone Number</label>
+                    <input type="tel" id="rights-phone" placeholder="e.g. +91 9876543210" class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-cyber-emerald">
+                </div>
+
+                <div>
+                    <label class="block text-slate-400 uppercase mb-1">Specific Request Details / Justification *</label>
+                    <textarea id="rights-details" rows="3" required placeholder="Provide specific details regarding the data to be retrieved, corrected, or erased..." class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-cyber-emerald"></textarea>
+                </div>
+
+                <div id="rights-success-msg" class="hidden p-3 rounded-xl bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald text-xs space-y-1">
+                    <div class="font-bold flex items-center gap-1.5">
+                        <i data-lucide="check-circle" class="w-4 h-4"></i>
+                        <span>Statutory Request Logged Successfully!</span>
+                    </div>
+                    <p class="text-[11px] text-slate-300">
+                        Reference Ticket: <span id="rights-ticket-id" class="font-bold text-white">#DPDP-8921</span>. Our Grievance Redressal Officer will confirm verification and resolve your request within 72 business hours.
+                    </p>
+                </div>
+
+                <button type="submit" class="btn-emerald-glow w-full py-3.5 rounded-xl font-heading font-bold text-sm text-black flex items-center justify-center gap-2">
+                    <span>Submit Statutory DPDP Request</span>
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         MODAL 3: CONSENT & COOKIE PREFERENCE CENTER
+         =================================================================== -->
+    <div id="dpdp-pref-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-champagne-gold/40 relative space-y-6">
+            <button onclick="closePreferencesModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-obsidian-void border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                <div class="w-12 h-12 rounded-2xl bg-champagne-gold/15 border border-champagne-gold/30 flex items-center justify-center text-champagne-gold">
+                    <i data-lucide="sliders" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-mono text-champagne-gold uppercase tracking-widest font-bold">Section 6 Consent Management</span>
+                    <h3 class="text-2xl font-bold font-heading text-white">Privacy Preferences</h3>
+                </div>
+            </div>
+
+            <div class="space-y-3.5 text-xs font-mono">
+                
+                <!-- Category 1: Strictly Necessary (Always On) -->
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 flex items-start justify-between gap-3">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-white font-heading text-sm">1. Core Architecture &amp; Security</span>
+                            <span class="px-2 py-0.5 rounded text-[10px] bg-cyber-emerald/15 text-cyber-emerald border border-cyber-emerald/30">Always Active</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 font-body">
+                            Essential for form submissions, CSRF security tokens, 3D WebGL rendering, and SSL session integrity. Cannot be disabled.
+                        </p>
+                    </div>
+                    <input type="checkbox" checked disabled class="mt-1 accent-[#00FF87] cursor-not-allowed">
+                </div>
+
+                <!-- Category 2: Inquiry & WhatsApp Communications -->
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 flex items-start justify-between gap-3">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-white font-heading text-sm">2. Project Communications &amp; WhatsApp</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 font-body">
+                            Permits TechNxtAi to store communication history to schedule technical consultations and provide project status updates.
+                        </p>
+                    </div>
+                    <input type="checkbox" id="pref-comm" checked class="mt-1 accent-[#FFD166] cursor-pointer">
+                </div>
+
+                <!-- Category 3: Performance Telemetry -->
+                <div class="p-3.5 rounded-xl bg-obsidian-void border border-slate-800 flex items-start justify-between gap-3">
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-white font-heading text-sm">3. Anonymous Telemetry &amp; Latency</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 font-body">
+                            Aggregated metrics on frame-rate performance and vector lookup speeds. No identifiable personal information is processed.
+                        </p>
+                    </div>
+                    <input type="checkbox" id="pref-telemetry" checked class="mt-1 accent-[#00FF87] cursor-pointer">
+                </div>
+
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex items-center justify-between gap-3 font-mono">
+                <button onclick="revokeAllConsent()" class="px-4 py-2.5 rounded-xl text-xs font-semibold text-rose-400 hover:text-white bg-rose-500/10 border border-rose-500/20 hover:bg-rose-500/20 transition-all">
+                    Revoke All Consent
+                </button>
+                <button onclick="saveCustomPreferences()" class="px-6 py-2.5 rounded-xl text-xs font-bold text-black btn-gold-glow">
+                    Save Preferences
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         MODAL 4: DPO & GRIEVANCE REDRESSAL OFFICER DETAILS (SECTION 13)
+         =================================================================== -->
+    <div id="dpdp-dpo-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-cyber-emerald/40 relative space-y-6">
+            <button onclick="closeDpoModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-obsidian-void border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3 border-b border-slate-800 pb-4">
+                <div class="w-12 h-12 rounded-2xl bg-cyber-emerald/15 border border-cyber-emerald/30 flex items-center justify-center text-cyber-emerald">
+                    <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-mono text-cyber-emerald uppercase tracking-widest font-bold">DPDP Act Section 8(9) &amp; Section 13</span>
+                    <h3 class="text-2xl font-bold font-heading text-white">Grievance Redressal Officer</h3>
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-300 font-body leading-relaxed">
+                In strict compliance with statutory mandates under the Digital Personal Data Protection Act, 2023, TechNxtAi has designated an official Data Protection &amp; Grievance Redressal Officer:
+            </p>
+
+            <div class="space-y-3 p-4 rounded-2xl bg-obsidian-void border border-slate-800 font-mono text-xs">
+                <div class="flex items-center justify-between py-1.5 border-b border-slate-800">
+                    <span class="text-slate-400">Designation:</span>
+                    <span class="text-white font-bold">Data Protection &amp; Grievance Officer</span>
+                </div>
+                <div class="flex items-center justify-between py-1.5 border-b border-slate-800">
+                    <span class="text-slate-400">Fiduciary Entity:</span>
+                    <span class="text-white font-bold">TechNxtAi (FutureNXT Partner)</span>
+                </div>
+                <div class="flex items-center justify-between py-1.5 border-b border-slate-800">
+                    <span class="text-slate-400">Official Email:</span>
+                    <a href="mailto:india.futurenxt@gmail.com" class="text-cyber-emerald font-bold hover:underline">india.futurenxt@gmail.com</a>
+                </div>
+                <div class="flex items-center justify-between py-1.5 border-b border-slate-800">
+                    <span class="text-slate-400">Direct Contact:</span>
+                    <a href="tel:+919801506511" class="text-champagne-gold font-bold hover:underline">+91 9801506511</a>
+                </div>
+                <div class="py-1.5 space-y-1">
+                    <span class="text-slate-400">Physical Legal Address:</span>
+                    <p class="text-white font-sans text-xs">505, Mahabir Tower, Main Road, Ranchi, Jharkhand – 834001, India</p>
+                </div>
+            </div>
+
+            <div class="p-3 rounded-xl bg-obsidian-surface border border-slate-800 text-[11px] text-slate-400 font-body space-y-1">
+                <span class="font-bold text-white font-mono uppercase tracking-wider block">Statutory SLA Commitment:</span>
+                Acknowledgment within 24 hours. Formal investigation and resolution provided within the statutory timeframe mandated by DPDP Rules 2026.
+            </div>
+
+            <div class="pt-2 flex justify-end">
+                <button onclick="closeDpoModal()" class="px-6 py-2.5 rounded-full text-xs font-bold text-black btn-emerald-glow font-mono">
+                    Close Notice
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         14. STRATEGY CALL BOOKING MODAL
+         =================================================================== -->
+    <div id="call-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass-panel max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-champagne-gold/40 relative space-y-6">
+            <button onclick="closeCallModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-obsidian-void border border-slate-800">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-champagne-gold/15 text-champagne-gold flex items-center justify-center border border-champagne-gold/30">
+                    <i data-lucide="calendar" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-mono text-champagne-gold tracking-wider uppercase font-semibold">Direct Consultation</span>
+                    <h3 class="text-xl font-bold font-heading text-white">Book 15-Min Strategy Call</h3>
+                </div>
+            </div>
+
+            <p class="text-slate-300 text-xs leading-relaxed font-body">
+                Choose your preferred date and time slot. Our technical team will connect with you to review your project scope and architecture.
+            </p>
+
+            <form id="call-booking-form" class="space-y-4 font-mono">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] text-slate-400 uppercase mb-1">Your Name *</label>
+                        <input type="text" id="call-name" required placeholder="e.g. Amit Kumar" class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-champagne-gold">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-400 uppercase mb-1">Phone Number *</label>
+                        <input type="tel" id="call-phone" required placeholder="e.g. +91 9876543210" class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-champagne-gold">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] text-slate-400 uppercase mb-1">Preferred Date *</label>
+                        <input type="date" id="call-date" required class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-champagne-gold">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] text-slate-400 uppercase mb-1">Time Slot *</label>
+                        <select id="call-slot" class="w-full bg-obsidian-void border border-slate-800 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-champagne-gold">
+                            <option value="Morning (10:00 AM - 12:00 PM)">Morning (10:00 AM - 12:00 PM)</option>
+                            <option value="Afternoon (02:00 PM - 05:00 PM)">Afternoon (02:00 PM - 05:00 PM)</option>
+                            <option value="Evening (05:00 PM - 07:00 PM)">Evening (05:00 PM - 07:00 PM)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- DPDP Act 2026 Statutory Consent (Call Scheduling) -->
+                <div class="p-3 rounded-xl bg-obsidian-void border border-slate-800 space-y-1.5 text-left text-xs font-sans">
+                    <label class="flex items-start gap-2 text-slate-300 cursor-pointer select-none">
+                        <input type="checkbox" id="dpdp-call-consent" required class="mt-0.5 rounded border-slate-700 bg-obsidian-surface text-champagne-gold focus:ring-champagne-gold/40 accent-[#FFD166] cursor-pointer">
+                        <span class="text-[11px] leading-relaxed">I provide explicit consent under <b>DPDP Act 2026</b> for TechNxtAi to contact me via phone/WhatsApp strictly for this scheduled consultation.</span>
+                    </label>
+                    <div class="text-[10px] font-mono text-slate-400">
+                        Right to withdraw consent preserved at any time. <button type="button" onclick="openDpdpModal()" class="text-champagne-gold hover:underline">DPDP Policy</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-gold-glow w-full py-3.5 rounded-full font-heading font-semibold text-xs tracking-wide">
+                    Confirm Strategy Call
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===================================================================
+         15. THREE.JS 3D WEBGL CORE ENGINE & SCRIPTING
+         =================================================================== -->
+
+    <!-- Main Production JavaScript (Three.js WebGL Core, Laser Cursor, Modals, Forms) -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
