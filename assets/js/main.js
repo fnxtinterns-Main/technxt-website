@@ -1,15 +1,35 @@
 // ===================================================================
-// CLEAN URL ENGINE: Automatically strip .html from address bar
+// CLEAN URL ENGINE: Strip /about/ -> / and remove all trailing slashes
 // ===================================================================
-(function removeHtmlExtensionFromAddressBar() {
+(function cleanAddressBar() {
     try {
         if (window.history && window.history.replaceState && window.location.protocol.startsWith('http')) {
             const loc = window.location;
-            const path = loc.pathname;
+            let path = loc.pathname;
+
+            // 1. If on about page (/about, /about/, /about.html), normalize to root /
+            if (path === '/about' || path === '/about/' || path === '/about.html') {
+                window.history.replaceState(null, '', '/' + loc.search + loc.hash);
+                return;
+            }
+
+            // 2. Remove .html if present
             if (path.endsWith('.html')) {
-                let clean = path.replace(/\.html$/, '');
-                if (clean.endsWith('/index')) clean = clean.replace(/\/index$/, '') || '/';
-                window.history.replaceState(null, '', clean + loc.search + loc.hash);
+                path = path.replace(/\.html$/, '');
+            }
+
+            // 3. Remove trailing /index
+            if (path.endsWith('/index')) {
+                path = path.replace(/\/index$/, '') || '/';
+            }
+
+            // 4. Remove trailing slash on any other page (e.g. /services/ -> /services)
+            if (path.length > 1 && path.endsWith('/')) {
+                path = path.replace(/\/+$/, '');
+            }
+
+            if (path !== loc.pathname) {
+                window.history.replaceState(null, '', (path || '/') + loc.search + loc.hash);
             }
         }
     } catch (e) {}
@@ -174,11 +194,12 @@
 
         function adjustCoreLayout() {
             if (window.innerWidth < 1024) {
-                quantumGroup.position.set(0, 1.0, -1);
-                quantumGroup.scale.set(0.75, 0.75, 0.75);
+                quantumGroup.position.set(0, 0.2, -1);
+                quantumGroup.scale.set(0.7, 0.7, 0.7);
             } else {
-                quantumGroup.position.set(3.4, 0, 0);
-                quantumGroup.scale.set(1.0, 1.0, 1.0);
+                // Lower y to -1.1 and scale to 0.85 so rotating rings never collide with or overlap the fixed navbar
+                quantumGroup.position.set(3.2, -1.1, 0);
+                quantumGroup.scale.set(0.85, 0.85, 0.85);
             }
         }
         adjustCoreLayout();

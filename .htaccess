@@ -4,16 +4,27 @@
 RewriteEngine On
 RewriteBase /
 
-# 1. External 301 Redirect: Remove .html from browser address bar
+# 1. 301 Redirect /about or /about/ to root /
+RewriteRule ^about/?$ / [R=301,L]
+
+# 2. 301 Redirect: Strip .html extension from browser address bar
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# 2. If directory/index.html exists, serve it
+# 3. 301 Redirect: Remove trailing slash from non-root URLs (e.g. /services/ -> /services)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/(.+)/$
+RewriteRule ^ /%1 [R=301,L]
+
+# 4. Turn DirectorySlash Off so Apache does NOT force trailing slashes
+DirectorySlash Off
+
+# 5. If directory exists, internally serve its index.html without trailing slash
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteCond %{REQUEST_FILENAME}/index.html -f
-RewriteRule ^ - [L]
+RewriteRule ^(.*?)/?$ $1/index.html [L]
 
-# 3. If file.html exists, internally serve file.html
+# 6. If file.html exists at root, internally serve file.html
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*?)/?$ $1.html [L]
