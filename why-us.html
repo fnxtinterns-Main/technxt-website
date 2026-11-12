@@ -79,13 +79,15 @@
     <!-- Floating Navigation Bar -->
         <!-- Floating Navigation Bar -->
         <!-- Floating Navigation Bar -->
-    <header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 lg:px-10 py-3 sm:py-4 transition-all duration-300">
-        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-4 sm:px-5 py-3 flex items-center justify-between border border-cyber-emerald/20 shadow-2xl">
+        <!-- Floating Navigation Bar -->
+        <!-- Floating Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-2 sm:px-6 lg:px-10 py-2 sm:py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-3 sm:px-5 py-2.5 sm:py-3.5 flex items-center justify-between border border-cyber-emerald/20 shadow-2xl">
             
             <!-- Bespoke TechNxtAi Brand Logo -->
-            <a href="/" class="flex items-center gap-2.5 sm:gap-3.5 group whitespace-nowrap shrink-0">
-                <div class="relative w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl bg-obsidian-void border border-cyber-emerald/30 group-hover:border-cyber-emerald transition-all shadow-[0_0_20px_rgba(0,255,135,0.2)] shrink-0">
-                    <svg viewBox="0 0 100 100" class="w-6 h-6 sm:w-8 sm:h-8 filter drop-shadow-[0_0_8px_rgba(0,255,135,0.7)]">
+            <a href="/" class="flex items-center gap-2 sm:gap-3.5 group whitespace-nowrap shrink-0">
+                <div class="relative w-8 h-8 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl bg-obsidian-void border border-cyber-emerald/30 group-hover:border-cyber-emerald transition-all shadow-[0_0_20px_rgba(0,255,135,0.2)] shrink-0">
+                    <svg viewBox="0 0 100 100" class="w-5 h-5 sm:w-8 sm:h-8 filter drop-shadow-[0_0_8px_rgba(0,255,135,0.7)]">
                         <defs>
                             <linearGradient id="goldFacetGrad_why-us" x1="0%" y1="0%" x2="100%" y2="100%">
                                 <stop offset="0%" stop-color="#FFF5D6"/>
@@ -112,30 +114,29 @@
                     </svg>
                 </div>
 
-                <div class="flex flex-col">
-                    <div class="flex items-center text-lg sm:text-2xl font-black tracking-tight leading-none whitespace-nowrap">
+                <div class="flex flex-col justify-center">
+                    <div class="flex items-center text-base sm:text-2xl font-black tracking-tight leading-none whitespace-nowrap">
                         <span class="text-white">Tech</span>
                         <span class="text-white">Nxt</span>
                         <span class="text-champagne-gold font-bold">A</span>
-                        <span class="relative text-champagne-gold font-bold">
-                            i
-                            <span class="absolute -top-1.5 right-0 w-1.5 h-1.5 bg-cyber-emerald rounded-xs shadow-[0_0_6px_#00FF87] animate-ping"></span>
-                            <span class="absolute -top-3.5 right-1.5 w-1.5 h-1.5 bg-cyber-emerald rounded-xs shadow-[0_0_6px_#00FF87]"></span>
+                        <span class="inline-flex flex-col items-center justify-end h-[14px] sm:h-[20px] w-[5px] sm:w-[7px] ml-[1px] shrink-0 self-end">
+                            <span class="w-[3.5px] sm:w-[5px] h-[3.5px] sm:h-[5px] rounded-[1px] bg-cyber-emerald shadow-[0_0_6px_#00FF87] mb-[2px] shrink-0"></span>
+                            <span class="w-[3.5px] sm:w-[5px] h-[8.5px] sm:h-[13px] rounded-[1px] bg-champagne-gold shrink-0"></span>
                         </span>
                     </div>
-                    <span class="text-[8px] sm:text-[9px] font-mono tracking-widest text-slate-400 mt-0.5 flex items-center gap-1 whitespace-nowrap">
-                        <span class="w-2 sm:w-2.5 h-[1px] bg-slate-600"></span>
+                    <span class="text-[7.5px] sm:text-[9px] font-mono tracking-widest text-slate-400 mt-1 flex items-center gap-0.5 sm:gap-1 whitespace-nowrap">
+                        <span class="w-1.5 sm:w-2.5 h-[1px] bg-slate-600"></span>
                         <span>AI</span> <span class="text-cyber-emerald">◆</span>
                         <span>Web</span> <span class="text-cyber-emerald">◆</span>
                         <span>Cloud</span> <span class="text-champagne-gold">◆</span>
                         <span>Digital</span>
-                        <span class="w-2 sm:w-2.5 h-[1px] bg-slate-600"></span>
+                        <span class="w-1.5 sm:w-2.5 h-[1px] bg-slate-600"></span>
                     </span>
                 </div>
             </a>
 
-            <!-- Desktop & Phone Desktop-Site Navigation Links (min-[960px] = visible on Desktop Site mode 980px & PC) -->
-            <nav class="hidden min-[960px]:flex items-center gap-3 xl:gap-6 text-[11px] xl:text-xs font-mono uppercase tracking-wider text-slate-300 whitespace-nowrap">
+            <!-- Desktop & Phone Desktop-Site Navigation Links (min-[960px] = visible on Desktop Site mode 980px, Laptops, Desktops & Smart Boards) -->
+            <nav class="hidden min-[960px]:flex items-center gap-2 xl:gap-6 text-[10px] lg:text-[11px] xl:text-xs font-mono uppercase tracking-wider text-slate-300 whitespace-nowrap">
                 <a href="/" class="hover:text-cyber-emerald transition-colors whitespace-nowrap">About</a>
                 <a href="services" class="hover:text-cyber-emerald transition-colors whitespace-nowrap">Services</a>
                 <a href="projects" class="hover:text-cyber-emerald text-cyber-emerald/90 transition-colors whitespace-nowrap flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span><span>Live Projects</span></a>
@@ -148,68 +149,68 @@
             </nav>
 
             <!-- Right Controls: CTA & Hamburger Toggle Button -->
-            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                <button onclick="openCallModal()" class="btn-emerald-glow px-3 py-2 sm:px-5 sm:py-2.5 rounded-xl text-[11px] sm:text-xs font-mono tracking-wider flex items-center gap-1.5 sm:gap-2 group whitespace-nowrap">
+            <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+                <button onclick="openCallModal()" class="btn-emerald-glow px-2.5 py-1.5 sm:px-4 sm:py-2 rounded-xl text-[10px] sm:text-xs font-mono font-bold tracking-wider flex items-center gap-1 sm:gap-1.5 group whitespace-nowrap shadow-[0_0_15px_rgba(0,255,135,0.25)] shrink-0">
                     <span class="whitespace-nowrap">BOOK <span class="hidden sm:inline">15-MIN </span>CALL</span>
-                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                    <i data-lucide="arrow-up-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
                 </button>
 
-                <!-- Mobile Hamburger Button (< 960px) -->
-                <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="min-[960px]:hidden p-2 rounded-xl bg-obsidian-surface border border-cyber-emerald/30 text-cyber-emerald hover:border-cyber-emerald hover:bg-cyber-emerald/10 transition-all flex items-center justify-center shadow-[0_0_12px_rgba(0,255,135,0.15)]" aria-label="Toggle Navigation">
-                    <i data-lucide="menu" id="hamburger-icon-open" class="w-5 h-5"></i>
-                    <i data-lucide="x" id="hamburger-icon-close" class="w-5 h-5 hidden"></i>
+                <!-- Mobile Hamburger Button (< 960px = Phones, Compact Tablets) -->
+                <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="min-[960px]:hidden p-1.5 sm:p-2 rounded-xl bg-obsidian-surface border border-cyber-emerald/30 text-cyber-emerald hover:border-cyber-emerald hover:bg-cyber-emerald/10 transition-all flex items-center justify-center shadow-[0_0_12px_rgba(0,255,135,0.15)] shrink-0" aria-label="Toggle Navigation">
+                    <i data-lucide="menu" id="hamburger-icon-open" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                    <i data-lucide="x" id="hamburger-icon-close" class="w-4 h-4 sm:w-5 sm:h-5 hidden"></i>
                 </button>
             </div>
 
         </div>
 
         <!-- Mobile Navigation Drawer Dropdown -->
-        <div id="mobile-nav-drawer" class="hidden min-[960px]:hidden mt-2.5 max-w-7xl mx-auto glass-panel rounded-2xl p-4 sm:p-5 border border-cyber-emerald/30 shadow-2xl backdrop-blur-2xl">
-            <nav class="grid grid-cols-2 gap-2 text-[11px] font-mono uppercase tracking-wider">
-                <a href="/" class="p-2.5 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all">
+        <div id="mobile-nav-drawer" class="hidden min-[960px]:hidden mt-2 max-w-7xl mx-auto glass-panel rounded-2xl p-3.5 sm:p-5 border border-cyber-emerald/30 shadow-2xl backdrop-blur-2xl">
+            <nav class="grid grid-cols-2 gap-2 text-[11px] sm:text-xs font-mono uppercase tracking-wider">
+                <a href="/" class="p-2.5 sm:p-3 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all min-h-[44px]">
                     <span>About</span>
                     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-500"></i>
                 </a>
-                <a href="services" class="p-2.5 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all">
+                <a href="services" class="p-2.5 sm:p-3 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all min-h-[44px]">
                     <span>Services</span>
                     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-500"></i>
                 </a>
-                <a href="projects" class="p-2.5 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all">
+                <a href="projects" class="p-2.5 sm:p-3 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all min-h-[44px]">
                     <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-cyber-emerald animate-pulse"></span>Live Projects</span>
                     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-500"></i>
                 </a>
-                <a href="blueprints" class="p-2.5 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all">
+                <a href="blueprints" class="p-2.5 sm:p-3 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all min-h-[44px]">
                     <span>Blueprints</span>
                     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-500"></i>
                 </a>
-                <a href="process" class="p-2.5 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all">
+                <a href="process" class="p-2.5 sm:p-3 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all min-h-[44px]">
                     <span>Process</span>
                     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-500"></i>
                 </a>
-                <a href="why-us" class="p-2.5 rounded-xl bg-champagne-gold/10 border-champagne-gold/50 text-champagne-gold font-bold border flex items-center justify-between transition-all">
+                <a href="why-us" class="p-2.5 sm:p-3 rounded-xl bg-champagne-gold/15 border-champagne-gold/60 text-champagne-gold font-bold shadow-[0_0_12px_rgba(255,209,102,0.15)] border flex items-center justify-between transition-all min-h-[44px]">
                     <span>Why Us</span>
                     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-champagne-gold"></i>
                 </a>
-                <a href="sectors" class="p-2.5 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all">
+                <a href="sectors" class="p-2.5 sm:p-3 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all min-h-[44px]">
                     <span>Sectors</span>
                     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-500"></i>
                 </a>
-                <a href="faq" class="p-2.5 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all">
+                <a href="faq" class="p-2.5 sm:p-3 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all min-h-[44px]">
                     <span>FAQ</span>
                     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-500"></i>
                 </a>
-                <a href="contact" class="col-span-2 p-2.5 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all">
+                <a href="contact" class="col-span-2 p-2.5 sm:p-3 rounded-xl bg-obsidian-void/70 border-slate-800 hover:border-cyber-emerald/50 hover:text-cyber-emerald text-slate-200 border flex items-center justify-between transition-all min-h-[44px]">
                     <span>Contact & Helpdesk</span>
                     <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-500"></i>
                 </a>
             </nav>
 
             <div class="pt-3 mt-3 border-t border-slate-800/80 flex items-center gap-2 sm:gap-3">
-                <button onclick="toggleMobileMenu(); openCallModal();" class="btn-emerald-glow flex-1 py-2.5 rounded-xl text-xs font-mono font-bold tracking-wider flex items-center justify-center gap-2">
+                <button onclick="toggleMobileMenu(); openCallModal();" class="btn-emerald-glow flex-1 py-2.5 sm:py-3 rounded-xl text-xs font-mono font-bold tracking-wider flex items-center justify-center gap-2">
                     <span>BOOK 15-MIN CALL</span>
                     <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                 </button>
-                <a href="https://wa.me/919801506511?text=Hello%20TechNxtAi" class="p-2.5 rounded-xl bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald flex items-center justify-center hover:bg-cyber-emerald/20 transition-all" title="WhatsApp Support">
+                <a href="https://wa.me/919801506511?text=Hello%20TechNxtAi" class="p-2.5 sm:p-3 rounded-xl bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald flex items-center justify-center hover:bg-cyber-emerald/20 transition-all" title="WhatsApp Support">
                     <i data-lucide="message-square" class="w-4 h-4"></i>
                 </a>
             </div>

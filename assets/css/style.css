@@ -203,3 +203,37 @@
         transform: translateY(0) scale(1);
     }
 }
+
+/* ===================================================================
+   CROSS-DEVICE RESPONSIVE OPTIMIZATIONS (PHONES, LAPTOPS, SMART BOARDS)
+   =================================================================== */
+
+/* Smooth scroll offset so fixed header never covers section titles */
+html {
+    scroll-padding-top: 100px;
+}
+
+/* Touch Devices (Phones, Tablets, Touch-enabled Smart Boards):
+   Disable custom laser cursor to use native smooth touch */
+@media (hover: none) and (pointer: coarse) {
+    #laser-cursor-dot, #laser-cursor-ring {
+        display: none !important;
+    }
+    body, a, button, input, select, textarea {
+        cursor: auto !important;
+    }
+}
+
+/* Mobile Drawer scrollable on compact screens */
+#mobile-nav-drawer {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure glass panels look crisp on 4K Smart Boards and mobile retina displays */
+@media (min-width: 1920px) {
+    .glass-panel, .glass-panel-gold {
+        border-width: 1.5px;
+    }
+}
