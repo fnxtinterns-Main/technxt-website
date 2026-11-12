@@ -39,6 +39,27 @@
         if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
 
         // -------------------------------------------------------------
+        // Mobile Hamburger Navigation Drawer
+        // -------------------------------------------------------------
+        window.toggleMobileMenu = function() {
+            const drawer = document.getElementById('mobile-nav-drawer');
+            const iconOpen = document.getElementById('hamburger-icon-open');
+            const iconClose = document.getElementById('hamburger-icon-close');
+            if (!drawer) return;
+            const isHidden = drawer.classList.contains('hidden');
+            if (isHidden) {
+                drawer.classList.remove('hidden');
+                if (iconOpen) iconOpen.classList.add('hidden');
+                if (iconClose) iconClose.classList.remove('hidden');
+            } else {
+                drawer.classList.add('hidden');
+                if (iconOpen) iconOpen.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            }
+            if (window.lucide && typeof lucide.createIcons === 'function') { try { lucide.createIcons(); } catch(e) {} }
+        };
+
+        // -------------------------------------------------------------
         // Custom Laser Cursor
         // -------------------------------------------------------------
         const cursorDot = document.getElementById('laser-cursor-dot');
